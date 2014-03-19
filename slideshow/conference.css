@@ -1,0 +1,51 @@
+/*
+ Modifications done for my-moon.css
+*/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    margin: 0 0 20px 0;
+    color: #eee8d5;
+    font-family: "League Gothic", Impact, sans-serif;
+    line-height: 0.9em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow: none;
+    text-align: left;
+}
+.reveal .slides {
+    text-align: left;
+}
+
+table thead th, table tfoot th { font-weight: bold; }
+/*
+table.tableblock.grid-all { border-collapse: separate; border-spacing: 1px; -webkit-border-radius: 4px; border-radius: 4px; border-top: 1px solid #dddddd; border-bottom: 1px solid #dddddd; }
+*/
+table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
+table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
+table.tableblock td .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child { margin-bottom: 0; }
+th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
+th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
+th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
+th.tableblock.valign-top, td.tableblock.valign-top { vertical-align: top; }
+th.tableblock.valign-bottom, td.tableblock.valign-bottom { vertical-align: bottom; }
+th.tableblock.valign-middle, td.tableblock.valign-middle { vertical-align: middle; }
+
+/*
+ Used for <strong>text</strong> enclosed in <li> tag
+*/
+li strong {
+    color: #268bd2;
+    font-weight: bold;
+}
+
+/*
+  Trick to avoid to define [square] or [circle] for each item of an unordered list
+  and solve issue that we have here as we have nested lists
+*/
+ul li {list-style-type:square;}
+ul li li {list-style-type:disc;}
+ul li li li {list-style-type:circle;}
