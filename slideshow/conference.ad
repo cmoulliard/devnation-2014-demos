@@ -14,12 +14,10 @@
 
 == *Development of Social Network Projects with Camel*
 
-DevNation
+DevNation / 14th of April - 2014
 
-14th of April - 2014
-
-{blog}[{author}] / http://twitter.com/{twitter}[@{twitter}]
-
+[.newline]
+http://twitter.com/{twitter}[{author}] +
 Architect, Engineer & Committer
 
 == Speaker
@@ -29,7 +27,9 @@ Architect, Engineer & Committer
 ** Specialized in new technologies Web & Integration
 ** Project manager in Bank, Financial, Telco world
 ** Solution Architect @Red Hat
-* Committer on projects : Apache ServiceMix, Karaf (PMC), Camel(PMC), Fabric8, Drools, Asciidoctor
+
+[.newline]
+* Committer : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Asciidoctor
 
 == Speaker - con't
 
@@ -87,9 +87,10 @@ Oh hey, these are some notes. They'll be hidden in your presentation, but you ca
 
 * Demo & Conclusion
 
+[data-background="../images/websocket.png",data-background-size="25%"]
 == WebSocket revealed
 
-image:websocket.png[Websocket,width="30%",float="right"] * Websocket revealed
+* Websocket revealed
 ** Full-duplex single +
    socket connection
 ** HTTP request followed +
