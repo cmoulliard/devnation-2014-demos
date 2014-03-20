@@ -1,16 +1,24 @@
-:backend: revealjs
-:title-speaker: Architect Engineer Committer
 :author: Charles Moulliard
-:title-author: {title} {author}
-:twitter: cmoulliard
+:backend: revealjs
 :blog: http://cmoulliard.github.io
 :demo-git: https://github.com/cmoulliard/devnation-2014-camel
-// Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
-:revealjs_theme: my-moon
-:linkattrs:
 :idprefix:
 :imagesdir: images/
+:linkattrs:
+:linkcss:
+:project_dir: /Users/chmoulli/MyProjects/conferences/devnation-2014
+// Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
+:revealjs_theme: my-moon
+:revealjs_vertical_alignment: false
+:revealjs_history: true
+:sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/src/main/java/
+:source-highlighter: highlightjs
+//:source-highlighter: coderay, highlightjs, pygments
+:resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/src/main/resources
 :stylesdir: /Users/chmoulli/RedHat/GPE/content/hyla/resources/styles
+:title-author: {title} {author}
+:title-speaker: Architect Engineer Committer
+:twitter: cmoulliard
 
 == *Development of Social Network Projects with Camel*
 
@@ -20,17 +28,20 @@ DevNation / 14th of April - 2014
 http://twitter.com/{twitter}[{author}] +
 Architect, Engineer & Committer
 
+// *********************************
 == Speaker
 
 * Engineer in Agronomy & Master in Zoology
-** 18 years of experience in IT world development
+** 19 years of experience in IT world development
 ** Specialized in new technologies Web & Integration
 ** Project manager in Bank, Financial, Telco world
 ** Solution Architect @Red Hat
 
 [.newline]
+image:camel.jpg[180,180,float="right"]
 * Committer : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Asciidoctor
 
+// *********************************
 == Speaker - con't
 
 [cols=".^5,.^95"]
@@ -46,61 +57,211 @@ Architect, Engineer & Committer
 Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
 +++</aside>+++
 
+// *********************************
 == Where I live
 
-//
+image::belgium1.jpeg[float="left"]
+image::atomium.jpeg[float="left"]
+image::manneken.jpeg[float="left"]
+image::dinant.jpeg[float="left"]
 
+== What you should know about Belgium
+
+image::frits.jpeg[float="left"]
+image::chocolate.jpeg[float="left"]
+image::beers.jpeg[float="left"]
+image::bande-dessinee.jpeg[float="left"]
+
+// *********************************
 == My Passion(s)
 
-//
+image::photo.jpeg[float="left"]
+image::stumpjumper.png[float="left"]
+image::nature.jpeg[float="left"]
+image::formula1.jpeg[float="left"]
 
-
+// *********************************
 == Agenda
 
 * Introduction
 
-** Camel & Integration Framework
+** Camel & Integration
 ** Social Network Hype
 ** What Camel can offer
 ** Problems solved
 
 * Components
 ** FaceBook
-** Tweeter
+** Twitter
 ** Others (DropBox, Yammer, GMail)
 
 * Demo & Conclusion
 
+// *********************************
 == Agenda
 
 * *Introduction*
 
-** Camel & Integration Framework
+** Camel & Integration
 ** Social Network Hype
 ** What Camel can offer
 ** Problems solved
 
 * Components
 ** FaceBook
-** Tweeter
+** Twitter
 ** Others (DropBox, Yammer, GMail)
 
 * Demo & Conclusion
 
-[data-background="../images/websocket.png",data-background-size="25%"]
+// *********************************
+== Camel & Integration
+
+image::apache-camel.png[width="65%",float="right"]
+
+* OpenSource Java **Integration** Framework
+
+[.newline]
+* Based on **D**omain **S**pecific **L**anguage
+
+[.newline]
+* Implement **E**nterprise **I**ntegration **P**atterns
+
+// *********************************
+//[data-background="white"]
+== Camel & Integration - con't
+
+* http://camel.apache.org/enterprise-integration-patterns.html[>50 patterns] implemented
+* and more : Loadbalancer, throttler, ...
+
+image::eip/contentBasedRouter24.png[width="150%",float="left"]
+
+image::eip/aggregate24.png[width="150%",float="left"]
+
+image::eip/filter24.png[width="150%",float="left"]
+
+image::eip/test.png[float="left"]
+
+// *********************************
+== Camel & Integration - con't
+
+|===
+| .2+|image:camel/camel-features.png[width="105%",float="left"]
+a| * Key features
+** Container
+** Component
+** Endpoint
+** Route(s)
+** Processor(s) |
+|===
+
+// *********************************
+== Camel & Integration - con't
+
+* Fluent API
+
+[source,java]
+----
+include::{sourcesdir}/org/dabou/camel/ExampleRouteBuilder.java[]
+----
+
+// *********************************
+== Camel & Integration - con't
+
+* Type Converter Strategy
+
+image::camel/type-converter.png[]
+
+* Format handling
+* Support http://camel.apache.org/data-format.html[> 20 different formats]
+* TODO - Add some common formats
+
+// *********************************
+== Camel & Integration - con't
+
+* Alternative : Spring, Blueprint DSL
+
+[source,xml]
+----
+include::{resourcesdir}/META-INF/org/dabou/camel/example.xml[]
+----
+
+// *********************************
+== Camel & Integration - con't
+
+image::camel/inonly.png[width="70%"]
+image::camel/inout.png[width="70%"]
+
+// *********************************
+== Camel & Integration - con't
+
+* In memory bus / alternative to JBI, SCA, NMR
+* Transport objects : XML, File, Stream, Bytes
+* Predicate & Expression language (xslt, xpath, ...)
+* Sync/Async exchanges
+* Threads Management,
+* Tx Architecture
+* Error and exception handling
+* Policy driven
+* Container agnostic
+
+// *********************************
+== Camel & Integration - con't
+
+* http://camel.apache.org/components.html[> 120 components]
+
+image::todo.png[]
+
+// *********************************
+== Social Network Hype
+
+// *********************************
+== What Camel can offer
+
+image::social-components.png[]
+
+but also
+
+* camel-gmail
+* camel-dropbox
+
+// *********************************
+== Problems solved
+
+// *********************************
+== Components
+
+// *********************************
+== FaceBook
+
+// *********************************
+== Twitter
+
+// *********************************
 == WebSocket revealed
 
-* Websocket revealed
+|===
+| .2+|image:websocket.png[width="55%"]
+a| * Websocket revealed +
 ** Full-duplex single +
    socket connection
 ** HTTP request followed +
    by WebSocket data +
-   Packets exchange
-** ws:// and wss:// protocol
-** Developed part of HTML5 initiative
-** Specification rfc-6455 (Dec-2011) managed by IETF Task Force
+   Packets exchange +
+** ws:// and wss:// protocol +
+** Developed part of HTML5 initiative +
+** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
+|===
 
-== Any questions
+
+// *********************************
+== Others (DropBox, Yammer, GMail)
+
+// *********************************
+== Demo & Conclusion
+
+// *********************************
+== Questions
 
 [cols="35,.<65"]
 |===

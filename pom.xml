@@ -8,5 +8,22 @@
     <artifactId>social</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <camel.version>2.12.2</camel.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
