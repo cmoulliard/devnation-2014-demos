@@ -248,6 +248,25 @@ a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;++
 // *********************************
 == Camel & Integration - con't
 
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features2.png[]
+a| * Cross communications not allowed |
+|===
+
+// *********************************
+== Camel & Integration - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features3.png[]
+a| * Using BUS, Broker, Shared Component |
+|===
+
+
+// *********************************
+== Camel & Integration - con't
+
 [cols="65,35"]
 |===
 | .2+|image:camel/type-converter.png[]
@@ -285,12 +304,12 @@ image::camel/dataformat-2.png[]
 // *********************************
 == Camel & Integration - con't
 
-image::camel/inonly.png[width="60%"]
+image::camel/inonly.png[width="65%"]
 
 // *********************************
 == Camel & Integration - con't
 
-image::camel/inout.png[width="60%"]
+image::camel/inout.png[width="75%"]
 
 // *********************************
 == Camel & Integration - con't
