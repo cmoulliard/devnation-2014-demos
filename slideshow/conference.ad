@@ -129,7 +129,7 @@ image::formula1.jpeg[float="left"]
 
 |===
 | .2+|image:integration/hub.jpeg[width="95%",float="right"]
-a| * Integration is  +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really hard
+a| * Integration is +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really hard
 
 [.newline]
 * +++&nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;+++ protocols, standards, data formats, systems
@@ -218,8 +218,23 @@ a| * Key features
 ** Component
 ** Endpoint
 ** Consumer
-** (Producer)|
+** Producer|
 |===
+
+// *********************************
+== Camel & Integration - con't
+
+* Key features : route, processor
+
+image:camel/pipeline.png[]
+
+// *********************************
+== Camel & Integration - con't
+
+* interceptor : trace, log, capture business events
+
+[.newline]
+image:camel/pipeline2.png[]
 
 // *********************************
 == Camel & Integration - con't
@@ -227,10 +242,7 @@ a| * Key features
 [cols="45,65"]
 |===
 | .2+|image:camel/camel-features.png[]
-a| * Key features
-** Container
-** Route(s)
-** Processor(s) |
+a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ CamelContext |
 |===
 
 // *********************************
@@ -274,6 +286,10 @@ image::camel/dataformat-2.png[]
 == Camel & Integration - con't
 
 image::camel/inonly.png[width="60%"]
+
+// *********************************
+== Camel & Integration - con't
+
 image::camel/inout.png[width="60%"]
 
 // *********************************
@@ -392,7 +408,7 @@ but also
 ** Problems solved
 
 * *Components*
-** FaceBook
+** *FaceBook*
 ** Twitter
 ** Others
 
@@ -404,8 +420,42 @@ but also
 // *********************************
 == FaceBook
 
+// ******** Twitter ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** What Camel can offer
+** Problems solved
+
+* *Components*
+** FaceBook
+** *Twitter*
+** Others
+
+* Demo & Conclusion
+
 // *********************************
 == Twitter
+
+// ******** Others ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** What Camel can offer
+** Problems solved
+
+* *Components*
+** FaceBook
+** Twitter
+** *Others*
+
+* Demo & Conclusion
 
 // *********************************
 == WebSocket revealed
