@@ -1,7 +1,10 @@
+:allow-uri-read:
 :author: Charles Moulliard
 :backend: revealjs
 :blog: http://cmoulliard.github.io
 :demo-git: https://github.com/cmoulliard/devnation-2014-camel
+:fa-ellipsis: #&nbsp;#[fa fa-ellipsis-h]#&nbsp;#
+:icons: font
 :idprefix:
 :imagesdir: images/
 :linkattrs:
@@ -31,25 +34,26 @@ Architect, Engineer & Committer
 // *********************************
 == Speaker
 
-* Engineer in Agronomy & Master in Zoology
+* Agricultural Engineer & Zoologist
 ** 19 years of experience in IT world development
-** Specialized in new technologies Web & Integration
 ** Project manager in Bank, Financial, Telco world
-** Solution Architect @Red Hat
+* Specialized in new technologies Web & Integration
+* Architect/Engineer @Red Hat
 
 [.newline]
-image:camel.jpg[180,180,float="right"]
-* Committer : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Asciidoctor
+* Committer : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Hawtio, Asciidoctor
+
+image::camel/my-camel.jpg[180,180,float="right"]
 
 // *********************************
 == Speaker - con't
 
 [cols=".^5,.^95"]
 |===
-|image:twitter_logo_blue2.png[35,35,vertical-align="top"]|Twitter : http://twitter.com/cmoulliard
-|image:linkedin.png[35,35]|LinkedIn : http://www.linkedin.com/in/charlesmoulliard
-|image:github.jpg[35,35]|Blog : http://cmoulliard.github.io
-|image:slideshare.png[35,35]|Slideshare : http://www.slideshare.net/cmoulliard
+|image:it/twitter_logo_blue2.png[35,35,vertical-align="top"]|Twitter : http://twitter.com/cmoulliard
+|image:it/linkedin.png[35,35]|LinkedIn : http://www.linkedin.com/in/charlesmoulliard
+|image:it/github.jpg[35,35]|Blog : http://cmoulliard.github.io
+|image:it/slideshare.png[35,35]|Slideshare : http://www.slideshare.net/cmoulliard
 |===
 
 
@@ -58,12 +62,18 @@ Oh hey, these are some notes. They'll be hidden in your presentation, but you ca
 +++</aside>+++
 
 // *********************************
-== Where I live
+== Country where I live
 
-image::belgium1.jpeg[float="left"]
-image::atomium.jpeg[float="left"]
-image::manneken.jpeg[float="left"]
+|===
+|image:belgium1.jpeg[] | image:atomium.jpeg[width="75%] |image:manneken.jpeg[]
+|image:brussels.jpg[width="85%"]| image:brugge.jpg[width="85%",height="85%"] |
+|===
+
+// *********************************
+== City where I live
+
 image::dinant.jpeg[float="left"]
+image::florennes-place.jpg[]
 
 == What you should know about Belgium
 
@@ -80,7 +90,7 @@ image::stumpjumper.png[float="left"]
 image::nature.jpeg[float="left"]
 image::formula1.jpeg[float="left"]
 
-// *********************************
+// *********** AGENDA ************
 == Agenda
 
 * Introduction
@@ -93,11 +103,11 @@ image::formula1.jpeg[float="left"]
 * Components
 ** FaceBook
 ** Twitter
-** Others (DropBox, Yammer, GMail)
+** Others
 
 * Demo & Conclusion
 
-// *********************************
+// ************ INTRODUCTION ************
 == Agenda
 
 * *Introduction*
@@ -110,14 +120,72 @@ image::formula1.jpeg[float="left"]
 * Components
 ** FaceBook
 ** Twitter
-** Others (DropBox, Yammer, GMail)
+** Others
+
+* Demo & Conclusion
+
+// *********************************
+== Introduction
+
+|===
+| .2+|image:integration/hub.jpeg[width="95%",float="right"]
+a| * Integration is  +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really hard
+
+[.newline]
+* +++&nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;+++ protocols, standards, data formats, systems
+
+[.newline]
+* Long story since **C**ommon **O**bject **R**equest **B**roker **A**rchitecture
+|===
+
+// *********************************
+== Introduction - con't
+
+|===
+| .2+| image:integration/producer-consumer.png[]
+a| * Concepts
+** +++<i class="fa fa-arrow-right"></i>+++ Decouple Producer from Consumer
++
+** +++<i class="fa fa-arrow-right"></i>+++ Message transport information |
+|===
+
+
+// *********************************
+== Introduction
+
+|===
+| .2+| image:integration/bus.png[width="95%",float="right"]
+a|
+[.newline]
+* +++&nbsp;<i class="fa fa-wrench"></i>&nbsp;+++ Layer to transport messages : BUS
+
+[.newline]
+* +++&nbsp;<i class="fa fa fa-cog fa-spin"></i>&nbsp;+++  ESB, JBI, SCA
+
+image::integration/jbi.jpeg[width="95%",float="right"] |
+|===
+
+// ********** CAMEL ********
+== Agenda
+
+* Introduction
+
+** *Camel & Integration*
+** Social Network Hype
+** What Camel can offer
+** Problems solved
+
+* Components
+** FaceBook
+** Twitter
+** Others
 
 * Demo & Conclusion
 
 // *********************************
 == Camel & Integration
 
-image::apache-camel.png[width="65%",float="right"]
+image::camel/camel-box-small.png[width="100%",float="right"]
 
 * OpenSource Java **Integration** Framework
 
@@ -127,6 +195,8 @@ image::apache-camel.png[width="65%",float="right"]
 [.newline]
 * Implement **E**nterprise **I**ntegration **P**atterns
 
+image::eip/book.jpg[width="45%",float="right"]
+
 // *********************************
 //[data-background="white"]
 == Camel & Integration - con't
@@ -134,26 +204,77 @@ image::apache-camel.png[width="65%",float="right"]
 * http://camel.apache.org/enterprise-integration-patterns.html[>50 patterns] implemented
 * and more : Loadbalancer, throttler, ...
 
-image::eip/contentBasedRouter24.png[width="150%",float="left"]
+image::eip/patterns.png[width="100%",float="left"]
 
-image::eip/aggregate24.png[width="150%",float="left"]
-
-image::eip/filter24.png[width="150%",float="left"]
-
-image::eip/test.png[float="left"]
+image::eip/patterns-3.jpg[width="120%",float="left"]
 
 // *********************************
 == Camel & Integration - con't
 
+[cols="35,65"]
 |===
-| .2+|image:camel/camel-features.png[width="105%",float="left"]
+| .2+|image:camel/factory.png[]
 a| * Key features
-** Container
 ** Component
 ** Endpoint
+** Consumer
+** (Producer)|
+|===
+
+// *********************************
+== Camel & Integration - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features.png[]
+a| * Key features
+** Container
 ** Route(s)
 ** Processor(s) |
 |===
+
+// *********************************
+== Camel & Integration - con't
+
+[cols="65,35"]
+|===
+| .2+|image:camel/type-converter.png[]
+a|* Type Converter Strategy
+* Allow to convert the body payloads from one type to another
+* To and From these types
+** File
+** String
+** byte[] and ByteBuffer
+** InputStream and OutputStream
+** Reader and Writer|
+|===
+
+// *********************************
+== Camel & Integration - con't
+
+* Data Transformation for complex use case
+
+[source, java]
+----
+include::{sourcesdir}/org/dabou/camel/DataFormat.java[]
+----
+
+* Marshalling : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
+* Unmarshalling : XML +++<i class="fa fa-arrow-right"></i>+++ Object (JAXB)
+
+// *********************************
+== Camel & Integration - con't
+
+* http://camel.apache.org/dataformat.html[> 20 Data Format]
+
+image::camel/dataformat-2.png[]
+
+
+// *********************************
+== Camel & Integration - con't
+
+image::camel/inonly.png[width="60%"]
+image::camel/inout.png[width="60%"]
 
 // *********************************
 == Camel & Integration - con't
@@ -168,29 +289,12 @@ include::{sourcesdir}/org/dabou/camel/ExampleRouteBuilder.java[]
 // *********************************
 == Camel & Integration - con't
 
-* Type Converter Strategy
-
-image::camel/type-converter.png[]
-
-* Format handling
-* Support http://camel.apache.org/data-format.html[> 20 different formats]
-* TODO - Add some common formats
-
-// *********************************
-== Camel & Integration - con't
-
 * Alternative : Spring, Blueprint DSL
 
 [source,xml]
 ----
 include::{resourcesdir}/META-INF/org/dabou/camel/example.xml[]
 ----
-
-// *********************************
-== Camel & Integration - con't
-
-image::camel/inonly.png[width="70%"]
-image::camel/inout.png[width="70%"]
 
 // *********************************
 == Camel & Integration - con't
@@ -206,14 +310,46 @@ image::camel/inout.png[width="70%"]
 * Container agnostic
 
 // *********************************
-== Camel & Integration - con't
+== http://camel.apache.org/components.html[Camel & Integration - con't]
 
-* http://camel.apache.org/components.html[> 120 components]
+image::camel/components.png[width="85%"]
 
-image::todo.png[]
+// ******** Social Network Hype  ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** *Social Network Hype*
+** What Camel can offer
+** Problems solved
+
+* Components
+** FaceBook
+** Twitter
+** Others
+
+* Demo & Conclusion
 
 // *********************************
 == Social Network Hype
+
+// ******** What Camel can offer ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** *What Camel can offer*
+** Problems solved
+
+* Components
+** FaceBook
+** Twitter
+** Others
+
+* Demo & Conclusion
 
 // *********************************
 == What Camel can offer
@@ -225,8 +361,42 @@ but also
 * camel-gmail
 * camel-dropbox
 
+// ******** Problems solved ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** What Camel can offer
+** *Problems solved*
+
+* Components
+** FaceBook
+** Twitter
+** Others
+
+* Demo & Conclusion
+
 // *********************************
 == Problems solved
+
+// ******** Components ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** What Camel can offer
+** Problems solved
+
+* *Components*
+** FaceBook
+** Twitter
+** Others
+
+* Demo & Conclusion
 
 // *********************************
 == Components
@@ -253,9 +423,25 @@ a| * Websocket revealed +
 ** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
 |===
 
-
 // *********************************
 == Others (DropBox, Yammer, GMail)
+
+// ******** Demo & Conclusion ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Network Hype
+** What Camel can offer
+** Problems solved
+
+* Components
+** FaceBook
+** Twitter
+** Others
+
+* *Demo & Conclusion*
 
 // *********************************
 == Demo & Conclusion
