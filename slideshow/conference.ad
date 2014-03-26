@@ -25,7 +25,7 @@
 :title-speaker: Architect Engineer Committer
 :twitter: cmoulliard
 
-== *Development of Social Network Projects with Camel*
+== *Development of Social Media Projects with Camel*
 
 DevNation / 14th of April - 2014
 
@@ -98,7 +98,7 @@ image::formula1.jpeg[float="left"]
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -115,7 +115,7 @@ image::formula1.jpeg[float="left"]
 * *Introduction*
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -173,7 +173,7 @@ image::integration/jbi.jpeg[width="95%",float="right"] |
 * Introduction
 
 ** *Camel & Integration*
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -351,13 +351,13 @@ include::{resourcesdir}/META-INF/org/dabou/camel/example.xml[]
 
 image::camel/components.png[width="85%"]
 
-// ******** Social Network Hype  ********
+// ******** Social Media Hype  ********
 == Agenda
 
 * Introduction
 
 ** Camel & Integration
-** *Social Network Hype*
+** *Social Media Hype*
 ** What Camel can offer
 ** Problems solved
 
@@ -369,16 +369,46 @@ image::camel/components.png[width="85%"]
 * Demo & Conclusion
 
 // *********************************
-== Social Network Hype
+== Social Media Hype
 
 [cols="40,60"]
 |===
 | .2+| image:web2/concept.jpg[300,300,float="right"]
 a| * Web 2.0 “Revolution”
 ** HTTPs requests image:web2/increase.png[150,150] 
-** Volume of data exchanged between *social networks*
+** Volume of data exchanged between *Social Medias*
 ** User becomes actor *collaborating* |
 |===
+
+// *********************************
+== Social Media Hype - con't
+
+[cols="60,40"]
+|===
+| .2+| image:web2/html5.png[150, 150, float="right"]
+image:web2/ajax1.png[150, 150, float="right"]
+image:web2/ajax2.png[150, 150, float="right"]
+
+a| * Technology Transformation
+** HTML5
+** JavaScript
+** Ajax - WebSocket |
+|===
+
+image::web2/ajax.png[350, 350, float="left"]
+image::websocket.png[270, 270, float="left"]
+
+// *********************************
+== Social Media Hype - con't
+
+* Business point of view
+** Marketing 
+** Product Promotion & Launch Campaign
+** Seeking candidates
+
++++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ Use Social Medias
+
+NOTE: Create content that attracts attention and encourages readers to share it with their social networks
 
 
 // ******** What Camel can offer ********
@@ -387,7 +417,7 @@ a| * Web 2.0 “Revolution”
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** *What Camel can offer*
 ** Problems solved
 
@@ -414,7 +444,7 @@ but also
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** *Problems solved*
 
@@ -434,7 +464,7 @@ but also
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -457,7 +487,7 @@ but also
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -471,13 +501,16 @@ but also
 // *********************************
 == Twitter
 
+
+https://support.twitter.com/articles/71577-using-advanced-search
+
 // ******** Others ********
 == Agenda
 
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
@@ -513,7 +546,7 @@ a| * Websocket revealed +
 * Introduction
 
 ** Camel & Integration
-** Social Network Hype
+** Social Media Hype
 ** What Camel can offer
 ** Problems solved
 
