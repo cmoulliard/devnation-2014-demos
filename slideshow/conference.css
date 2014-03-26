@@ -221,3 +221,19 @@ ul li li li {list-style-type:circle;}
     content: '\A';
     white-space:pre;
 }
+
+/*********************************************
+ * Copyright Footer
+ *********************************************/
+.footer {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    font-family: 'liberation';
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+}

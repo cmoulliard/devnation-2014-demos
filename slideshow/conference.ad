@@ -2,8 +2,10 @@
 :author: Charles Moulliard
 :backend: revealjs
 :blog: http://cmoulliard.github.io
+:data-uri!:
 :demo-git: https://github.com/cmoulliard/devnation-2014-camel
 :fa-ellipsis: #&nbsp;#[fa fa-ellipsis-h]#&nbsp;#
+:footer_copyright: Powered by http://asciidoctor.org[Asciidoctor], RevealJS and Hyla
 :icons: font
 :idprefix:
 :imagesdir: images/
@@ -368,6 +370,16 @@ image::camel/components.png[width="85%"]
 
 // *********************************
 == Social Network Hype
+
+[cols="40,60"]
+|===
+| .2+| image:web2/concept.jpg[300,300,float="right"]
+a| * Web 2.0 “Revolution”
+** HTTPs requests image:web2/increase.png[150,150] 
+** Volume of data exchanged between *social networks*
+** User becomes actor *collaborating* |
+|===
+
 
 // ******** What Camel can offer ********
 == Agenda
