@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    ">
+    <bean id="quotesService" class="org.devnation.camel.QuotesService"/>"
+
+    <camelContext  xmlns="http://camel.apache.org/schema/spring">
+        <route>
+            <from uri="amq:queue:quotes"/>
+            <filter>
+                <xpath>"/quote/product/ = 'widget"</xpath>
+            </filter>
+                <bean id="quotesService" method="widget"/>
+            <filter>
+                <xpath>"/quote/product/ = 'gadget"</xpath>
+            </filter>
+            <bean id="quotesService" method="gadget"/>
+        </route>
+    </camelContext>
+
+</beans>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	      http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+    <description>Social Network - Camel</description>
+    <display-name>Social Network - Camel</display-name>
+
+<!--    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-context</param-name>
+        <param-value>${plugin-context}</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-name</param-name>
+        <param-value>irc-client-plugin</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-domain</param-name>
+        <param-value>${plugin-domain}</param-value>
+    </context-param>
+
+    <context-param>
+        <description>Plugin's path on the server</description>
+        <param-name>plugin-scripts</param-name>
+        <param-value>${plugin-scripts}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>blueprintProperties</param-name>
+        <param-value>blueprint.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>blueprintLocation</param-name>
+        <param-value>OSGI-INF/blueprint/blueprint.xml</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>jolokia-agent</servlet-name>
+        <servlet-class>org.jolokia.http.AgentServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jolokia-agent</servlet-name>
+        <url-pattern>/jolokia/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>jolokia-proxy</servlet-name>
+        <servlet-class>io.hawt.web.ProxyServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jolokia-proxy</servlet-name>
+        <url-pattern>/proxy/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>maven-source</servlet-name>
+        <servlet-class>io.hawt.web.JavaDocServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>maven-source</servlet-name>
+        <url-pattern>/javadoc/*</url-pattern>
+    </servlet-mapping>-->
+
+    <!--
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+        <listener>
+            <listener-class>org.apache.aries.blueprint.web.BlueprintContextListener</listener-class>
+        </listener>
+        <listener>
+            <listener-class>io.hawt.demo.irc.PluginContextListener</listener-class>
+        </listener>-->
+
+</web-app>

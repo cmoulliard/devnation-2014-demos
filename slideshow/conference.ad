@@ -5,7 +5,8 @@
 :data-uri!:
 :demo-git: https://github.com/cmoulliard/devnation-2014-camel
 :fa-ellipsis: #&nbsp;#[fa fa-ellipsis-h]#&nbsp;#
-:footer_copyright: Powered by http://asciidoctor.org[Asciidoctor], RevealJS and Hyla
+//:footer_copyright: Powered by http://asciidoctor.org[Asciidoctor], RevealJS and Hyla
+:footer_copyright: Powered by Asciidoctor, Hyla & RevealJS
 :icons: font
 :idprefix:
 :imagesdir: images/
@@ -16,10 +17,10 @@
 :revealjs_theme: my-moon
 :revealjs_vertical_alignment: false
 :revealjs_history: true
-:sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/src/main/java/
+:sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/java/
 :source-highlighter: highlightjs
 //:source-highlighter: coderay, highlightjs, pygments
-:resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/src/main/resources
+:resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/resources
 :stylesdir: /Users/chmoulli/RedHat/GPE/content/hyla/resources/styles
 :title-author: {title} {author}
 :title-speaker: Architect Engineer Committer
@@ -203,7 +204,7 @@ image::eip/book.jpg[width="45%",float="right"]
 //[data-background="white"]
 == Camel & Integration - con't
 
-* http://camel.apache.org/enterprise-integration-patterns.html[>50 patterns] implemented
+* http://camel.apache.org/enterprise-integration-patterns.html[> 50 patterns] implemented
 * and more : Loadbalancer, throttler, ...
 
 image::eip/patterns.png[width="100%",float="left"]
@@ -289,7 +290,7 @@ a|* Type Converter Strategy
 
 [source, java]
 ----
-include::{sourcesdir}/org/dabou/camel/DataFormat.java[]
+include::{sourcesdir}/org/devnation/camel/DataFormat.java[]
 ----
 
 * Marshalling : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
@@ -320,7 +321,7 @@ image::camel/inout.png[width="75%"]
 
 [source,java]
 ----
-include::{sourcesdir}/org/dabou/camel/ExampleRouteBuilder.java[]
+include::{sourcesdir}/org/devnation/camel/ExampleRouteBuilder.java[]
 ----
 
 // *********************************
@@ -330,7 +331,7 @@ include::{sourcesdir}/org/dabou/camel/ExampleRouteBuilder.java[]
 
 [source,xml]
 ----
-include::{resourcesdir}/META-INF/org/dabou/camel/example.xml[]
+include::{resourcesdir}/META-INF/org/devnation/camel/example.xml[]
 ----
 
 // *********************************
@@ -371,11 +372,33 @@ image::camel/components.png[width="85%"]
 // *********************************
 == Social Media Hype
 
+* Business point of view
+** Marketing, Product Promotion & Launch Campaign
+** Seeking candidates
+
++++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ Use Social Medias
+
+__Create content that attracts attention and encourages readers to share it with their social networks__
+
+image::web2/Social-network.png[width="250",height="250", float="left"]
+
+image::web2/Social-Media-Marketing.jpg[width="250",height="250",float="right"]
+
+// *********************************
+== Social Media Hype - con't
+
+image::web2/Social-Media.jpg[width="400",height="300",float="left"]
+
+image::web2/social-solutions.jpg[width="400",height="300",float="right"]
+
+// *********************************
+== Social Media Hype
+
 [cols="40,60"]
 |===
 | .2+| image:web2/concept.jpg[300,300,float="right"]
 a| * Web 2.0 “Revolution”
-** HTTPs requests image:web2/increase.png[150,150] 
+** HTTPs requests image:web2/increase.png[150,150]
 ** Volume of data exchanged between *Social Medias*
 ** User becomes actor *collaborating* |
 |===
@@ -397,19 +420,6 @@ a| * Technology Transformation
 
 image::web2/ajax.png[350, 350, float="left"]
 image::websocket.png[270, 270, float="left"]
-
-// *********************************
-== Social Media Hype - con't
-
-* Business point of view
-** Marketing 
-** Product Promotion & Launch Campaign
-** Seeking candidates
-
-+++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ Use Social Medias
-
-NOTE: Create content that attracts attention and encourages readers to share it with their social networks
-
 
 // ******** What Camel can offer ********
 == Agenda

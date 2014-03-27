@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.devnation</groupId>
+    <artifactId>project-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <activemq.version>5.9.0</activemq.version>
+        <camel.version>2.12.3</camel.version>
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.6.6</slf4j.version>
+        <twitter4j.version>3.0.1</twitter4j.version>
+
+        <bundle-maven-plugin.version>2.3.7</bundle-maven-plugin.version>
+        <fabric8-maven-plugin.version>1.1.0-SNAPSHOT</fabric8-maven-plugin.version>
+        <jetty-maven-plugin.version>7.6.8.v20121106</jetty-maven-plugin.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>fuse-releases</id>
+            <url>http://repo.fusesource.com/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fuse-releases</id>
+            <url>http://repo.fusesource.com/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>fuse-public</id>
+            <url>http://repo.fusesource.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <modules>
+        <module>camel-twitter</module>
+        <module>camel-mbean</module>
+        <module>plugin</module>
+        <module>snippet</module>
+    </modules>
+
+</project>
