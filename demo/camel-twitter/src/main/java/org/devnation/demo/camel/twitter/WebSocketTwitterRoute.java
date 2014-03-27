@@ -1,6 +1,6 @@
 package org.devnation.demo.camel.twitter;
 
-import org.devnation.demo.camel.Helper;
+import org.devnation.demo.camel.Service;
 import org.apache.camel.builder.RouteBuilder;
 
 public class WebSocketTwitterRoute extends RouteBuilder {
@@ -16,11 +16,12 @@ public class WebSocketTwitterRoute extends RouteBuilder {
     public void configure() {
 
         from("twitter://search?type=polling&delay=" + delay + "&useSSL=true&keywords=" + keywords + "&" + getUriTokens())
-                .routeId("fromTwittertoWebSocketTweet")
+                .routeId("Tweet-Store-Send-To-WebSocket")
                 .transform(body().convertToString())
                 .delay(5000)
-                .bean(Helper.class,"tweetToJSON")
+                .bean(Service.class, "tweetToJSON")
                 .log(">> Tweet received : ${body}")
+                .bean(Service.class, "store")
                 .to("websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&staticResources=classpath:webapp");
 
     }

@@ -16,6 +16,7 @@
 
     <properties>
         <fabric8.features>camel</fabric8.features>
+        <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-mbean</fabric8.profile>
         <fabric8.bundles/>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>

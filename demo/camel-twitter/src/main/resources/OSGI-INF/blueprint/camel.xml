@@ -10,8 +10,14 @@
 
     <cm:property-placeholder id="twitterConfig" persistent-id="twitter" update-strategy="reload"/>
 
-    <bean id="helper" class="org.devnation.demo.camel.Helper"/>
+    <!-- Service Service used to send tweets to ES Storage, parse JSON -->
+    <bean id="helper" class="org.devnation.demo.camel.Service">
+        <property name="storageService">
+            <reference interface="io.fabric8.insight.storage.StorageService" />
+        </property>
+    </bean>
 
+    <!-- Camel Twitter WebSocket Route -->
     <bean id="twitterRoute" class="org.devnation.demo.camel.twitter.WebSocketTwitterRoute">
         <property name="consumerKey" value="{{consumer.key}}"/>
         <property name="consumerSecret" value="{{consumer.secret}}"/>
@@ -21,31 +27,13 @@
         <property name="delay" value="{{delay}}"/>
     </bean>
 
-    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-        <property name="brokerURL" value="tcp://localhost:61616"/>
-        <!-- Login & Paswword required by ActiveMQ deployed in JBoss Fuse 6.1 -->
-        <property name="userName" value="admin"/>
-        <property name="password" value="admin"/>
-    </bean>
-
     <bean id="shutdownStrategy" class="org.apache.camel.impl.DefaultShutdownStrategy">
         <!-- Wait up to 1 sec for each message in queue to finish -->
-        <property name="timeout" value="1000"/>
+        <property name="timeout" value="10"/>
     </bean>
 
-    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
-
+    <camelContext id="demo-ws-twitter-storage" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="twitterRoute"/>
-
-       <!--
-           <route id="fromTwittertoWebSocketTweet">
-            <from uri="twitter://search?type=polling&amp;delay={{delay}}&amp;keywords={{keywords}}&amp;accessToken={{access.token}}&amp;accessTokenSecret={{access.token.secret}}&amp;consumerKey={{consumer.key}}&amp;consumerSecret={{consumer.secret}}&amp;useSSL=true"/>
-            <log message="&gt;&gt; Results received : ${body}"/>
-            <bean ref="helper" method="tweetToJSON"/>
-            <log message="&gt;&gt; Response prepared : ${body}"/>
-            <to uri="websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&amp;staticResources=classpath:webapp"/>
-        </route>
-        -->
     </camelContext>
 
 </blueprint>

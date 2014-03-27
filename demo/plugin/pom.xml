@@ -13,24 +13,24 @@
     <artifactId>plugin</artifactId>
     <description>${project.artifactId}</description>
     <name>DevNation :: Demo :: Hawtio Plugin</name>
-    <packaging>war</packaging>
+    <packaging>bundle</packaging>
 
     <properties>
-        <webapp-outdir>${basedir}/target/${webapp-dir}</webapp-outdir>
-        <war-plugin.version>2.1.1</war-plugin.version>
         <hawtio.version>1.3-SNAPSHOT</hawtio.version>
 
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
         <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
 
-        <plugin-context>/hawtio/simple</plugin-context>
-        <plugin-name>simple</plugin-name>
+        <webapp.context>/hawtio/simple</webapp.context>
+        <plugin-context>${webapp.context}</plugin-context>
+        <plugin-name>${project.artifactId}</plugin-name>
         <plugin-domain />
         <plugin-scripts>app/js/simplePlugin.js</plugin-scripts>
 
-        <fabric8.features>hawtio</fabric8.features>
+        <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-plugin</fabric8.profile>
+        <fabric8.features>hawtio</fabric8.features>
         <fabric8.bundles/>
         <fabric8.parentProfiles>hawtio</fabric8.parentProfiles>
     </properties>
@@ -67,9 +67,6 @@
                             <target>
                                 <echo>Building plugin javascript file list</echo>
                                 <fileset id="javascript-files" dir="${basedir}/src/main/webapp">
-                                    <!-- Ensure that ircPlugin.js is included first
-                                         as it's our entrypoint -->
-                                    <include name="plugin/js/ircPlugin.js"/>
                                     <include name="**/*.js"/>
                                 </fileset>
                                 <pathconvert pathsep=","
@@ -78,9 +75,7 @@
                                     <map from="${basedir}/src/main/webapp/" to=""/>
                                 </pathconvert>
                                 <echo>Files: ${plugin-scripts}</echo>
-
                             </target>
-                            <exportAntProperties>true</exportAntProperties>
                         </configuration>
                     </execution>
                 </executions>
@@ -104,25 +99,11 @@
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <version>${maven-bundle-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>bundle-manifest</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>manifest</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <extensions>true</extensions>
                 <configuration>
-                    <manifestLocation>${webapp-outdir}/META-INF</manifestLocation>
-                    <supportedProjectTypes>
-                        <supportedProjectType>jar</supportedProjectType>
-                        <supportedProjectType>bundle</supportedProjectType>
-                        <supportedProjectType>war</supportedProjectType>
-                    </supportedProjectTypes>
-                    <instructions>
-                        <Webapp-Context>${plugin-context}</Webapp-Context>
-                        <Web-ContextPath>${plugin-context}</Web-ContextPath>
+                    <instructions combine.self="override">
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Embed-Directory>WEB-INF/lib</Embed-Directory>
                         <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
@@ -131,14 +112,14 @@
                             org.apache.camel.blueprint;
                             *;resolution:=optional
                         </Import-Package>
-                        <Bundle-ClassPath>.,WEB-INF/classes</Bundle-ClassPath>
-                        <Bundle-Name>${project.name}</Bundle-Name>
-                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Webapp-Context>${webapp.context}</Webapp-Context>
+                        <Web-ContextPath>${webapp.context}</Web-ContextPath>
+                        <_wab>src/main/webapp/</_wab>
                     </instructions>
                 </configuration>
             </plugin>
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${war-plugin.version}</version>
@@ -159,7 +140,7 @@
                         </resource>
                     </webResources>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <plugin>
                 <groupId>io.fabric8</groupId>
