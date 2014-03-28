@@ -1,7 +1,7 @@
 package org.devnation.demo.camel;
 
-import io.fabric8.insight.storage.StorageService;
-//import org.fusesource.insight.storage.StorageService;
+//import io.fabric8.insight.storage.StorageService;
+import org.fusesource.insight.storage.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,9 +28,6 @@ public class Service {
     }
 
     public static Long generateTimeStamp() {
-        // DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        //Date date = dateFormat.parse("23/09/2007");
-        //long time = date.getTime();
         Date date= new java.util.Date();
         return new Timestamp(date.getTime()).getTime();
     }

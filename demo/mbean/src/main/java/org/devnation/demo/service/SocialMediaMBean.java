@@ -13,4 +13,5 @@ public interface SocialMediaMBean {
 
     /* Operations */
     List<String> searchTweets(String keywords) throws TwitterException;
+    String userInfo(String id) throws TwitterException;
 }

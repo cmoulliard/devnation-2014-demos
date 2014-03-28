@@ -32,6 +32,10 @@ public class SocialMedia implements SocialMediaMBean {
        return twitterService.searchTweets(keywords);
     }
 
+    public String userInfo(String id) throws TwitterException {
+        return twitterService.userInfo(id);
+    }
+
     public void init() {
         try {
             if (objectName == null) {

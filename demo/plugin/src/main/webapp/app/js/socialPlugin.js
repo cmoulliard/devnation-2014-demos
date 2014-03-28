@@ -120,8 +120,36 @@ var SOCIAL = (function (SOCIAL) {
 
 
         $scope.searchUser = function() {
-            SOCIAL.log.info("User :", $scope.username);
+            if (Core.isBlank($scope.username)) {
+                return;
+            }
+            SOCIAL.log.warn("User searched : " + $scope.username);
+
+            jolokia.request({
+                type: 'exec',
+                mbean: SOCIAL.mbean,
+                operation: 'userInfo',
+                arguments: [$scope.username]
+            }, {
+                method: 'POST',
+                success: function (response) {
+                    /* TextArea = Response */
+                    $scope.response = JSON.stringify(response);
+
+                    // Reset Username field
+                    $scope.username = '';
+
+                    Core.$apply($scope);
+                },
+                error: function (response) {
+                    SOCIAL.log.warn("Failed to search for Tweets: ", response.error);
+                    SOCIAL.log.info("Stack trace: ", response.stacktrace);
+                    Core.$apply($scope);
+                }
+
+            })
         };
+
 
         $scope.searchTweets = function () {
             if (Core.isBlank($scope.keywords)) {

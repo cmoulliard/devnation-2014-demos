@@ -13,7 +13,8 @@
     <!-- Service Service used to send tweets to ES Storage, parse JSON -->
     <bean id="helper" class="org.devnation.demo.camel.Service">
         <property name="storageService">
-            <reference interface="io.fabric8.insight.storage.StorageService" />
+<!--            <reference interface="io.fabric8.insight.storage.StorageService" /> -->
+            <reference interface="org.fusesource.insight.storage.StorageService" />
         </property>
     </bean>
 

@@ -10,7 +10,7 @@ Created-By: Apache Maven Bundle Plugin
 Web-ContextPath: /social
 Build-Jdk: 1.7.0_51
 Bundle-Version: 1.0.0.SNAPSHOT
-Bnd-LastModified: 1396022492294
+Bnd-LastModified: 1396028169861
 Embed-Transitive: true
 Bundle-ManifestVersion: 2
 Bundle-Description: social-plugin

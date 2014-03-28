@@ -18,9 +18,10 @@
         <fabric8.features>camel-twitter camel-websocket</fabric8.features>
         <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-twitter</fabric8.profile>
-        <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
-        <fabric8.bundles>mvn:io.fabric8.insight/insight-storage/1.1.0-SNAPSHOT</fabric8.bundles>
-        <fabric8.featureRepos>mvn:io.fabric8/fabric8-karaf/1.0.0.redhat-375/xml/features</fabric8.featureRepos>
+        <fabric8.parentProfiles>feature-camel insight-core</fabric8.parentProfiles>
+
+<!--        <fabric8.bundles>mvn:io.fabric8.insight/insight-storage/1.1.0-SNAPSHOT</fabric8.bundles>
+        <fabric8.featureRepos>mvn:io.fabric8/fabric8-karaf/1.1.0-SNAPSHOT/xml/features</fabric8.featureRepos>-->
         <!--
             <fabric8.bundles>mvn:org.fusesource.insight/insight-storage/1.0.0.redhat-375</fabric8.bundles>
             <fabric8.featureRepos>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610375/xml/features</fabric8.featureRepos>
@@ -34,16 +35,6 @@
             <artifactId>camel-core</artifactId>
             <version>${camel.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-elasticsearch</artifactId>
-            <version>${camel.version}</version>
-        </dependency>-->
-<!--        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-jms</artifactId>
-            <version>${camel.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-twitter</artifactId>
@@ -61,16 +52,16 @@
         </dependency>
 
         <!-- Insight -->
-        <dependency>
+<!--        <dependency>
             <groupId>io.fabric8.insight</groupId>
             <artifactId>insight-storage</artifactId>
             <version>${fabric8-insight.version}</version>
-        </dependency>
-<!--        <dependency>
+        </dependency>-->
+        <dependency>
             <groupId>org.fusesource.insight</groupId>
             <artifactId>insight-storage</artifactId>
             <version>1.0.0.redhat-375</version>
-        </dependency>-->
+        </dependency>
 
         <!-- JSon & Jackson -->
         <dependency>
@@ -170,7 +161,7 @@
                         <Bundle-Name>${project.name}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
                         <Import-Package>
-                            io.fabric8.insight.storage,
+                            org.fusesource.insight.storage;resolution:=optional;version="[1.0,2.0)",
                             *
                         </Import-Package>
                         <Private-Package>
@@ -181,7 +172,7 @@
             </plugin>
             <!--   org.apache.activemq.camel.component,
                    org.fusesource.insight.storage,
-                   io.fabric8.insight.storage -->
+                   io.fabric8.insight.storage;resolution:=optional;version="[1.0,2.0)",-->
 
             <plugin>
                 <groupId>io.fabric8</groupId>

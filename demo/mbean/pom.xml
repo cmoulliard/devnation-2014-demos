@@ -18,7 +18,7 @@
         <fabric8.features>camel</fabric8.features>
         <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-mbean</fabric8.profile>
-        <fabric8.bundles>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/3.0.5_1</fabric8.bundles>
+        <fabric8.bundles>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/3.0.5_1 mvn:com.google.code.gson/gson/2.2.4</fabric8.bundles>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
     </properties>
 
@@ -40,6 +40,13 @@
             <artifactId>twitter4j-core</artifactId>
             <version>${twitter4j.version}</version>
         </dependency>
+
+        <!-- Google GSon -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -52,8 +59,9 @@
                 <configuration>
                     <instructions>
                         <Import-Package>
-                            org.apache.camel;
-                            org.apache.camel.blueprint;
+                            org.apache.camel,
+                            org.apache.camel.blueprint,
+                            com.google.gson,
                             *;resolution:=optional
                         </Import-Package>
                         <Export-Package>
