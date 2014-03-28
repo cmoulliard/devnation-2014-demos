@@ -1,52 +1,6 @@
 <div clas="row-fluid gridStyle" ng-controller='SOCIAL.FormController'>
     <h3>Twitter</h3>
 
-    <div class="row-fluid">
-        <div id="create-form">
-            <div simple-form
-                 name="twitterUserForm"
-                 data="formConfig"
-                 onSubmit="searchUser()">
-            </div>
-            <p class="centered">
-                <button class='btn btn-success'
-                        hawtio-submit="twitterUserForm">
-                    <i class="icon-ok"></i> Search information
-                </button>
-            </p>
-        </div>
-    </div>
-
-    <!--    <div class="row-fluid">
-            <div id="create-form">
-                <div simple-form name="search_twitter_user"
-                     data="twitterForm"
-                     entity="entity">
-                </div>
-                <p class="centered">
-                    <button class='btn btn-success'
-                            hawtio-submit='username'
-                            ng-click="searchUser()">
-                        <i class="icon-ok"></i> Search information
-                    </button>
-                </p>
-            </div>
-        </div>
-
-        <div class="span12">
-            <div>
-                <form name="inputForm" ng-submit="searchUser()">
-                    <div>
-                        User Name </br>(example : @cmoulliard) : <input type="text" class="entry-widget"
-                                                                        ng-model="username">
-                    </div>
-                    <p class="span4 centered">
-                        <input type="submit" class="btn btn-success" ng-disabled="!username" value="Search information">
-                    </p>
-                </form>
-            </div>
-        </div>-->
-
     <div class="span12">
         <div>
             <form name="inputForm" ng-submit="searchTweets()">
@@ -60,13 +14,15 @@
         </div>
     </div>
     <div class="span12">
-        <textarea ng-model="response" rows="10" cols="150"/>
+        <textarea ng-model="response" rows="15" cols="350"/>
     </div>
-    <!--    <table class="table table-condensed table-striped"
-               hawtio-simple-table="tweetsGrid"></table>-->
 
-    <ul class="zebra-list">
-        <li ng-repeat="tweet in tweets track by $index"></li>
-    </ul>
+    <table class="table table-condensed table-striped"
+               hawtio-simple-table="tweetsGrid">
+    </table>
+
+    <!--    <ul class="zebra-list">
+            <li ng-repeat="tweet in tweets track by $index"></li>
+        </ul>-->
 
 </div>

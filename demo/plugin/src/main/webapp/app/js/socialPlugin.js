@@ -20,7 +20,8 @@ var SOCIAL = (function (SOCIAL) {
         .config(function ($routeProvider) {
             $routeProvider.
                 when('/social/chart', { templateUrl: SOCIAL.templateUrl + 'areachart.html' }).
-                when('/social/tweets', { templateUrl: SOCIAL.templateUrl + 'searchtweets.html' });
+                when('/social/tweets', { templateUrl: SOCIAL.templateUrl + 'searchtweets.html' }).
+                when('/social/user', { templateUrl: SOCIAL.templateUrl + 'searchuser.html' });
         });
 
     SOCIAL.module.run(function (workspace, viewRegistry, layoutFull) {
@@ -69,18 +70,26 @@ var SOCIAL = (function (SOCIAL) {
 
     SOCIAL.FormController = function ($scope, $log, jolokia, workspace, $location) {
         $log.info('FormController - starting up, yeah!');
-        $scope.forms = {};
+        $scope.form = {};
         $scope.username = '';
         $scope.keywords = '';
         $scope.reponse = '';
 
-        SOCIAL.log.info("Current config: ", $scope.currentConfig);
+
+        /* ISSUE with binding
+
+         SOCIAL.log.info("Current config: ", $scope.currentConfig);
+
+         $scope.searchUser = function(json, form) {
+         SOCIAL.log.info("Form :", json);
+         };
 
         $scope.formConfig = {
             properties: {
                 "username": { description: "Twitter user", "type": "java.lang.String" }
             }
         };
+        */
 
         $scope.tweetsGrid = {
             selectedItems: [],
@@ -106,8 +115,8 @@ var SOCIAL = (function (SOCIAL) {
         }
 
 
-        $scope.searchUser = function(json, form) {
-            SOCIAL.log.info("Form :", json);
+        $scope.searchUser = function() {
+            SOCIAL.log.info("User :", $scope.username);
         };
 
         $scope.searchTweets = function () {
@@ -133,7 +142,10 @@ var SOCIAL = (function (SOCIAL) {
                     $scope.response = result;
 
                     /* Simple Table */
-                    $scope.tweets = response.value;
+                    //$scope.tweets = response.value;
+                    $scope.tweets = response.value.map(function(val) { return { tweet: val };});
+
+                    SOCIAL.log.debug("tweets: ", response.value);
 
                     // Reset keywords field
                     $scope.keywords = '';

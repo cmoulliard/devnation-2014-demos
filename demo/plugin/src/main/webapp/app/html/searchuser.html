@@ -1,0 +1,34 @@
+<div clas="row-fluid gridStyle" ng-controller='SOCIAL.FormController'>
+    <h3>Twitter</h3>
+
+<!--    <div class="row-fluid">
+        <div id="create-form">
+            <div simple-form
+                 name="twitterUserForm"
+                 entity="form"
+                 onSubmit="searchUser()">
+            </div>
+            <p class="centered">
+                <button class='btn btn-success'
+                        hawtio-submit="twitterUserForm">
+                    <i class="icon-ok"></i> Search information
+                </button>
+            </p>
+        </div>
+    </div>-->
+
+        <div class="span12">
+            <div>
+                <form name="inputForm" ng-submit="searchUser()">
+                    <div>
+                        User Name </br>(example : @cmoulliard) : <input type="text" class="entry-widget"
+                                                                        ng-model="username">
+                    </div>
+                    <p class="span4 centered">
+                        <input type="submit" class="btn btn-success" ng-disabled="!username" value="Search information">
+                    </p>
+                </form>
+            </div>
+        </div>
+
+</div>
