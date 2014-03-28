@@ -10,27 +10,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.devnation.demo</groupId>
-    <artifactId>plugin</artifactId>
+    <artifactId>social-plugin</artifactId>
     <description>${project.artifactId}</description>
-    <name>DevNation :: Demo :: Hawtio Plugin</name>
+    <name>DevNation :: Demo :: Hawtio Social Plugin</name>
     <packaging>bundle</packaging>
 
     <properties>
         <hawtio.version>1.3-SNAPSHOT</hawtio.version>
 
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
-        <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
+        <maven-bundle-plugin.version>2.3.4</maven-bundle-plugin.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
 
-        <webapp.context>/hawtio/simple</webapp.context>
+        <webapp.context>/social</webapp.context>
         <plugin-context>${webapp.context}</plugin-context>
         <plugin-name>${project.artifactId}</plugin-name>
         <plugin-domain />
-        <plugin-scripts>app/js/simplePlugin.js</plugin-scripts>
+        <plugin-scripts>app/js/socialPlugin.js</plugin-scripts>
 
         <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-plugin</fabric8.profile>
-        <fabric8.features>hawtio</fabric8.features>
         <fabric8.bundles/>
         <fabric8.parentProfiles>hawtio</fabric8.parentProfiles>
     </properties>
@@ -52,6 +51,13 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -60,13 +66,12 @@
                     <execution>
                         <id>generate-sources</id>
                         <phase>generate-sources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
                         <configuration>
+                            <exportAntProperties>true</exportAntProperties>
                             <target>
                                 <echo>Building plugin javascript file list</echo>
                                 <fileset id="javascript-files" dir="${basedir}/src/main/webapp">
+                                    <include name="app/js/socialPlugin.js"/>
                                     <include name="**/*.js"/>
                                 </fileset>
                                 <pathconvert pathsep=","
@@ -77,19 +82,8 @@
                                 <echo>Files: ${plugin-scripts}</echo>
                             </target>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resources-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources</id>
-                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>resources</goal>
+                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -110,6 +104,7 @@
                         <Import-Package>
                             org.apache.camel;
                             org.apache.camel.blueprint;
+                            org.devnation.demo.service,
                             *;resolution:=optional
                         </Import-Package>
                         <Webapp-Context>${webapp.context}</Webapp-Context>
@@ -118,29 +113,6 @@
                     </instructions>
                 </configuration>
             </plugin>
-
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${war-plugin.version}</version>
-                <configuration>
-                    <outputFileNameMapping>@{artifactId}@-@{baseVersion}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
-                    <packagingExcludes>**/classes/OSGI-INF/**</packagingExcludes>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <archive>
-                        <manifestFile>${webapp-outdir}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
-                    <webResources>
-                        <resource>
-                            <filtering>true</filtering>
-                            <directory>src/main/resources</directory>
-                            <includes>
-                                <include>**/*.*</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>-->
 
             <plugin>
                 <groupId>io.fabric8</groupId>

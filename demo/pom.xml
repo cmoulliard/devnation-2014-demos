@@ -73,7 +73,7 @@
 
     <modules>
         <module>camel-twitter</module>
-        <module>camel-mbean</module>
+        <module>mbean</module>
         <module>plugin</module>
         <module>snippet</module>
     </modules>

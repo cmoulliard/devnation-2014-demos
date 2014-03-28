@@ -20,12 +20,11 @@
         <fabric8.profile>demo-social-twitter</fabric8.profile>
         <fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
         <fabric8.bundles>mvn:io.fabric8.insight/insight-storage/1.1.0-SNAPSHOT</fabric8.bundles>
-
-        <!--<fabric8.bundles>mvn:org.fusesource.insight/insight-storage/1.0.0.redhat-375</fabric8.bundles>-->
-<!--        <fabric8.bundles>mvn:org.fusesource.insight/insight-storage/1.0.0.redhat-375</fabric8.bundles>
-        <fabric8.featureRepos>mvn:io.fabric8/fabric8-karaf/1.0.0.redhat-375/xml/features</fabric8.featureRepos>-->
-        <!-- mvn:io.fabric8.insight/insight-storage/1.1.0-SNAPSHOT  -->
-<!--        <fabric8.featureRepos>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610375/xml/features</fabric8.featureRepos>-->
+        <fabric8.featureRepos>mvn:io.fabric8/fabric8-karaf/1.0.0.redhat-375/xml/features</fabric8.featureRepos>
+        <!--
+            <fabric8.bundles>mvn:org.fusesource.insight/insight-storage/1.0.0.redhat-375</fabric8.bundles>
+            <fabric8.featureRepos>mvn:org.apache.activemq/activemq-karaf/5.9.0.redhat-610375/xml/features</fabric8.featureRepos>
+        -->
     </properties>
 
     <dependencies>
@@ -85,24 +84,6 @@
             <version>20090211</version>
         </dependency>
 
-        <!-- JMS & ActiveMQ -->
-<!--        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-camel</artifactId>
-            <version>${activemq.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>${activemq.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-
         <!-- Twitter -->
         <dependency>
             <groupId>org.twitter4j</groupId>
@@ -117,6 +98,7 @@
             <version>${camel.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- logging -->
         <dependency>
             <groupId>org.slf4j</groupId>

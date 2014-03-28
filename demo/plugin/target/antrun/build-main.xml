@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Building plugin javascript file list</echo>
+  <fileset id="javascript-files" dir="/Users/chmoulli/MyProjects/conferences/devnation-2014/demo/plugin/src/main/webapp">
+    <include name="app/js/socialPlugin.js"/>
+    <include name="**/*.js"/>
+  </fileset>
+  <pathconvert pathsep="," property="plugin-scripts" refid="javascript-files">
+    <map to="" from="/Users/chmoulli/MyProjects/conferences/devnation-2014/demo/plugin/src/main/webapp/"/>
+  </pathconvert>
+  <echo>Files: app/js/socialPlugin.js</echo>
+</target>
+</project>
