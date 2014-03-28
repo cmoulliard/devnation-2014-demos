@@ -1,14 +1,18 @@
 var templateUrl = '/social/app/html/';
 
+var jmxDomain = "hawtio";
+var mbeanType = "SocialMedia";
+var mbean = jmxDomain + ":type=" + mbeanType;
+
 var socialPlugin = angular.module('social', ['hawtioCore'])
-  .config(function($routeProvider) {
-    $routeProvider.
-      when('/social', { templateUrl: templateUrl + 'social.html' }).
-      when('/social/form', { templateUrl: templateUrl + 'form.html' });
-  });
+    .config(function ($routeProvider) {
+        $routeProvider.
+            when('/social/chart', { templateUrl: templateUrl + 'areachart.html' }).
+            when('/social/tweets', { templateUrl: templateUrl + 'searchtweets.html' });
+    });
 
 
-socialPlugin.run(function(workspace, viewRegistry, layoutFull) {
+socialPlugin.run(function (workspace, viewRegistry, layoutFull) {
 
     // tell the app to use the full layout, also could use layoutTree
     // to get the JMX tree or provide a URL to a custom layout
@@ -16,61 +20,132 @@ socialPlugin.run(function(workspace, viewRegistry, layoutFull) {
 
     // Set up top-level link to our plugin
     workspace.topLevelTabs.push({
-      id: "social",
-      content: "Social",
-      title: "Social plugin loaded dynamically",
-      isValid: function() { return true; },
-      href: function() { return "#/social"; },
-      isActive: function() { return workspace.isLinkActive("social"); }
+        id: "social",
+        content: "Social",
+        title: "Social plugin loaded dynamically",
+        isValid: function () {
+            return true;
+        },
+        href: function () {
+            return "#/social";
+        },
+        isActive: function () {
+            return workspace.isLinkActive("social");
+        }
 
     });
 
-  });
+});
 
 // tell the hawtio plugin loader about our plugin so it can be
 // bootstrapped with the rest of angular
 hawtioPluginLoader.addModule('social');
 
-var SocialController = function($scope, jolokia) {
-  $scope.message = "Data collected from Social Camel Component";
-  $scope.likes = "0"
+var SocialController = function ($scope, jolokia) {
+    $scope.message = "Data collected from Social Camel Component";
+    $scope.likes = "0"
 
-  // register a watch with jolokia on this mbean to
-  // get updated metrics
-  Core.register(jolokia, $scope, {
-    type: 'read', mbean: 'hawtio:type=SocialMedia',
-    arguments: []
-  }, onSuccess(render));
+    // register a watch with jolokia on this mbean to
+    // get updated metrics
+    Core.register(jolokia, $scope, {
+        type: 'read', mbean: 'hawtio:type=SocialMedia',
+        arguments: []
+    }, onSuccess(render));
 
-  // update display of metric
-  function render(response) {
-    $scope.likes = response.value['PublishData'];
-    $scope.$apply();
-  }
+    // update display of metric
+    function render(response) {
+        $scope.likes = response.value['PublishData'];
+        $scope.$apply();
+    }
 
 }
 
-var FormController = function($scope, $log, jolokia, workspace, $location) {
+var FormController = function ($scope, $log, jolokia, workspace, $location) {
     $log.info('FormController - starting up, yeah!');
     $scope.forms = {};
     $scope.username = '';
+    $scope.keywords = '';
+    $scope.reponse = '';
 
-    $scope.twitterForm = {
+    $log.info("Current config: ", $scope.currentConfig);
+
+    $scope.formConfig = {
         properties: {
-            "SearchUser": { description: "Twitter user label", "type": "java.lang.String" }
+            "username": { description: "Twitter user", "type": "java.lang.String" }
         }
     };
 
-    $scope.searchUser = function() {
-        if (Core.isBlank($scope.username)) {
+    $scope.tweetsGrid = {
+        selectedItems: [],
+        data: 'tweets',
+        showFilter: true,
+        filterOptions: {
+            filterText: ''
+        },
+        showSelectionCheckbox: false,
+        enableRowClickSelection: true,
+        multiSelect: false,
+        primaryKeyFn: function (entity, idx) {
+            return entity.group + "/" + entity.name
+        },
+        columnDefs: [
+            {
+                field: 'tweet',
+                displayName: 'Tweet',
+                resizable: true,
+                width: 150
+            }
+        ]
+    }
+
+
+    $scope.searchUser = function(json, form) {
+        $log.warn("Search called for : " + $scope.form.username);
+    };
+
+    $scope.searchTweets = function () {
+        if (Core.isBlank($scope.keywords)) {
             return;
         }
-        $log.warn("Search called for : " + $scope.username);
+        $log.warn("Search for : " + $scope.keywords);
+
+        jolokia.request({
+            type: 'exec',
+            mbean: mbean,
+            operation: 'searchTweets',
+            arguments: [$scope.keywords]
+        }, {
+            method: 'POST',
+            success: function (response) {
+                /* TextArea = Response */
+                list = response.value;
+                result = "";
+                for (var record in list) {
+                    result += list[record] + String.fromCharCode(13) ;
+                }
+                $scope.response = result;
+
+                /* Simple Table */
+                $scope.tweets = response.value;
+                //$scope.tweets = JSON.stringify(response.value);
+
+                // Reset keywords field
+                $scope.keywords = '';
+
+                Core.$apply($scope);
+            },
+            error: function (response) {
+                $log.warn("Failed to search for Tweets: ", response.error);
+                $log.info("Stack trace: ", response.stacktrace);
+                Core.$apply($scope);
+            }
+
+        })
     };
 
-}
+};
 
-var AreaChartController = function($scope, $routeParams, jolokia, $templateCache, localStorage, $element) {
+var AreaChartController = function ($scope, $routeParams, jolokia, $templateCache, localStorage, $element) {
 
     $scope.mbean = $routeParams['mbean'];
     $scope.attribute = $routeParams['attribute'];
@@ -118,10 +193,10 @@ var AreaChartController = function($scope, $routeParams, jolokia, $templateCache
     // Core.register(jolokia, $scope, $scope.req, onSuccess($scope.render));
     // register a watch with jolokia on this mbean to
     // get updated metrics
-/*    Core.register(jolokia, $scope, {
-        type: 'read', mbean: 'hawtio:type=SocialData',
-        arguments: []
-    }, onSuccess(render));*/
+    /*    Core.register(jolokia, $scope, {
+     type: 'read', mbean: 'hawtio:type=SocialData',
+     arguments: []
+     }, onSuccess(render));*/
 
     Core.register(jolokia, $scope, $scope.req, onSuccess(render));
 

@@ -17,17 +17,26 @@ public class TwitterService {
 
         List<String> tweets = new ArrayList<String>();
         Query query = new Query(keywords);
-        query.setMaxId();
         QueryResult result = null;
 
         twitter = getTwitterInstance();
-        result = twitter.search(query);
+
         do {
             result = twitter.search(query);
             List<Status> tweetList = result.getTweets();
             for (Status tweet : tweetList) {
-                tweets.add("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
-                LOGGER.info("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
+                String message = "@" + tweet.getUser().getScreenName() + " - " + tweet.getText();
+                //tweets.add(message);
+                LOGGER.debug(message);
+
+                StringBuilder builder = new StringBuilder();
+                builder.append("{\"tweet\":\"");
+                builder.append(message);
+                builder.append("\"}");
+
+                //tweets.add(builder.toString());
+                tweets.add(message);
+
             }
         } while ((query = result.nextQuery()) != null);
 

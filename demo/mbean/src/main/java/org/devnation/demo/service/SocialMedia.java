@@ -28,10 +28,6 @@ public class SocialMedia implements SocialMediaMBean {
         return this.result;
     }
 
-    public void sayHello() {
-        System.out.println("hello, world");
-    }
-
     public List<String> searchTweets(String keywords) throws TwitterException {
        return twitterService.searchTweets(keywords);
     }
