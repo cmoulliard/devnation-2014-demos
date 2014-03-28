@@ -5,7 +5,7 @@
         <property name="name" value="social-plugin"/>
         <property name="context" value="/social"/>
         <property name="domain" value=""/>
-        <property name="scripts" value="app/js/socialPlugin.js"/>
+        <property name="scripts" value="app/js/socialPlugin.js,app/js/navbar.js"/>
     </bean>
 
 </blueprint>

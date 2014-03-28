@@ -9,6 +9,6 @@
   <pathconvert pathsep="," property="plugin-scripts" refid="javascript-files">
     <map to="" from="/Users/chmoulli/MyProjects/conferences/devnation-2014/demo/plugin/src/main/webapp/"/>
   </pathconvert>
-  <echo>Files: app/js/socialPlugin.js</echo>
+  <echo>Files: app/js/socialPlugin.js,app/js/navbar.js</echo>
 </target>
 </project>

@@ -10,7 +10,7 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.pluginName = "SOCIAL";
     SOCIAL.log = Logger.get(SOCIAL.pluginName);
 
-    SOCIAL.templateUrl = '/social/app/html/';
+    SOCIAL.templatePath = '/social/app/html/';
 
     SOCIAL.jmxDomain   = "hawtio";
     SOCIAL.mbeanType   = "SocialMedia";
@@ -19,16 +19,20 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ngResource','hawtioCore','hawtio-forms','datatable'])
         .config(function ($routeProvider) {
             $routeProvider.
-                when('/social/chart', { templateUrl: SOCIAL.templateUrl + 'areachart.html' }).
-                when('/social/tweets', { templateUrl: SOCIAL.templateUrl + 'searchtweets.html' }).
-                when('/social/user', { templateUrl: SOCIAL.templateUrl + 'searchuser.html' });
+                when('/social/chart', { templateUrl: SOCIAL.templatePath + 'areachart.html' }).
+                when('/social/tweets', { templateUrl: SOCIAL.templatePath + 'searchtweets.html' }).
+                when('/social/user', { templateUrl: SOCIAL.templatePath + 'searchuser.html' });
         });
 
     SOCIAL.module.run(function (workspace, viewRegistry, layoutFull) {
 
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout
-        viewRegistry["social"] = layoutFull;
+        // viewRegistry["social"] = layoutFull;
+
+        // tell hawtio that we have our own custom layout for
+        // our view
+        viewRegistry["social"] = SOCIAL.templatePath + "socialLayout.html";
 
         // Set up top-level link to our plugin
         workspace.topLevelTabs.push({

@@ -26,7 +26,7 @@
         <plugin-context>${webapp.context}</plugin-context>
         <plugin-name>${project.artifactId}</plugin-name>
         <plugin-domain />
-        <plugin-scripts>app/js/socialPlugin.js</plugin-scripts>
+        <plugin-scripts>app/js/socialPlugin.js,app/js/navbar.js</plugin-scripts>
 
         <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-plugin</fabric8.profile>
