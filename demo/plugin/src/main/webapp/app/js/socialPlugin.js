@@ -21,18 +21,21 @@ var SOCIAL = (function (SOCIAL) {
             $routeProvider.
                 when('/social/chart', { templateUrl: SOCIAL.templatePath + 'areachart.html' }).
                 when('/social/tweets', { templateUrl: SOCIAL.templatePath + 'searchtweets.html' }).
-                when('/social/user', { templateUrl: SOCIAL.templatePath + 'searchuser.html' });
+                when('/social/user', { templateUrl: SOCIAL.templatePath + 'userinfo.html' });
         });
 
     SOCIAL.module.run(function (workspace, viewRegistry, layoutFull) {
 
+
+        Core.addCSS('/social/app/css/table_bootstrap.css');
+
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout
-        // viewRegistry["social"] = layoutFull;
+        viewRegistry["social"] = layoutFull;
 
         // tell hawtio that we have our own custom layout for
         // our view
-        viewRegistry["social"] = SOCIAL.templatePath + "socialLayout.html";
+        // viewRegistry["social"] = SOCIAL.templatePath + "socialLayout.html";
 
         // Set up top-level link to our plugin
         workspace.topLevelTabs.push({
@@ -79,6 +82,20 @@ var SOCIAL = (function (SOCIAL) {
         $scope.keywords = '';
         $scope.reponse = '';
 
+        $scope.isReply = false;
+
+        $scope.id = '';
+        $scope.name = '';
+        $scope.screenName = '';
+        $scope.location = '';
+        $scope.description = '';
+        $scope.followersCount = '';
+        $scope.friendsCount = '';
+        $scope.favouritesCount = '';
+        $scope.timeZone = '';
+        $scope.lang = '';
+        $scope.createdAt = '';
+
 
         /* ISSUE with binding
 
@@ -118,6 +135,11 @@ var SOCIAL = (function (SOCIAL) {
             ]
         }
 
+        $scope.hover = function(isReply) {
+            // Shows/hides the delete button on hover
+            return $scope.isReply = false;
+        };
+
 
         $scope.searchUser = function() {
             if (Core.isBlank($scope.username)) {
@@ -133,8 +155,24 @@ var SOCIAL = (function (SOCIAL) {
             }, {
                 method: 'POST',
                 success: function (response) {
-                    /* TextArea = Response */
+                    /* TextArea = Response
                     $scope.response = JSON.stringify(response);
+                    */
+
+                    $scope.isReply = true;
+
+                    value = JSON.parse(response['value']);
+                    $scope.id = value['id'];
+                    $scope.name = value['name'];
+                    $scope.screenName = value['screenName'];
+                    $scope.location = value['location'];
+                    $scope.description = value['description'];
+                    $scope.followersCount = value['followersCount'];
+                    $scope.friendsCount = value['friendsCount'];
+                    $scope.favouritesCount = value['favouritesCount'];
+                    $scope.timeZone = value['timeZone'];
+                    $scope.lang = value['lang'];
+                    $scope.createdAt = value['createdAt'];
 
                     // Reset Username field
                     $scope.username = '';
