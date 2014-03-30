@@ -21,7 +21,8 @@ public class WebSocketTwitterRoute extends RouteBuilder {
                 .delay(5000)
                 .bean(Service.class, "tweetToJSON")
                 .log(">> Tweet received : ${body}")
-                .bean(Service.class, "store")
+                .bean(Service.class, "tweetToJSON")
+                .bean(Service.class, "increaseCounter")
                 .to("websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&staticResources=classpath:webapp");
 
     }

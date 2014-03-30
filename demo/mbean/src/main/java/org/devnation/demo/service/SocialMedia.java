@@ -19,6 +19,7 @@ public class SocialMedia implements SocialMediaMBean {
     private ObjectName objectName;
     private Integer result;
     private TwitterService twitterService;
+    private Integer counter;
 
     public void setPublishData(Integer content) {
         this.result = content;
@@ -26,6 +27,14 @@ public class SocialMedia implements SocialMediaMBean {
 
     public Integer getPublishData() {
         return this.result;
+    }
+
+    public void setTweetsCounter(Integer val) {
+        this.counter = val;
+    }
+
+    public Integer getTweetsCounter() {
+        return this.counter;
     }
 
     public List<String> searchTweets(String keywords) throws TwitterException {

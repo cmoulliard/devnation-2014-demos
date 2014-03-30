@@ -11,6 +11,9 @@ public interface SocialMediaMBean {
     void setPublishData(Integer content);
     public Integer getPublishData();
 
+    void setTweetsCounter(Integer val);
+    public Integer getTweetsCounter();
+
     /* Operations */
     List<String> searchTweets(String keywords) throws TwitterException;
     String userInfo(String id) throws TwitterException;
