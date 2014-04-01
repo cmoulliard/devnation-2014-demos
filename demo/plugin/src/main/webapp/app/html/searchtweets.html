@@ -1,3 +1,8 @@
+<!--<head>
+    <script type="text/javascript" language="javascript" src="app/lib/jqueryDatatable.js"></script>
+    <script type="text/javascript" language="javascript" src="app/lib/bootstrapDatatable.js"></script>
+</head>-->
+
 <div clas="row-fluid gridStyle" ng-controller='SOCIAL.FormController'>
     <h3>Twitter</h3>
 
@@ -13,16 +18,17 @@
             </form>
         </div>
     </div>
-    <div class="span12">
-        <textarea ng-model="response" rows="15" cols="350"/>
+
+<!--        <div class="span12">
+            <textarea ng-model="response" rows="15" cols="350"/>
+        </div>-->
+<!--
+        <table class="table table-condensed table-striped"
+                   hawtio-simple-table="tweetsGrid">
+        </table>-->
+
+    <div class="span8">
+        <div class="gridStyle" ng-grid="tweetsGrid"/>
     </div>
-
-    <table class="table table-condensed table-striped"
-               hawtio-simple-table="tweetsGrid">
-    </table>
-
-    <!--    <ul class="zebra-list">
-            <li ng-repeat="tweet in tweets track by $index"></li>
-        </ul>-->
 
 </div>

@@ -12,11 +12,11 @@ var SOCIAL = (function (SOCIAL) {
 
     SOCIAL.templatePath = '/social/app/html/';
 
-    SOCIAL.jmxDomain   = "hawtio";
-    SOCIAL.mbeanType   = "SocialMedia";
-    SOCIAL.mbean       = SOCIAL.jmxDomain + ":type=" + SOCIAL.mbeanType;
+    SOCIAL.jmxDomain = "hawtio";
+    SOCIAL.mbeanType = "SocialMedia";
+    SOCIAL.mbean = SOCIAL.jmxDomain + ":type=" + SOCIAL.mbeanType;
 
-    SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ngResource','hawtioCore','hawtio-forms','datatable'])
+    SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'hawtioCore', 'hawtio-ui', 'hawtio-forms'])
         .config(function ($routeProvider) {
             $routeProvider.
                 when('/social/chart', { templateUrl: SOCIAL.templatePath + 'areachart.html' }).
@@ -27,7 +27,7 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.module.run(function (workspace, viewRegistry, layoutFull) {
 
 
-        Core.addCSS('/social/app/css/table_bootstrap.css');
+        //Core.addCSS('/social/app/css/tableBootstrap.css');
 
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout
@@ -75,8 +75,8 @@ var SOCIAL = (function (SOCIAL) {
 
     }
 
-    SOCIAL.FormController = function ($scope, $log, jolokia, workspace, $location) {
-        $log.info('FormController - starting up, yeah!');
+    SOCIAL.FormController = function ($scope, $log, $http, jolokia, workspace, $location) {
+        SOCIAL.log.info('FormController - starting up, yeah!');
         $scope.form = {};
         $scope.username = '';
         $scope.keywords = '';
@@ -96,6 +96,54 @@ var SOCIAL = (function (SOCIAL) {
         $scope.lang = '';
         $scope.createdAt = '';
 
+/*        $scope.expectedLen = 0;*/
+
+        $scope.tweetsGrid = {
+            data: 'tweets',
+            enableRowClickSelection: false,
+            showSelectionCheckbox: false,
+/*            enablePaging: true,
+            showFooter: true,
+            pagingOptions: $scope.pagingOptions,*/
+            columnDefs: [
+                {
+                    field: 'tweet',
+                    displayName: 'Tweet',
+                    resizable: true,
+                    width: 1500
+                }
+            ]
+        }
+
+/*        $scope.pagingOptions = {
+            pageSizes: [5, 10, 25, 50],
+            pageSize: 5,
+            totalServerItems: 0,
+            currentPage: 1
+        };
+
+        $scope.$watch('pagingOptions', function (newVal, oldVal) {
+            data = $scope.tweets;
+            SOCIAL.log.info(">> $watch called !")
+            if (data != null || data != undefined) {
+                if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
+                    var pageSize = $scope.pagingOptions.pageSize;
+                    var page = $scope.pagingOptions.currentPage;
+
+                    // set totalServerItems from data on server...
+                    $scope.pagingOptions.totalServerItems = data.length;
+                    $scope.totalServerItems = data.length;
+                    $scope.gridOptions.totalServerItems = data.length;
+                    $scope.expectedLen = data.length;
+
+                    var pagedData = data.slice((page - 1) * pageSize, page * pageSize);
+                    $scope.tweets = pagedData;
+                    if (!$scope.$$phase) {
+                        $scope.$apply();
+                    }
+                }
+            }
+        }, true);*/
 
         /* ISSUE with binding
 
@@ -105,43 +153,21 @@ var SOCIAL = (function (SOCIAL) {
          SOCIAL.log.info("Form :", json);
          };
 
-        $scope.formConfig = {
-            properties: {
-                "username": { description: "Twitter user", "type": "java.lang.String" }
-            }
-        };
-        */
+         $scope.formConfig = {
+         properties: {
+         "username": { description: "Twitter user", "type": "java.lang.String" }
+         }
+         };
+         */
 
-        $scope.tweetsGrid = {
-            selectedItems: [],
-            data: 'tweets',
-            showFilter: true,
-            filterOptions: {
-                filterText: ''
-            },
-            showSelectionCheckbox: false,
-            enableRowClickSelection: true,
-            multiSelect: false,
-            primaryKeyFn: function (entity, idx) {
-                return entity.group + "/" + entity.name
-            },
-            columnDefs: [
-                {
-                    field: 'tweet',
-                    displayName: 'Tweet',
-                    resizable: true,
-                    width: 150
-                }
-            ]
-        }
 
-        $scope.hover = function(isReply) {
+        $scope.hover = function (isReply) {
             // Shows/hides the delete button on hover
             return $scope.isReply = false;
         };
 
 
-        $scope.searchUser = function() {
+        $scope.searchUser = function () {
             if (Core.isBlank($scope.username)) {
                 return;
             }
@@ -156,8 +182,8 @@ var SOCIAL = (function (SOCIAL) {
                 method: 'POST',
                 success: function (response) {
                     /* TextArea = Response
-                    $scope.response = JSON.stringify(response);
-                    */
+                     $scope.response = JSON.stringify(response);
+                     */
 
                     $scope.isReply = true;
 
@@ -207,13 +233,15 @@ var SOCIAL = (function (SOCIAL) {
                     list = response.value;
                     result = "";
                     for (var record in list) {
-                        result += list[record] + String.fromCharCode(13) ;
+                        result += list[record] + String.fromCharCode(13);
                     }
                     $scope.response = result;
 
                     /* Simple Table */
                     //$scope.tweets = response.value;
-                    $scope.tweets = response.value.map(function(val) { return { tweet: val };});
+                    $scope.tweets = response.value.map(function (val) {
+                        return { tweet: val };
+                    });
 
                     SOCIAL.log.debug("tweets: ", response.value);
 
