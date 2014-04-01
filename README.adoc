@@ -1,0 +1,198 @@
+:imagesdir: images
+:icons: font
+:toc: left
+
+= DevNation - Social Media Demo
+
+This project contains the material of the demos presented for the talk http://lanyrd.com/2014/devnation14/scxrcf/[Getting Social Media Projects with Apache Camel]
+and covering different topics relevant for the business, architect or developer users.
+
+[.big]
+* Get your feets with Social Component and push your data to the browser,
+* Collect Metrics/Statistics, store them & query result,
+* Design your own dashboard/plugin to report information for the business,
+* Provision your java container using profiles and fabric
+
+NOTE: These demos let you to discover some of the *Business Activity Monitoring* Feature(s) proposed by the *JBoss Fuse* product and the opensource projects
+part of that technology : http://camel.apache.org[Apache Camel], http://www.elasticsearch.org/[ElasticSearch], http://www.elasticsearch.org/overview/kibana/[kibana3], http://fabric8.io/[fabric8], https://github.com/fabric8io/fabric8/tree/master/insight[Insight], http://hawt.io/[hawtio]
+
+== Prerequisites
+
+- http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 6 or 7]
+- http://maven.apache.org/download.cgi[Apache Maven 3.0.5 - Software Project Management Tool]
+- http://git-scm.com/downloads[Git - Source Code Manager]
+- https://repository.jboss.org/nexus/content/repositories/ea/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-376/[JBoss Fuse 6.1]
+
+== Installation
+
+The code of the project must be downloaded and installed locally on your machine. This process will be achieved by using the
+`git clone` command.
+
+- Open a Terminal and move to a directory
+- Clone the project
+
+  git clone https://github.com/cmoulliard/devnation-2014-camel.git
+
+- Move to the directory `demo`
+
+  cd demo
+
+- Compile the project using maven
+
+  mvn clean install
+
+When we have compiled the project and deployed the artifacts into our local maven repository, we will install `JBoss Fuse 6.1.x` and
+  configure it
+
+- Unzip the file downloaded `jboss-fuse-full-6.1.0.redhat-376.zip`
+
+WARNING: The last digit number *376* of the JBoss Fuse release distribution file will change when the GA release of JBoss Fuse 6.1 will be officially announced.
+
+- Move to the directory created `jboss-fuse-6.1.0.redhat-376`
+
+  cd jboss-fuse-6.1.0.redhat-376
+
+In order to allow the web clients to access to the `Fuse Management Console`, it is required to uncomment the line where the user `admin` is defined into
+the file `users.properties`
+
+- Edit the file etc/users.properties to uncomment the line containing #admin=admin,admin
+- Move to the bin directory
+
+  cd bin
+
+- Start `fuse` server
+
+  ./fuse or fuse.bat
+
+== Provisioning
+
+Next we will turn on our Fuse Platform into a https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Fuse/6.1/html-single/Fabric_Guide/index.html[Fuse Fabric server] to facilitate the deployment and the configuration of the
+different java containers that we will use to play with the demos. When the Fabric server is created a https://access.redhat.com/site/documentation/en-US/Red_Hat_JBoss_Fuse/6.1/html-single/Fabric_Guide/index.html#Arch[Zookeeper server] is installed
+locally in your Fuse server which is used to maintain like a DNS, LDAP registry the configurations of the Fuse instances, services deployed, the profiles containing the definitions of the modules (camel, cxf, activemq, ...)
+that we can use to provision our instances.
+
+- To install the fabric server, run the following command :
+
+  fabric:create
+
+IMPORTANT: As Fabric is not installed by default with the JBoss Fuse or JBoss AMQ distribution, this additional step is required.
+
+- Open your browser at the following address `http://localhost:8181/index.html` and check that a root container is up and running. The cloud
+icon displayed after the root container with the version number 1.0 means that a Zookeeper server has been deployed and that a default profile
+versioned as 1.0 has been provisioned under the root container. By default, the fuse and fabric profiles are installed and will let our container
+to manage the integration stuffs like also the fabric to create new containers, provision them, virtualize the endpoints (camel, cxf, activemq, ...), ...
+
+image::hawtio-intro.png[]
+
+- Now that the Fuse fabric is working, we will deploy the artefacts (bundles, configuration files, parameters) required into
+the registry to play with the demos. This step has been simplified by Fabric as we can create what is called a profile and assign such information.
+From that point of view, a profile is nothing more than an envelope containing this following kinds of information:
+
+* The URL locations of the Feature(s) repositories (= XML file)
+* A list of Feature(s) to install (= corresponds to a module definition and contains artefacts to be deployed, config file, parameters)
+* A list of bundles to install (or, more generally, any suitable JAR package—including OSGi bundles, Fuse Application Bundles, and WAR files)
+* A collection of configuration settings for the OSGi Config Admin service
+* Java system properties that affect the Apache Karaf container (analogous to editing etc/config.properties)
+* Java system properties that affect installed bundles (analogous to editing etc/system.properties)
+
+For the purpose of this project and the demos we have created 3 different profiles which correspond to a different use case and can be used to
+setup a different scenario :
+
+- Twitter / demonstrate camel twitter like also insight/elastisearch feature and push data to websocket client
+- MBean / expose JMX MBean 'twitter' services for the camel route, dashboard and plugin
+- Plugin / hawtio plugin designed for business users to handle their data
+
+The description of the different profiles is defined here after :
+
+[cols="25,75"]
+|===
+| *Profile Name* | *Description*
+| Twitter
+| Parent profile(s) : feature-camel insight-core
+
+  Feature(s) :
+  	camel-websocket
+  	camel-twitter
+
+  Bundle(s) :
+  	mvn:org.devnation.demo/camel-twitter/1.0-SNAPSHOT
+
+  Configuration details :
+
+  PID: twitter +
+    consumer.key xxxxxxx +
+    keywords redhat%20OR%20openshift%20OR%20cloud +
+    consumer.secret yyyyyyyyy +
+    access.token zzzzzzzz +
+    delay 10 +
+    access.token.secret vvvvvvvvv
+
+| Plugin
+| Parent profile(s) : hawtio
+
+  Bundle(s) :
+    	mvn:org.devnation.demo/social-plugin/1.0-SNAPSHOT
+
+| Mbean
+| Parent profile(s) : feature-camel
+
+  Feature(s) :
+  	  camel
+
+  Bundle(s) :
+  	   mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/3.0.5_1
+  	   mvn:com.google.code.gson/gson/2.2.4
+  	   mvn:org.devnation.demo/mbean/1.0-SNAPSHOT
+
+  Configuration details :
+
+  PID: twitter +
+    consumer.key xxxxxxxxx +
+    consumer.secret yyyyyyyyyy +
+    access.token eeeeeeeeeeee +
+    access.token.secret zzzzzzzzzzzz
+|===
+
+This process to create into the fabric registry the profiles with their corresponding artefacts will be achieved when the Fabric server has been started
+and when you will run this maven command under the `demo` directory
+
+  mvn fabric8:deploy -Dfabric8.upload=false
+
+The plugin will use the resources (classes, properties, xml files, ...) created under the target directory like also what has been defined under the src/fabric8
+directory to package the bundle, create the profile module definition and push it to the fabric server
+
+NOTE: More information about the maven plugin `fabric8:deploy` can be find https://github.com/fabric8io/fabric8/blob/master/docs/mavenPlugin.md[here]
+like also how to configure it, define the parameters and use it.
+
+The information published can be retrieved from the Fabric registry using this command executed within the Karaf console :
+
+  fabric:profile-display demo-social-twitter
+  fabric:profile-display demo-social-plugin
+  fabric:profile-display demo-social-mbean
+
+OR using the `Fuse Management Console`. Then, you must navigate using your browser to the following addresses :
+
+  http://localhost:8181/hawtio/index.html#/wiki/branch/1.0/view/fabric/profiles/demo/social/mbean.profile?cv=1.0
+  http://localhost:8181/hawtio/index.html#/wiki/branch/1.0/view/fabric/profiles/demo/social/plugin.profile?cv=1.0
+  http://localhost:8181/hawtio/index.html#/wiki/branch/1.0/view/fabric/profiles/demo/social/twitter.profile?cv=1.0
+
+image::hawtio-wiki.png[]
+
+When we deploy the profiles into the Fuse Registry, they are also been published into a local GIT repository.
+
+NOTE: This GIT repository has been added to JBoss Fuse 6.1 to allow not only to upload initial profiles definitions from the folder ($JBOSS_FUSE_HOME/fabric/import/fabric/configs/versions/1.0)
+to the registry but to let also the user to maintain the information as a tree structure under the source code management system using the hawtio `wiki`, commit
+changes or revert them
+
+image::hawtio-git1.png[width="75%"]
+
+image::hawtio-git2.png[width="75%"]
+
+== Demo 1
+
+== Demo 2
+
+== Demo 3
+
+== Conclusion
+
