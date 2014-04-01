@@ -199,10 +199,16 @@ During this demo, we will demonstrate how we can use one of the Camel social com
 
 
 [#demo2]
-== Collect Metrics/Statistics store them and query result  / Demo 2
+== Demo 2
+
+Now, that we have been able to collect data/tweets from Twitter, it is important to store the information using Fuse Insight storage
+to let next the business users to query the data (Collect Metrics/Statistics store them and query result )
 
 [#demo3]
-== Design your own dashboard/plugin to report information for the business  / Demo 3
+== Demo 3
+
+In some situations, the business users would be interested that we put in place a dashboard to consult directly the relevant data/information.
+Design your own dashboard/plugin to report information for the business
 
 == Conclusion
 
