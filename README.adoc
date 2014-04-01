@@ -1,16 +1,20 @@
 :imagesdir: images
 :icons: font
+:linkattrs:
+:linkcss:
 :toc: left
 
 = DevNation - Social Media Demo
+
+== Introduction
 
 This project contains the material of the demos presented for the talk http://lanyrd.com/2014/devnation14/scxrcf/[Getting Social Media Projects with Apache Camel]
 and covering different topics relevant for the business, architect or developer users.
 
 [.big]
-* Get your feets with Social Component and push your data to the browser,
-* Collect Metrics/Statistics, store them & query result,
-* Design your own dashboard/plugin to report information for the business,
+* link:#demo1[Get your feets with Social Component and push your data to the browser - demo1]
+* link:#demo2[Collect Metrics/Statistics store them and query result - demo2]
+* link:#demo3[Design your own dashboard/plugin to report information for the business - demo3]
 * Provision your java container using profiles and fabric
 
 NOTE: These demos let you to discover some of the *Business Activity Monitoring* Feature(s) proposed by the *JBoss Fuse* product and the opensource projects
@@ -78,8 +82,8 @@ that we can use to provision our instances.
 IMPORTANT: As Fabric is not installed by default with the JBoss Fuse or JBoss AMQ distribution, this additional step is required.
 
 - Open your browser at the following address `http://localhost:8181/index.html` and check that a root container is up and running. The cloud
-icon displayed after the root container with the version number 1.0 means that a Zookeeper server has been deployed and that a default profile
-versioned as 1.0 has been provisioned under the root container. By default, the fuse and fabric profiles are installed and will let our container
+icon displayed after the root container +++<i class="icon-cloud"></i>+++ with the version number 1.0 means that a Zookeeper server has been deployed and that a default profile
+versioned as 1.0 has been provisioned under the root container. By default, the *fuse* and *fabric* profiles are installed and will let our container
 to manage the integration stuffs like also the fabric to create new containers, provision them, virtualize the endpoints (camel, cxf, activemq, ...), ...
 
 image::hawtio-intro.png[]
@@ -98,9 +102,9 @@ From that point of view, a profile is nothing more than an envelope containing t
 For the purpose of this project and the demos we have created 3 different profiles which correspond to a different use case and can be used to
 setup a different scenario :
 
-- Twitter / demonstrate camel twitter like also insight/elastisearch feature and push data to websocket client
-- MBean / expose JMX MBean 'twitter' services for the camel route, dashboard and plugin
-- Plugin / hawtio plugin designed for business users to handle their data
+- Twitter / demonstrate *camel twitter* like also *insight/elasticsearch* feature and push data to *websocket* client
+- MBean / expose JMX MBean *twitter* services for the camel route, dashboard and plugin
+- Plugin / *hawtio plugin* designed for business users to handle their data
 
 The description of the different profiles is defined here after :
 
@@ -159,7 +163,7 @@ and when you will run this maven command under the `demo` directory
   mvn fabric8:deploy -Dfabric8.upload=false
 
 The plugin will use the resources (classes, properties, xml files, ...) created under the target directory like also what has been defined under the src/fabric8
-directory to package the bundle, create the profile module definition and push it to the fabric server
+directory to package the bundle, create the profile module definition and push it to the fabric server.
 
 NOTE: More information about the maven plugin `fabric8:deploy` can be find https://github.com/fabric8io/fabric8/blob/master/docs/mavenPlugin.md[here]
 like also how to configure it, define the parameters and use it.
@@ -188,11 +192,17 @@ image::hawtio-git1.png[width="75%"]
 
 image::hawtio-git2.png[width="75%"]
 
+[#demo1]
 == Demo 1
 
-== Demo 2
+During this demo, we will demonstrate how we can use one of the Camel social component (twitter), configure it, retrieve data and push them to your browser.
 
-== Demo 3
+
+[#demo2]
+== Collect Metrics/Statistics store them and query result  / Demo 2
+
+[#demo3]
+== Design your own dashboard/plugin to report information for the business  / Demo 3
 
 == Conclusion
 
