@@ -21,12 +21,12 @@ public class Service {
     private static final Logger LOGGER = LoggerFactory.getLogger(Service.class);
     private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
 
-    private static final String JSON_PREFIX = "{ ";
+/*    private static final String JSON_PREFIX = "{ ";
     private static final String JSON_SUFFIX = " }";
     private static final String JSON_SPACE_BEFORE = " \"";
     private static final String JSON_SPACE_AFTER = "\" ";
     private static final String JSON_QUOTE = "\"";
-    private static final String JSON_COLON = ":";
+    private static final String JSON_COLON = ":";*/
     private static final String MSG_TYPE = "tweet";
 
 
@@ -43,12 +43,12 @@ public class Service {
 
     public static String messageToJSON(String message) {
         return "{ " +
-                "\"tweet\": \"" + "TOTO" + "\", " +
-                "\"timestamp\": \"" + Service.formatDate(generateTimeStamp()) + "\" " +
+                "\"tweet\" : \"" + message + "\", " +
+                "\"timestamp\" : \"" + Service.formatDate(generateTimeStamp()) + "\"" +
                 " }";
     }
 
-    public static String tweetToJSON(String message) {
+/*    public static String tweetToJSON(String message) {
         StringBuilder sb = new StringBuilder();
         sb.append(JSON_PREFIX);
         sb.append(JSON_QUOTE + MSG_TYPE + JSON_QUOTE);
@@ -56,7 +56,7 @@ public class Service {
         sb.append(JSON_SPACE_BEFORE + message + JSON_SPACE_AFTER);
         sb.append(JSON_SUFFIX);
         return sb.toString();
-    }
+    }*/
 
     public static String formatDate(long timestamp) {
         return simpleDateFormat.format(new Date(timestamp));
