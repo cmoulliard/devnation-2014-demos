@@ -483,10 +483,18 @@ image::eip/multicast.png[]
 
 * Push data
 
-// *********************************
-== Use cases covered - con't
-
-* Concentrate information
+|===
+| .2+|image:websocket.png[width="55%"]
+a| * Websocket revealed +
+** Full-duplex single +
+   socket connection
+** HTTP request followed +
+   by WebSocket data +
+   Packets exchange +
+** ws:// and wss:// protocol +
+** Developed part of HTML5 initiative +
+** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
+|===
 
 
 // *********************************
@@ -619,40 +627,54 @@ https://support.twitter.com/articles/71577-using-advanced-search
 include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 ----
 
-// ****** ********
-== Agenda
+// *********************************
+== Twitter - con't
 
-* Introduction
-
-** Camel & Integration
-** Social Media Hype
-** What Camel can offer
-** Use cases covered
-
-* *Components*
-** FaceBook
-** Twitter
-
-* Demo & Conclusion
+- Object / JSON
+- Use utility like Google JSON API
+- Marshall/Unmmarshall https://camel.apache.org/json.html[JSON]
 
 // *********************************
-== WebSocket revealed
+== Twitter - con't
 
-|===
-| .2+|image:websocket.png[width="55%"]
-a| * Websocket revealed +
-** Full-duplex single +
-   socket connection
-** HTTP request followed +
-   by WebSocket data +
-   Packets exchange +
-** ws:// and wss:// protocol +
-** Developed part of HTML5 initiative +
-** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
-|===
+BAD - +++&nbsp;<i class="fa fa-frown-o"></i>&nbsp;+++
+
+[source, java]
+----
+String data = "{ " +
+    " \"" + "timestamp" + "\" : \"" + formatDate(generateTimeStamp()) + "\"," +
+    " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
+    " \"" + "id" + "\" : \"" + status.getId() + "\"," +
+    " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
+    " \"" + "isFavorited" + "\" : \"" + status.isFavorited() + "\"," +
+    " \"" + "isRetweeted" + "\" : \"" + status.isRetweeted() + "\"," +
+    " \"" + "favoriteCount" + "\" : \"" + status.getFavoriteCount() + "\"," +
+    " \"" + "inReplyToScreenName" + "\" : \"" + status.getInReplyToScreenName() + '\'' + "\"," +
+    " \"" + "geoLocation" + "\" : \"" + status.getGeoLocation() + "\"," +
+    " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
+    " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
+    " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
+    " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"," +
+    " \"" + "country" + "\" : \"" + country + "\"" +
+    " }";
+----
 
 // *********************************
-== Others (DropBox, Yammer, GMail)
+== Twitter - con't
+
+BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
+
+[source, java]
+----
+  private void init(JSONObject json) throws TwitterException {
+  	id = getLong("id", json);
+  	source = getUnescapedString("source", json);
+  	createdAt = getDate("created_at", json);
+  	isTruncated = getBoolean("truncated", json);
+  	inReplyToStatusId = getLong("in_reply_to_status_id", json);
+  	inReplyToUserId = getLong("in_reply_to_user_id", json);
+  	isFavorited = getBoolean("favorited", json);
+----
 
 // ******** Demo & Conclusion ********
 == Agenda
@@ -667,7 +689,6 @@ a| * Websocket revealed +
 * Components
 ** FaceBook
 ** Twitter
-
 
 * *Demo & Conclusion*
 
