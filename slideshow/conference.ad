@@ -88,10 +88,10 @@ image::bande-dessinee.jpeg[float="left"]
 // *********************************
 == My Passion(s)
 
-image::photo.jpeg[float="left"]
-image::stumpjumper.png[float="left"]
-image::nature.jpeg[float="left"]
-image::formula1.jpeg[float="left"]
+image::photography.png[width="35%",height="35%",float="left"]
+image::stumpjumper.png[width="30%",height="30%"]
+image::nature.jpeg[float="right"]
+image::formula1.jpeg[float="right"]
 
 // *********** AGENDA ************
 == Agenda
@@ -101,12 +101,12 @@ image::formula1.jpeg[float="left"]
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
@@ -118,12 +118,12 @@ image::formula1.jpeg[float="left"]
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
@@ -176,12 +176,12 @@ image::integration/jbi.jpeg[width="95%",float="right"] |
 ** *Camel & Integration*
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
@@ -360,35 +360,37 @@ image::camel/components.png[width="85%"]
 ** Camel & Integration
 ** *Social Media Hype*
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
 // *********************************
 == Social Media Hype
 
-* Business point of view
-** Marketing, Product Promotion & Launch Campaign
+* Business
+** Marketing,
+** Product Promotion
+** Launch Campaign
 ** Seeking candidates
 
-+++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ Use Social Medias
-
-__Create content that attracts attention and encourages readers to share it with their social networks__
+* Use Social Medias
 
 image::web2/Social-network.png[width="250",height="250", float="left"]
-
-image::web2/Social-Media-Marketing.jpg[width="250",height="250",float="right"]
+image::web2/ilike.jpeg[width="250",height="250",float="left"]
+image::web2/Social-Media-Marketing.jpg[width="250",height="250",float="left"]
 
 // *********************************
 == Social Media Hype - con't
 
-image::web2/Social-Media.jpg[width="400",height="300",float="left"]
+Why +++&nbsp;<i class="fa fa-question"></i>&nbsp;+++ __To create content that attracts attention &
+encourages readers to share it with their social networks__
 
+image::web2/Social-Media.jpg[width="400",height="300",float="left"]
 image::web2/social-solutions.jpg[width="400",height="300",float="right"]
 
 // *********************************
@@ -429,26 +431,37 @@ image::websocket.png[270, 270, float="left"]
 ** Camel & Integration
 ** Social Media Hype
 ** *What Camel can offer*
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
 // *********************************
 == What Camel can offer
 
-image::social-components.png[]
+image::social-components.png[width="75%",height="75%"]
 
-but also
+Could be extended with
 
 * camel-gmail
 * camel-dropbox
 
-// ******** Problems solved ********
+// *********************************
+== What Camel can offer - con't
+
+And EIP Patterns to aggregate, split, transform, multicast content
+
+image::eip/aggregator.png[float="left"]
+image::eip/splitter.png[float="left"]
+
+image::eip/transform.png[float="right"]
+image::eip/multicast.png[]
+
+// ******** Use cases covered ********
 == Agenda
 
 * Introduction
@@ -456,17 +469,35 @@ but also
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** *Problems solved*
+** *Use cases covered*
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
 // *********************************
-== Problems solved
+== Use cases covered
+
+* Push data
+
+// *********************************
+== Use cases covered - con't
+
+* Concentrate information
+
+
+// *********************************
+== Use cases covered - con't
+
+* Collect metrics/stats
+
+// *********************************
+== Use cases covered - con't
+
+* Business Activity Monitoring
 
 // ******** Components ********
 == Agenda
@@ -476,20 +507,41 @@ but also
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * *Components*
 ** *FaceBook*
 ** Twitter
-** Others
+
 
 * Demo & Conclusion
 
 // *********************************
 == Components
 
+* One common denominator +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ OAuth
+image:web2/oauth-2.png[75,75]
+
+**O**pen standard for **Auth**orization
+
+image::web2/oauth.gif[width="40%",height="40%",float="center"]
+
 // *********************************
 == FaceBook
+
+- Info : http://camel.apache.org/facebook.html
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRoute]
+----
+
+OAuth
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetOAuth]
+----
 
 // ******** Twitter ********
 == Agenda
@@ -499,22 +551,34 @@ but also
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * *Components*
 ** FaceBook
 ** *Twitter*
-** Others
 
 * Demo & Conclusion
 
 // *********************************
 == Twitter
 
+- Info : http://camel.apache.org/twitter.html
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRoute]
+----
+
+OAuth
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetOAuth]
+----
 
 https://support.twitter.com/articles/71577-using-advanced-search
 
-// ******** Others ********
+// ****** ********
 == Agenda
 
 * Introduction
@@ -522,12 +586,11 @@ https://support.twitter.com/articles/71577-using-advanced-search
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * *Components*
 ** FaceBook
 ** Twitter
-** *Others*
 
 * Demo & Conclusion
 
@@ -558,12 +621,12 @@ a| * Websocket revealed +
 ** Camel & Integration
 ** Social Media Hype
 ** What Camel can offer
-** Problems solved
+** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-** Others
+
 
 * *Demo & Conclusion*
 

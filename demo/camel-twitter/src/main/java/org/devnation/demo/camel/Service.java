@@ -35,7 +35,6 @@ public class Service {
     private static Attribute attribute;
     private static Integer tweetsCounter = 0;
 
-    /*public static void store(@Body String data) {*/
     public static void store(@Header("tweet-full") String data) {
         storageService.store(ES_TYPE, generateTimeStamp(), data);
     }
