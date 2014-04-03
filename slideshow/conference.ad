@@ -13,6 +13,7 @@
 :linkattrs:
 :linkcss:
 :project_dir: /Users/chmoulli/MyProjects/conferences/devnation-2014
+:resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/resources
 // Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
 :revealjs_theme: my-moon
 :revealjs_vertical_alignment: false
@@ -20,7 +21,6 @@
 :sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/java/
 :source-highlighter: highlightjs
 //:source-highlighter: coderay, highlightjs, pygments
-:resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/resources
 :stylesdir: /Users/chmoulli/RedHat/GPE/content/hyla/resources/styles
 :title-author: {title} {author}
 :title-speaker: Architect Engineer Committer
@@ -530,18 +530,41 @@ image::web2/oauth.gif[width="40%",height="40%",float="center"]
 == FaceBook
 
 - Info : http://camel.apache.org/facebook.html
-- Based on API : http://facebook4j.org/en/index.html
+- Grant Access :  https://developers.facebook.com/apps
+- API : http://facebook4j.org/en/index.html
 
 [source, java]
 ----
 include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRoute]
 ----
 
-OAuth
+// *********************************
+== FaceBook - con't
+- OAuth
 
 [source, java]
 ----
 include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetOAuth]
+----
+
+- Externalize tokens http://camel.apache.org/using-propertyplaceholder.html[parameters] with Property PlaceHolder
+
+[source, java]
+----
+include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
+----
+
+
+// *********************************
+== FaceBook
+
+- To create a post within your Facebook profile
+
+- Send a facebook4j.PostUpdate body to a camel facebook producer
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
 ----
 
 // ******** Twitter ********
@@ -564,14 +587,17 @@ include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetOAuth]
 == Twitter
 
 - Info : http://camel.apache.org/twitter.html
-- Grant access to application :  https://dev.twitter.com/apps/new
-- Based on API : http://twitter4j.org/en/index.html
+- Grant Access :  https://dev.twitter.com/apps/new
+- API : http://twitter4j.org/en/index.html
 
+Example
 [source, java]
 ----
 include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRoute]
 ----
 
+// *********************************
+== Twitter - con't
 OAuth
 
 [source, java]
@@ -579,7 +605,14 @@ OAuth
 include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetOAuth]
 ----
 
+Advanced Query
+
 https://support.twitter.com/articles/71577-using-advanced-search
+
+
+
+// *********************************
+== Twitter - con't
 
 // ****** ********
 == Agenda

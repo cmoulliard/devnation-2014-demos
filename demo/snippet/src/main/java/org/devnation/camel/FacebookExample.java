@@ -1,7 +1,9 @@
 package org.devnation.camel;
 
+import facebook4j.PostUpdate;
 import org.apache.camel.builder.RouteBuilder;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
@@ -27,6 +29,20 @@ public class FacebookExample extends RouteBuilder {
                 "consumer.sendEmptyMessageWhenIdle=true&"
                 + getOauthParams());
         // end::snippetRoute[]
+
+        // tag::snippetRouteP[]
+        PostUpdate post = new PostUpdate(new URL("http://facebook4j.org"))
+                .picture(new URL("http://facebook4j.org/images/hero.png"))
+                .name("Facebook4J - A Java library for " +
+                        "the Facebook Graph API")
+                .caption("facebook4j.org")
+                .description("Facebook4J is a Java library" +
+                        " for the Facebook Graph API.");
+
+        from("direct:post")
+                .setBody().constant(post)
+                .to("facebook://postFeed/inBody=postUpdate");
+        // end::snippetRouteP[]
 
     }
 

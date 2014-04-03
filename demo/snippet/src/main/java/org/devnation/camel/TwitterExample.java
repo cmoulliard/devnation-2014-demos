@@ -13,16 +13,23 @@ public class TwitterExample extends RouteBuilder {
 
     public void configure() {
         // tag::snippetRoute[]
-        from("twitter://search?type=polling&delay=" + delay + "&useSSL=true&keywords=" + keywords + "&" + getUriTokens())
-                .choice().when().simple("${body.tweet.text} > 'java'").bean("Service", "push")
-                .otherwise().to(">> Tweets received");
+        from("twitter://search?type=polling&delay="
+                + delay + "&useSSL=true&keywords="
+                + keywords + "&" + getUriTokens())
+                .choice()
+                   .when().simple("${body.tweet.text} > 'java'")
+                      .bean("Service", "push")
+                .otherwise()
+                      .to(">> Tweets received");
         // end::snippetRoute[]
     }
 
     // tag::snippetOAuth[]
     protected String getUriTokens() {
-        return "consumerKey=" + consumerKey + "&consumerSecret=" + consumerSecret + "&accessToken="
-                + accessToken + "&accessTokenSecret=" + accessTokenSecret;
+        return "consumerKey=" + consumerKey
+                + "&consumerSecret=" + consumerSecret
+                + "&accessToken=" + accessToken
+                + "&accessTokenSecret=" + accessTokenSecret;
     }
     // end::snippetOAuth[]
 

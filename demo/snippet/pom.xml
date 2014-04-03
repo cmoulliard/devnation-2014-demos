@@ -19,6 +19,11 @@
             <artifactId>camel-core</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.facebook4j</groupId>
+            <artifactId>facebook4j-core</artifactId>
+            <version>1.1.12</version>
+        </dependency>
     </dependencies>
 
 </project>
