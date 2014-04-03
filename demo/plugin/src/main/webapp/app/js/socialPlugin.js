@@ -24,10 +24,7 @@ var SOCIAL = (function (SOCIAL) {
                 when('/social/user', { templateUrl: SOCIAL.templatePath + 'userinfo.html' });
         });
 
-    SOCIAL.module.run(function (workspace, viewRegistry, layoutFull) {
-
-
-        //Core.addCSS('/social/app/css/tableBootstrap.css');
+    SOCIAL.module.run(function (workspace, viewRegistry, layoutFull,layoutTree) {
 
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout

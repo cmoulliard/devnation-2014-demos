@@ -1,0 +1,24 @@
+{
+    "title": "test",
+    "group": "Fabric",
+    "versionId": "1.0",
+    "profileId": "demo-social-mbean",
+    "widgets": [
+        {
+            "id": "w1",
+            "title": "",
+            "row": 1,
+            "col": 1,
+            "size_x": 4,
+            "size_y": 2,
+            "path": "social/chart",
+            "include": "social/app/html/areachart.html",
+            "search": {
+                "nid": "root-hawtio-SocialMedia"
+            },
+            "hash": ""
+        }
+    ],
+    "id": "4f627cba88442179f6",
+    "fileName": "4f627cba88442179f6.dashboard"
+}
