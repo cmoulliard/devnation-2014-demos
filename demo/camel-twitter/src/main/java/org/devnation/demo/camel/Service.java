@@ -49,7 +49,7 @@ public class Service {
         return new Timestamp(date.getTime()).getTime();
     }
 
-    public static void increaseCounter(Exchange exchange) throws MalformedObjectNameException, AttributeNotFoundException, MBeanException, ReflectionException, InstanceNotFoundException, InvalidAttributeValueException {
+/*    public static void increaseCounter(Exchange exchange) throws MalformedObjectNameException, AttributeNotFoundException, MBeanException, ReflectionException, InstanceNotFoundException, InvalidAttributeValueException {
 
         objectName = new ObjectName("hawtio:type=SocialMedia");
 
@@ -67,7 +67,7 @@ public class Service {
             // Publish it
             mBeanServer.setAttribute(objectName, attribute);
         }
-    }
+    }*/
 
     public void setStorageService(StorageService storageService) {
         Service.storageService = storageService;
