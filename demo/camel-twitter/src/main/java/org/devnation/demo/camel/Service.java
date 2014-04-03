@@ -2,44 +2,76 @@ package org.devnation.demo.camel;
 
 //import io.fabric8.insight.storage.StorageService;
 
+import org.apache.camel.Body;
 import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.fusesource.insight.storage.StorageService;
+//import org.json.JSONException;
+//import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.management.*;
 import java.lang.management.ManagementFactory;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Service {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Service.class);
+    private static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+
+    private static final String JSON_PREFIX = "{ ";
+    private static final String JSON_SUFFIX = " }";
+    private static final String JSON_SPACE_BEFORE = " \"";
+    private static final String JSON_SPACE_AFTER = "\" ";
+    private static final String JSON_QUOTE = "\"";
+    private static final String JSON_COLON = ":";
+    private static final String MSG_TYPE = "tweet";
+
 
     private static StorageService storageService;
-    private static String ES_TYPE = "tweet";
+    private static String ES_TYPE = "insight-tweet";
     private static MBeanServer mBeanServer;
     private static ObjectName objectName;
     private static Attribute attribute;
     private static Integer tweetsCounter = 0;
 
-    public static void store(String data) {
+    public static void store(@Body String data) {
         storageService.store(ES_TYPE, generateTimeStamp(), data);
     }
 
+    public static String messageToJSON(String message) {
+        return "{ " +
+                "\"tweet\": \"" + "TOTO" + "\", " +
+                "\"timestamp\": \"" + Service.formatDate(generateTimeStamp()) + "\" " +
+                " }";
+    }
+
     public static String tweetToJSON(String message) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("{\"tweet\":\"");
-        builder.append(message);
-        builder.append("\"}");
-        return builder.toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(JSON_PREFIX);
+        sb.append(JSON_QUOTE + MSG_TYPE + JSON_QUOTE);
+        sb.append(JSON_COLON);
+        sb.append(JSON_SPACE_BEFORE + message + JSON_SPACE_AFTER);
+        sb.append(JSON_SUFFIX);
+        return sb.toString();
+    }
+
+    public static String formatDate(long timestamp) {
+        return simpleDateFormat.format(new Date(timestamp));
     }
 
     public static Long generateTimeStamp() {
         Date date = new java.util.Date();
         return new Timestamp(date.getTime()).getTime();
     }
+
+    /*    public String generateMessage(@Body String message) throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("tweet",message);
+        return json.toString();
+    }*/
 
     public static void increaseCounter(Exchange exchange) throws MalformedObjectNameException, AttributeNotFoundException, MBeanException, ReflectionException, InstanceNotFoundException, InvalidAttributeValueException {
 

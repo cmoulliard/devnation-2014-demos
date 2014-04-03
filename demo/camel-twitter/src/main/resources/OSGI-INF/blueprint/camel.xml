@@ -9,6 +9,7 @@
              http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
     <cm:property-placeholder id="twitterConfig" persistent-id="twitter" update-strategy="reload"/>
+<!--    <cm:property-placeholder id="credentialsConfig" persistent-id="credentials" update-strategy="reload"/>-->
 
     <!-- Service Service used to send tweets to ES Storage, parse JSON -->
     <bean id="helper" class="org.devnation.demo.camel.Service">
