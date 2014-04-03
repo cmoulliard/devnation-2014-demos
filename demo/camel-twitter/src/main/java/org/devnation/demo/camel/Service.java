@@ -16,6 +16,9 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static org.devnation.demo.camel.InsightUtils.formatDate;
+import static org.devnation.demo.camel.InsightUtils.quote;
+
 public class Service {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Service.class);
@@ -41,12 +44,40 @@ public class Service {
         storageService.store(ES_TYPE, generateTimeStamp(), data);
     }
 
-    public static String messageToJSON(String message) {
+    public static String tweetToJSON(String message) {
+        StringBuilder writer = new StringBuilder();
+        writer.append("{ \"tweet\" : ");
+        quote(message, writer);
+        writer.append(", \"timestamp\" : ");
+        quote(formatDate(System.currentTimeMillis()), writer);
+        writer.append(" }");
+        return writer.toString();
+    }
+
+    public static Long generateTimeStamp() {
+        Date date = new java.util.Date();
+        return new Timestamp(date.getTime()).getTime();
+    }
+
+    /*    public static String messageToJSON(String message) {
         return "{ " +
                 "\"tweet\" : \"" + message + "\", " +
                 "\"timestamp\" : \"" + Service.formatDate(generateTimeStamp()) + "\"" +
                 " }";
-    }
+    }*/
+
+/*
+    public static String messageToJSON2(String message) {
+        StringBuilder writer = new StringBuilder();
+        writer.append("{ ");
+        writer.append("\"tweet\" : ");
+        quote(message, writer);
+        writer.append(",\n  \"timestamp\" : ");
+        quote(Service.formatDate(generateTimeStamp()), writer);
+        writer.append(" }");
+
+        return writer.toString();
+    }*/
 
 /*    public static String tweetToJSON(String message) {
         StringBuilder sb = new StringBuilder();
@@ -58,14 +89,6 @@ public class Service {
         return sb.toString();
     }*/
 
-    public static String formatDate(long timestamp) {
-        return simpleDateFormat.format(new Date(timestamp));
-    }
-
-    public static Long generateTimeStamp() {
-        Date date = new java.util.Date();
-        return new Timestamp(date.getTime()).getTime();
-    }
 
     /*    public String generateMessage(@Body String message) throws JSONException {
         JSONObject json = new JSONObject();
