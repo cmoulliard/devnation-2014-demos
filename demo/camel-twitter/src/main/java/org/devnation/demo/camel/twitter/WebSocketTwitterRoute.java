@@ -3,8 +3,6 @@ package org.devnation.demo.camel.twitter;
 import org.apache.camel.Body;
 import org.devnation.demo.camel.Service;
 import org.apache.camel.builder.RouteBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class WebSocketTwitterRoute extends RouteBuilder {
 

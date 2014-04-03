@@ -16,10 +16,9 @@
 
     <properties>
         <fabric8.features>camel-twitter camel-websocket</fabric8.features>
-<!--        <fabric8.bundles>wrap:mvn:org.json/json/20090211</fabric8.bundles>-->
         <fabric8.version>1.0</fabric8.version>
         <fabric8.profile>demo-social-twitter</fabric8.profile>
-        <fabric8.parentProfiles>feature-camel insight-core</fabric8.parentProfiles>
+        <fabric8.parentProfiles>feature-camel insight-core insight-camel</fabric8.parentProfiles>
 
 <!--        <fabric8.bundles>mvn:io.fabric8.insight/insight-storage/1.1.0-SNAPSHOT</fabric8.bundles>
         <fabric8.featureRepos>mvn:io.fabric8/fabric8-karaf/1.1.0-SNAPSHOT/xml/features</fabric8.featureRepos>-->
