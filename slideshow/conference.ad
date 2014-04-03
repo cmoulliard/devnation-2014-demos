@@ -609,10 +609,15 @@ Advanced Query
 
 https://support.twitter.com/articles/71577-using-advanced-search
 
-
-
 // *********************************
 == Twitter - con't
+
+- Post a tweet
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
+----
 
 // ****** ********
 == Agenda

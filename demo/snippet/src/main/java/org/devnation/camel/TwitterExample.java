@@ -2,6 +2,8 @@ package org.devnation.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 
+import java.util.Date;
+
 public class TwitterExample extends RouteBuilder {
 
     protected String consumerKey;
@@ -22,6 +24,15 @@ public class TwitterExample extends RouteBuilder {
                 .otherwise()
                       .to(">> Tweets received");
         // end::snippetRoute[]
+
+        // tag::snippetRouteP[]
+        Date now = new Date();
+        String tweet = "Demo: this is a tweet posted on " + now.toString();
+
+        from("direct:post")
+            .setBody().constant(tweet)
+            .to("twitter://timeline/user?" + getUriTokens());
+        // end::snippetRouteP[]
     }
 
     // tag::snippetOAuth[]
