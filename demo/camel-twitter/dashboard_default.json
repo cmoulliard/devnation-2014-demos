@@ -1,0 +1,90 @@
+{
+title: "Introduction",
+services: {
+query: {
+list: {
+0: {
+query: "*",
+alias: "",
+color: "#7EB26D",
+id: 0,
+pin: false,
+type: "lucene"
+}
+},
+ids: [
+0
+]
+},
+filter: {
+list: { },
+ids: [ ]
+}
+},
+rows: [
+{
+title: "Intro",
+height: "450px",
+editable: false,
+collapse: false,
+collapsable: false,
+panels: [
+{
+error: false,
+span: 4,
+editable: false,
+group: [
+"default"
+],
+type: "text",
+mode: "markdown",
+content: "![kibana](img/kibana.png) ##### Did you just upgrade? Not expecting this screen? If you were using the old default page you might not be expecting this screen. I understand, change can be awkward. Let me explain. ##### Setting a global default dashboard Kibana has always shipped with an interface for Logstash, still does! You can access it [here](index.html#dashboard/file/logstash.json). However, if you want to make it your default again, all you need to do is rename a file! In your Kibana installation directory: Rename *logstash.json* to *default.json* and refresh. Should be all set. ##### But wait, there's more! In fact, you can add any exported dashboard to that directory and access it as *http://YOUR-HOST -HERE/index.html#dashboard/file/YOUR-DASHBOARD.json*. Neat trick eh?",
+style: { },
+title: "",
+status: "Stable"
+},
+{
+error: false,
+span: 8,
+editable: false,
+group: [
+"default"
+],
+type: "text",
+mode: "markdown",
+content: "### Welcome to Kibana. Glad you could make it. Happy to have you here! Lets get started, shall we? ##### Requirements * **A good browser.** The latest version of Chrome or Firefox is recommended. Safari (latest version) and Internet Explorer 9 and above are also supported. * **A webserver.** Just somewhere to host the HTML and Javascript. Basically any webserver will work. * **Elasticsearch** 0.90.9 or above. ##### Configuration If Kibana and Elasticsearch are on the same host, and you're using the default Elasticsearch port, then you're all set. Kibana is configured to use that setup by default! If not, you need to edit *config.js* and set the *elasticsearch* parameter with the URL (including port, probably 9200) of your Elasticsearch server. The host part should be the entire, fully qualified domain name, or IP, **not localhost**. #### Are you a Logstash User? + **YES** - Great! We have a prebuilt dashboard: [(Logstash Dashboard)](index.html#/dashboard/file/logstash.json). See the note to the right about making it your global default + **NO** - Hey, no problem, you just have a bit of setup to do. You have a few choices: 1. [Sample Dashboard](index.html#/dashboard/file/guided.json) *I don't have much data yet, please extract some basics for me* 2. [Unconfigured Dashboard](index.html#/dashboard/file/noted.json) *I have a lot of data and I don't want Kibana to query it at once* 3. [Blank Dashboard](index.html#/dashboard/file/blank.json) *I'm comfortable figuring it out on my own*",
+style: { },
+status: "Stable"
+}
+],
+notice: false
+}
+],
+editable: false,
+index: {
+interval: "none",
+pattern: "[logstash-]YYYY.MM.DD",
+default: "_all",
+warm_fields: false
+},
+style: "dark",
+failover: false,
+panel_hints: true,
+pulldowns: [ ],
+nav: [ ],
+loader: {
+save_gist: false,
+save_elasticsearch: true,
+save_local: true,
+save_default: true,
+save_temp: true,
+save_temp_ttl_enable: true,
+save_temp_ttl: "30d",
+load_gist: true,
+load_elasticsearch: true,
+load_elasticsearch_size: 20,
+load_local: true,
+hide: false
+},
+refresh: false
+}

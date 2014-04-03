@@ -4,6 +4,7 @@ package org.devnation.demo.camel;
 
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
+import org.apache.camel.Header;
 import org.fusesource.insight.storage.StorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import javax.management.*;
 import java.lang.management.ManagementFactory;
 import java.sql.Timestamp;
+
+import twitter4j.Status;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -30,8 +34,31 @@ public class Service {
     private static Attribute attribute;
     private static Integer tweetsCounter = 0;
 
-    public static void store(@Body String data) {
+    /*public static void store(@Body String data) {*/
+    public static void store(@Header("tweet-full") String data) {
         storageService.store(ES_TYPE, generateTimeStamp(), data);
+    }
+
+    public static String getJSONTweetText(@Body Status status) {
+        return tweetToJSON(status.getText());
+    }
+
+    public static String getJSONTweet(@Body Status status) {
+        String data = "{ " +
+                " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
+                " \"" + "id" + "\" : \"" + status.getId() + "\"," +
+                " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
+                " \"" + "isFavorited" + "\" : \"" + status.isFavorited() + "\"," +
+                " \"" + "isRetweeted" + "\" : \"" + status.isRetweeted() + "\"," +
+                " \"" + "favoriteCount" + "\" : \"" + status.getFavoriteCount() + "\"," +
+                " \"" + "inReplyToScreenName" + "\" : \"" + status.getInReplyToScreenName() + '\'' + "\"," +
+                " \"" + "geoLocation" + "\" : \"" + status.getGeoLocation() + "\"," +
+                " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
+                " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
+                " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
+                " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"" +
+                " }";
+        return data;
     }
 
     public static String tweetToJSON(String message) {

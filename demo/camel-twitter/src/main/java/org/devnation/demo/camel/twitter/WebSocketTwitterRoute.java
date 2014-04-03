@@ -18,12 +18,24 @@ public class WebSocketTwitterRoute extends RouteBuilder {
 
         from("twitter://search?type=polling&delay=" + delay + "&useSSL=true&keywords=" + keywords + "&" + getUriTokens())
                 .routeId("Tweet-Store-WS")
-                .convertBodyTo(String.class)
                 .delay(5000)
-                .log(">> Tweet received : ${body}")
-                .bean(Service.class, "tweetToJSON")
-                .log(">> JSON Tweet : ${body}")
+
+                // We receive the Twitter4J Status that we will use
+                // use to extract info text, isfavorited, is Retweeted, geolocation, isoLanguageCode, contributors
+                // and create A JSON message used late ron to store it in ES
+                .setHeader("tweet-full").method(Service.class, "getJSONTweet")
+                //.log(">> Tweet complete : ${header.JSON-Tweet}")
+
+                //.bean(Service.class, "tweetToJSON")
+                //.log(">> JSON Tweet message : ${body}")
+
+                // Message is stored using insight in ElasticSearch
                 .bean(Service.class, "store")
+
+                // We set the Body object with our
+                .setBody().method(Service.class,"getJSONTweetText")
+
+                // Data pushed to WS clients connected
                 .to("websocket://0.0.0.0:9090/tweetTopic?sendToAll=true&staticResources=classpath:webapp");
     }
 
