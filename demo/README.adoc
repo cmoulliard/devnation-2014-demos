@@ -36,3 +36,4 @@ Import + Do query
 
 message:Tweet*
 message:Tweet AND message:NetFlix
+

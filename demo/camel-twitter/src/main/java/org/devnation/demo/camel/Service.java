@@ -13,6 +13,7 @@ import javax.management.*;
 import java.lang.management.ManagementFactory;
 import java.sql.Timestamp;
 
+import twitter4j.Place;
 import twitter4j.Status;
 
 import java.text.SimpleDateFormat;
@@ -44,7 +45,12 @@ public class Service {
     }
 
     public static String getJSONTweet(@Body Status status) {
+
+        Place place = status.getPlace();
+        String country = ((place == null)? "" : place.getCountry());
+
         String data = "{ " +
+                " \"" + "timestamp" + "\" : \"" + formatDate(generateTimeStamp()) + "\"," +
                 " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
                 " \"" + "id" + "\" : \"" + status.getId() + "\"," +
                 " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
@@ -56,7 +62,8 @@ public class Service {
                 " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
                 " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
                 " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
-                " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"" +
+                " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"," +
+                " \"" + "country" + "\" : \"" + country + "\"" +
                 " }";
         return data;
     }
