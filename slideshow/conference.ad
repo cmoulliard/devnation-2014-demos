@@ -100,13 +100,10 @@ image::bande-dessinee.jpeg[float="left"]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
+* Technology
 * Demo & Conclusion
 
 // ************ INTRODUCTION ************
@@ -116,14 +113,10 @@ image::bande-dessinee.jpeg[float="left"]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
-
+* Technology
 * Demo & Conclusion
 
 // *********************************
@@ -174,14 +167,10 @@ image::integration/jbi.jpeg[width="95%",float="right"] |
 
 ** *Camel & Integration*
 ** Social Media Hype
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
-
+* Technology
 * Demo & Conclusion
 
 // *********************************
@@ -358,14 +347,10 @@ image::camel/components.png[width="85%"]
 
 ** Camel & Integration
 ** *Social Media Hype*
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
-
+* Technology
 * Demo & Conclusion
 
 // *********************************
@@ -422,53 +407,83 @@ a| * Technology Transformation
 image::web2/ajax.png[350, 350, float="left"]
 image::websocket.png[270, 270, float="left"]
 
-// ******** What Camel/Fuse can offer ********
+// ******** What Fuse can offer ********
 == Agenda
 
 * Introduction
 
 ** Camel & Integration
 ** Social Media Hype
-** *What Camel/Fuse can offer*
+** *What Fuse can offer*
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
-
+* Technology
 * Demo & Conclusion
 
 // *********************************
-== What Camel/Fuse can offer
+== What Fuse can offer
 
 image::social-components.png[width="75%",height="75%"]
 
-Could be extended with
+combined with
 
 * camel-gmail
 * camel-dropbox
+* camel-xxx
 
 // *********************************
-== What Camel/Fuse can offer - con't
+== What Fuse can offer - con't
 
-And EIP Patterns to aggregate, split, transform, multicast content
+|===
+| and EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ | Aggregator
+image:eip/aggregator.png[]
 
-image::eip/aggregator.png[float="left"]
-image::eip/splitter.png[float="left"]
+Splitter
+
+image:eip/splitter.png[] |
+|===
 
 // *********************************
-== What Camel/Fuse can offer - con't
+== What Fuse can offer - con't
 
-And EIP Patterns to aggregate, split, transform, multicast content
+image::camel/camel-family.jpg[250,250,float="right"]
 
-image::eip/transform.png[float="right"]
+Transform
+
+image::eip/transform.png[]
+
+Multicast
+
 image::eip/multicast.png[]
 
 // *********************************
-== What Camel/Fuse can offer - con't
+== What Fuse can offer - con't
 
-*
+image::fuse/basics-1.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/basics-2.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/advances-1.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/advances-2.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
 
 // ******** Use cases covered ********
 == Agenda
@@ -477,20 +492,80 @@ image::eip/multicast.png[]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** *Use cases covered*
 
-* Components
-** FaceBook
-** Twitter
-
-
+* Technology
 * Demo & Conclusion
 
 // *********************************
 == Use cases covered
 
-* Push data
+* **Pattern** : Real Time & Broadcasting
+
+* **Definition** : Collect data in real time from different providers (twitter, facebook, ...)
+ and broadcast/multicast data to subscribed channels
+
+* **Business** : event, conference, meeting room
+
+image::fuse/websocket.png[550,550,float="right"]
+
+// *********************************
+== Use cases covered - con't
+
+* **Pattern** : Collect Data Metrics
+* **Definition** : Retrieve data from Social Media and store them in order to query the data to
+analyze the results
+* **Business** : Measure performances of a campaign, product launch, return of investment
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/trends.png[]
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/elasticsearch.png[]
+
+// *********************************
+== Use cases covered - con't
+
+* **Pattern** : Business Activity Monitoring
+* **Definition** : Monitor business activities using reporting, dashboard tools.
+* **Business** : Measure performances of a campaign, product launch, return of investment
+, analyze the data
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/dashboard-trends.png[]
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/plugin-user.png[]
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/plugin-query.png[]
+
+// ******* ********
+== Agenda
+
+* Introduction
+
+** Camel & Integration
+** Social Media Hype
+** What Fuse can offer
+** Use cases covered
+
+* *Technology*
+* Demo & Conclusion
+
+// *********************************
+== Technology
 
 |===
 | .2+|image:websocket.png[width="55%"]
@@ -505,35 +580,8 @@ a| * Websocket revealed +
 ** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
 |===
 
-
 // *********************************
-== Use cases covered - con't
-
-* Collect metrics/stats
-
-// *********************************
-== Use cases covered - con't
-
-* Business Activity Monitoring
-
-// ******** Components ********
-== Agenda
-
-* Introduction
-
-** Camel & Integration
-** Social Media Hype
-** What Camel/Fuse can offer
-** Use cases covered
-
-* *Components*
-** *FaceBook*
-** Twitter
-
-* Demo & Conclusion
-
-// *********************************
-== Components
+== Technology - con't
 
 * One common denominator +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ OAuth
 image:web2/oauth-2.png[75,75]
@@ -543,7 +591,9 @@ image:web2/oauth-2.png[75,75]
 image::web2/oauth.gif[width="40%",height="40%",float="center"]
 
 // *********************************
-== FaceBook
+== Technology - con't
+
+* Component : FaceBook
 
 - Info : http://camel.apache.org/facebook.html
 - Grant Access :  https://developers.facebook.com/apps
@@ -555,7 +605,8 @@ include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRoute]
 ----
 
 // *********************************
-== FaceBook - con't
+== Technology - con't
+
 - OAuth
 
 [source, java]
@@ -570,9 +621,8 @@ include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetOAuth]
 include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
 ----
 
-
 // *********************************
-== FaceBook
+== Technology - con't
 
 - To create a post within your Facebook profile
 
@@ -583,24 +633,10 @@ include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
 include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
 ----
 
-// ******** Twitter ********
-== Agenda
-
-* Introduction
-
-** Camel & Integration
-** Social Media Hype
-** What Camel/Fuse can offer
-** Use cases covered
-
-* *Components*
-** FaceBook
-** *Twitter*
-
-* Demo & Conclusion
-
 // *********************************
-== Twitter
+== Technology - con't
+
+* Component Twitter
 
 - Info : http://camel.apache.org/twitter.html
 - Grant Access :  https://dev.twitter.com/apps/new
@@ -613,7 +649,8 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRoute]
 ----
 
 // *********************************
-== Twitter - con't
+== Technology - con't
+
 OAuth
 
 [source, java]
@@ -636,7 +673,7 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 ----
 
 // *********************************
-== Twitter - con't
+== Technology - con't
 
 - Object / JSON
 - Use utility like Google JSON API
@@ -668,7 +705,7 @@ String data = "{ " +
 ----
 
 // *********************************
-== Twitter - con't
+== Technology - con't
 
 BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
 
@@ -691,13 +728,10 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel/Fuse can offer
+** What Fuse can offer
 ** Use cases covered
 
-* Components
-** FaceBook
-** Twitter
-
+* Technology
 * *Demo & Conclusion*
 
 // *********************************
