@@ -14,6 +14,7 @@ var SOCIAL = (function (SOCIAL) {
 
     SOCIAL.jmxDomain = "hawtio";
     SOCIAL.mbeanType = "SocialMedia";
+    SOCIAL.attribute = "PublishData";
     SOCIAL.mbean = SOCIAL.jmxDomain + ":type=" + SOCIAL.mbeanType;
 
     SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'hawtioCore', 'hawtio-ui', 'hawtio-forms'])
@@ -60,8 +61,8 @@ var SOCIAL = (function (SOCIAL) {
         // register a watch with jolokia on this mbean to
         // get updated metrics
         Core.register(jolokia, $scope, {
-            type: 'read', mbean: 'hawtio:type=SocialMedia',
-            arguments: []
+            type: 'read',
+            mbean: SOCIAL.mbean
         }, onSuccess(render));
 
         // update display of metric
@@ -260,8 +261,9 @@ var SOCIAL = (function (SOCIAL) {
 
     SOCIAL.AreaChartController = function ($scope, $routeParams, jolokia, $templateCache, localStorage, $element) {
 
-        $scope.mbean = $routeParams['mbean'];
-        $scope.attribute = $routeParams['attribute'];
+        //$scope.mbean = $routeParams['mbean'];
+        //$scope.attribute = $routeParams['attribute'];
+
         //$scope.duration = localStorage['updateRate'];
 
         //$scope.width = 308;
@@ -280,7 +282,10 @@ var SOCIAL = (function (SOCIAL) {
         };
 
         $scope.req = [
-            {type: 'read', mbean: 'hawtio:type=SocialMedia', attribute: 'PublishData'}
+            {type: 'read',
+             mbean: SOCIAL.mbean,
+             attribute: SOCIAL.attribute
+            }
         ];
 
         function render(response) {
@@ -303,16 +308,7 @@ var SOCIAL = (function (SOCIAL) {
             Core.$apply($scope);
         }
 
-        // Core.register(jolokia, $scope, $scope.req, onSuccess($scope.render));
-        // register a watch with jolokia on this mbean to
-        // get updated metrics
-        /*    Core.register(jolokia, $scope, {
-         type: 'read', mbean: 'hawtio:type=SocialData',
-         arguments: []
-         }, onSuccess(render));*/
-
         Core.register(jolokia, $scope, $scope.req, onSuccess(render));
-
     }
 
     return SOCIAL;

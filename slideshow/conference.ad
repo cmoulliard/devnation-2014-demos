@@ -88,10 +88,10 @@ image::bande-dessinee.jpeg[float="left"]
 // *********************************
 == My Passion(s)
 
-image::photography.png[width="35%",height="35%",float="left"]
-image::stumpjumper.png[width="30%",height="30%"]
-image::nature.jpeg[float="right"]
-image::formula1.jpeg[float="right"]
+|===
+| image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
+| image:nature.jpeg[] ] | image:formula1.jpeg[] |
+|===
 
 // *********** AGENDA ************
 == Agenda
@@ -100,13 +100,12 @@ image::formula1.jpeg[float="right"]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * Components
 ** FaceBook
 ** Twitter
-
 
 * Demo & Conclusion
 
@@ -117,7 +116,7 @@ image::formula1.jpeg[float="right"]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * Components
@@ -175,7 +174,7 @@ image::integration/jbi.jpeg[width="95%",float="right"] |
 
 ** *Camel & Integration*
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * Components
@@ -359,7 +358,7 @@ image::camel/components.png[width="85%"]
 
 ** Camel & Integration
 ** *Social Media Hype*
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * Components
@@ -423,14 +422,14 @@ a| * Technology Transformation
 image::web2/ajax.png[350, 350, float="left"]
 image::websocket.png[270, 270, float="left"]
 
-// ******** What Camel can offer ********
+// ******** What Camel/Fuse can offer ********
 == Agenda
 
 * Introduction
 
 ** Camel & Integration
 ** Social Media Hype
-** *What Camel can offer*
+** *What Camel/Fuse can offer*
 ** Use cases covered
 
 * Components
@@ -441,7 +440,7 @@ image::websocket.png[270, 270, float="left"]
 * Demo & Conclusion
 
 // *********************************
-== What Camel can offer
+== What Camel/Fuse can offer
 
 image::social-components.png[width="75%",height="75%"]
 
@@ -451,15 +450,25 @@ Could be extended with
 * camel-dropbox
 
 // *********************************
-== What Camel can offer - con't
+== What Camel/Fuse can offer - con't
 
 And EIP Patterns to aggregate, split, transform, multicast content
 
 image::eip/aggregator.png[float="left"]
 image::eip/splitter.png[float="left"]
 
+// *********************************
+== What Camel/Fuse can offer - con't
+
+And EIP Patterns to aggregate, split, transform, multicast content
+
 image::eip/transform.png[float="right"]
 image::eip/multicast.png[]
+
+// *********************************
+== What Camel/Fuse can offer - con't
+
+*
 
 // ******** Use cases covered ********
 == Agenda
@@ -468,7 +477,7 @@ image::eip/multicast.png[]
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** *Use cases covered*
 
 * Components
@@ -514,13 +523,12 @@ a| * Websocket revealed +
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * *Components*
 ** *FaceBook*
 ** Twitter
-
 
 * Demo & Conclusion
 
@@ -582,7 +590,7 @@ include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * *Components*
@@ -683,7 +691,7 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
 
 ** Camel & Integration
 ** Social Media Hype
-** What Camel can offer
+** What Camel/Fuse can offer
 ** Use cases covered
 
 * Components

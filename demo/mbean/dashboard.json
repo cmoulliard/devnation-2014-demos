@@ -11,8 +11,8 @@
             "col": 1,
             "size_x": 4,
             "size_y": 2,
-            "path": "social/chart",
-            "include": "social/app/html/areachart.html",
+            "path": "/social/chart",
+            "include": "/social/app/html/areachart.html",
             "search": {
                 "nid": "root-hawtio-SocialMedia"
             },
