@@ -186,8 +186,8 @@ a|
 // *********************************
 == Social Media Hype - con't
 
-Why +++&nbsp;<i class="fa fa-question"></i>&nbsp;+++ __To create content that attracts attention &
-encourages readers to share it with their social networks__
+Why +++&nbsp;<i class="fa fa-question"></i>&nbsp;+++ To create content that **attracts** attention &
+encourages readers to **share** it with their social networks
 
 image::web2/Social-Media.jpg[width="400",height="300",float="left"]
 image::web2/social-solutions.jpg[width="400",height="300",float="right"]
@@ -221,9 +221,15 @@ image::fuse/websocket.png[550,550,float="right"]
 == Use cases covered - con't
 
 * **Pattern** : Collect Data Metrics
+
+[.newline]
 * **Definition** : Retrieve data from Social Media and store them in order to query the data to
 analyze the results
+
+[.newline]
 * **Business** : Measure performances of a campaign, product launch, return of investment
+
+image::web2/google_analyt.jpeg[300,300,float="right"]
 
 // *********************************
 == Use cases covered - con't
@@ -239,7 +245,11 @@ image::fuse/elasticsearch.png[]
 == Use cases covered - con't
 
 * **Pattern** : Business Activity Monitoring
+
+[.newline]
 * **Definition** : Monitor business activities using reporting, dashboard tools.
+
+[.newline]
 * **Business** : Measure performances of a campaign, product launch, return of investment
 , analyze the data
 
@@ -516,10 +526,9 @@ a| * Websocket revealed +
 // *********************************
 == Technology - con't
 
-* One common denominator +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ OAuth
-image:web2/oauth-2.png[75,75]
-
 **O**pen standard for **Auth**orization
+
+* OAuth image:web2/oauth-2.png[75,75]
 
 image::web2/oauth.gif[width="40%",height="40%",float="center"]
 
@@ -665,6 +674,30 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
   	isFavorited = getBoolean("favorited", json);
 ----
 
+// *********************************
+== Technology - con't
+
+[cols="30,35,35"]
+|===
+.3+| Routing engine Camel & EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
+a| Aggregator
+
+image::eip/aggregator.png[150,150]
+
+Splitter
+
+image::eip/splitter.png[150,150] |
+
+Transform
+
+image:eip/transform.png[150,150]
+
+Multicast
+
+image:eip/multicast.png[150,150] |
+|===
+
+
 // ******What Fuse can offer ********
 == Agenda
 
@@ -673,34 +706,9 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
 ** Social Media Hype
 ** Camel & Integration
 
+* Technology
 * *What Fuse can offer*
 * Demo & Conclusion
-
-// *********************************
-== What Fuse can offer
-
-|===
-| Routing engine Camel & EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ | Aggregator
-image:eip/aggregator.png[]
-
-Splitter
-
-image:eip/splitter.png[] |
-|===
-
-// *********************************
-== What Fuse can offer - con't
-
-image::camel/camel-family.jpg[250,250,float="right"]
-
-Transform
-
-image::eip/transform.png[]
-
-Multicast
-
-image::eip/multicast.png[]
-
 
 // *********************************
 == What Fuse can offer
@@ -770,6 +778,15 @@ a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ 
 
 // *********************************
 == Demo & Conclusion
+
+* Fuse Technology ready +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ design **Social Media** Projects
+
+[.newline]
+* To **cover** +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
+** Real time,
+** Analytics,
+** BAM
+*use cases
 
 // *********************************
 == Questions
