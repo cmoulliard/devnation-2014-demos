@@ -234,16 +234,6 @@ image::web2/google_analyt.jpeg[300,300,float="right"]
 // *********************************
 == Use cases covered - con't
 
-image::fuse/trends.png[]
-
-// *********************************
-== Use cases covered - con't
-
-image::fuse/elasticsearch.png[]
-
-// *********************************
-== Use cases covered - con't
-
 * **Pattern** : Business Activity Monitoring
 
 [.newline]
@@ -256,17 +246,12 @@ image::fuse/elasticsearch.png[]
 // *********************************
 == Use cases covered - con't
 
-image::fuse/dashboard-trends.png[]
+image::fuse/trends.png[]
 
 // *********************************
 == Use cases covered - con't
 
-image::fuse/plugin-user.png[]
-
-// *********************************
-== Use cases covered - con't
-
-image::fuse/plugin-query.png[]
+image::fuse/elasticsearch.png[]
 
 // ********** INTEGRATION ********
 == Agenda
@@ -758,6 +743,52 @@ image:fuse/jolokia.png[150,150]
 // *********************************
 == What Fuse can offer - con't
 
+* Extend Hawtio Dashboard
+
+image::fuse/dashboard-trends.png[]
+
+// *********************************
+== What Fuse can offer - con't
+
+* Declare Interface
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/SocialMediaMBean.java[tag=snippetInterface]
+----
+
+// *********************************
+== What Fuse can offer - con't
+
+* Service Implementation
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/SocialMedia.java[tag=snippetService]
+----
+
+// *********************************
+== What Fuse can offer - con't
+
+[cols="60,40"]
+|===
+a| * Front end (AngularJS, Javascript) |
+image:web2/angularjs.jpeg[80,80,float="right"]
+|===
+
+[source, java]
+----
+include::{resourcesdir}/socialPlugin.js[tag=snippetController]
+----
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/plugin-query.png[]
+
+// *********************************
+== What Fuse can offer - con't
+
 |===
 | image:fuse/elasticsearch1.png[]
 image:fuse/lucene_logo.png[]
@@ -765,6 +796,32 @@ image:fuse/nosql.jpeg[]
 a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ Insight Technology
 * Collect Logs, Camel metrics ...
 |===
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/elasticsearch2.png[400,600]
+
+// *********************************
+== What Fuse can offer - con't
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/StoreService.java[tag=snippetService]
+----
+
+// *********************************
+== What Fuse can offer - con't
+
+[source,xml]
+----
+include::{resourcesdir}/OSGI-INF/blueprint/blueprint.xml[]
+----
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/eshead.png[]
 
 // ******** Demo & Conclusion ********
 == Agenda

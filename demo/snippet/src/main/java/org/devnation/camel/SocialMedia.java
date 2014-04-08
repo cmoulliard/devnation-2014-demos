@@ -1,8 +1,7 @@
-package org.devnation.demo.service;
+package org.devnation.camel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import twitter4j.Status;
 import twitter4j.TwitterException;
 
 import javax.management.InstanceAlreadyExistsException;
@@ -41,8 +40,9 @@ public class SocialMedia implements SocialMediaMBean {
         return twitterService.userInfo(id);
     }
 
+    // tag::snippetService[]
     public List<String> searchTweets(String keywords) throws TwitterException {
-       return twitterService.searchTweets(keywords);
+        return twitterService.searchTweets(keywords);
     }
 
     public void init() {
@@ -66,6 +66,7 @@ public class SocialMedia implements SocialMediaMBean {
             throw new RuntimeException(e);
         }
     }
+    // end::snippetService[]
 
     public void destroy() {
         try {

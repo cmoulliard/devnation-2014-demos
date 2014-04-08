@@ -29,6 +29,17 @@
             <artifactId>json</artifactId>
             <version>20090211</version>
         </dependency>
+        <dependency>
+            <groupId>org.fusesource.insight</groupId>
+            <artifactId>insight-storage</artifactId>
+            <version>1.0.0.redhat-375</version>
+        </dependency>
+        <!-- Twitter4J -->
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>${twitter4j.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
