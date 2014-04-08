@@ -41,10 +41,10 @@ Architect, Engineer & Committer
 ** 19 years of experience in IT world development
 ** Project manager in Bank, Financial, Telco world
 * Specialized in new technologies Web & Integration
-* Architect/Engineer @Red Hat
+* **Architect/Engineer** @Red Hat
 
 [.newline]
-* Committer : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Hawtio, Asciidoctor
+* **Committer** : Apache ServiceMix, Karaf (PMC), Camel (PMC), Fabric8, Drools, Hawtio, Asciidoctor
 
 image::camel/my-camel.jpg[180,180,float="right"]
 
@@ -98,12 +98,12 @@ image::bande-dessinee.jpeg[float="left"]
 
 * Introduction
 
-** Camel & Integration
 ** Social Media Hype
-** What Fuse can offer
 ** Use cases covered
+** Camel & Integration
 
 * Technology
+* What Fuse can offer
 * Demo & Conclusion
 
 // ************ INTRODUCTION ************
@@ -111,262 +111,77 @@ image::bande-dessinee.jpeg[float="left"]
 
 * *Introduction*
 
-** Camel & Integration
 ** Social Media Hype
-** What Fuse can offer
 ** Use cases covered
+** Camel & Integration
 
 * Technology
+* What Fuse can offer
 * Demo & Conclusion
 
 // *********************************
 == Introduction
 
+[cols="40,60"]
 |===
-| .2+|image:integration/hub.jpeg[width="95%",float="right"]
-a| * Integration is +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really hard
-
-[.newline]
-* +++&nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;+++ protocols, standards, data formats, systems
-
-[.newline]
-* Long story since **C**ommon **O**bject **R**equest **B**roker **A**rchitecture
+| .2+| image:web2/concept.jpg[500,400,float="right"]
+a| * Web 2.0 “Revolution”
+** HTTPs requests image:web2/increase.png[350,350]
+** Volume of data exchanged between *Social Medias*
+** User becomes actor *collaborating* |
 |===
 
 // *********************************
 == Introduction - con't
 
+[cols="60,40"]
 |===
-| .2+| image:integration/producer-consumer.png[]
-a| * Concepts
-** +++<i class="fa fa-arrow-right"></i>+++ Decouple Producer from Consumer
-+
-** +++<i class="fa fa-arrow-right"></i>+++ Message transport information |
-|===
+| .2+| image:web2/html5.png[150, 150, float="right"]
+image:web2/ajax1.png[150, 150, float="right"]
+image:web2/ajax2.png[150, 150, float="right"]
 
-
-// *********************************
-== Introduction
-
-|===
-| .2+| image:integration/bus.png[width="95%",float="right"]
-a|
-[.newline]
-* +++&nbsp;<i class="fa fa-wrench"></i>&nbsp;+++ Layer to transport messages : BUS
-
-[.newline]
-* +++&nbsp;<i class="fa fa fa-cog fa-spin"></i>&nbsp;+++  ESB, JBI, SCA
-
-image::integration/jbi.jpeg[width="95%",float="right"] |
+a| * Technology Transformation
+** HTML5
+** JavaScript / JSon / NoSQL
+** Ajax - WebSocket |
 |===
 
-// ********** CAMEL ********
-== Agenda
+image::web2/ajax.png[350, 350, float="left"]
+image::websocket.png[270, 270, float="left"]
+image::web2/nosql.jpeg[220, 220, float="left"]
 
-* Introduction
-
-** *Camel & Integration*
-** Social Media Hype
-** What Fuse can offer
-** Use cases covered
-
-* Technology
-* Demo & Conclusion
-
-// *********************************
-== Camel & Integration
-
-image::camel/camel-box-small.png[width="100%",float="right"]
-
-* OpenSource Java **Integration** Framework
-
-[.newline]
-* Based on **D**omain **S**pecific **L**anguage
-
-[.newline]
-* Implement **E**nterprise **I**ntegration **P**atterns
-
-image::eip/book.jpg[width="45%",float="right"]
-
-// *********************************
-//[data-background="white"]
-== Camel & Integration - con't
-
-* http://camel.apache.org/enterprise-integration-patterns.html[> 50 patterns] implemented
-* and more : Loadbalancer, throttler, ...
-
-image::eip/patterns.png[width="100%",float="left"]
-
-image::eip/patterns-3.jpg[width="120%",float="left"]
-
-// *********************************
-== Camel & Integration - con't
-
-[cols="35,65"]
-|===
-| .2+|image:camel/factory.png[]
-a| * Key features
-** Component
-** Endpoint
-** Consumer
-** Producer|
-|===
-
-// *********************************
-== Camel & Integration - con't
-
-* Key features : route, processor
-
-image:camel/pipeline.png[]
-
-// *********************************
-== Camel & Integration - con't
-
-* interceptor : trace, log, capture business events
-
-[.newline]
-image:camel/pipeline2.png[]
-
-// *********************************
-== Camel & Integration - con't
-
-[cols="45,65"]
-|===
-| .2+|image:camel/camel-features.png[]
-a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ CamelContext |
-|===
-
-// *********************************
-== Camel & Integration - con't
-
-[cols="45,65"]
-|===
-| .2+|image:camel/camel-features2.png[]
-a| * Cross communications not allowed |
-|===
-
-// *********************************
-== Camel & Integration - con't
-
-[cols="45,65"]
-|===
-| .2+|image:camel/camel-features3.png[]
-a| * Using BUS, Broker, Shared Component |
-|===
-
-
-// *********************************
-== Camel & Integration - con't
-
-[cols="65,35"]
-|===
-| .2+|image:camel/type-converter.png[]
-a|* Type Converter Strategy
-* Allow to convert the body payloads from one type to another
-* To and From these types
-** File
-** String
-** byte[] and ByteBuffer
-** InputStream and OutputStream
-** Reader and Writer|
-|===
-
-// *********************************
-== Camel & Integration - con't
-
-* Data Transformation for complex use case
-
-[source, java]
-----
-include::{sourcesdir}/org/devnation/camel/DataFormat.java[]
-----
-
-* Marshalling : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
-* Unmarshalling : XML +++<i class="fa fa-arrow-right"></i>+++ Object (JAXB)
-
-// *********************************
-== Camel & Integration - con't
-
-* http://camel.apache.org/dataformat.html[> 20 Data Format]
-
-image::camel/dataformat-2.png[]
-
-
-// *********************************
-== Camel & Integration - con't
-
-image::camel/inonly.png[width="65%"]
-
-// *********************************
-== Camel & Integration - con't
-
-image::camel/inout.png[width="75%"]
-
-// *********************************
-== Camel & Integration - con't
-
-* Fluent API
-
-[source,java]
-----
-include::{sourcesdir}/org/devnation/camel/ExampleRouteBuilder.java[]
-----
-
-// *********************************
-== Camel & Integration - con't
-
-* Alternative : Spring, Blueprint DSL
-
-[source,xml]
-----
-include::{resourcesdir}/META-INF/org/devnation/camel/example.xml[]
-----
-
-// *********************************
-== Camel & Integration - con't
-
-* In memory bus / alternative to JBI, SCA, NMR
-* Transport objects : XML, File, Stream, Bytes
-* Predicate & Expression language (xslt, xpath, ...)
-* Sync/Async exchanges
-* Threads Management,
-* Tx Architecture
-* Error and exception handling
-* Policy driven
-* Container agnostic
-
-// *********************************
-== http://camel.apache.org/components.html[Camel & Integration - con't]
-
-image::camel/components.png[width="85%"]
 
 // ******** Social Media Hype  ********
 == Agenda
 
 * Introduction
 
-** Camel & Integration
 ** *Social Media Hype*
-** What Fuse can offer
 ** Use cases covered
+** Camel & Integration
 
 * Technology
+* What Fuse can offer
 * Demo & Conclusion
 
 // *********************************
 == Social Media Hype
 
+[cols="60,40"]
+|===
+| .2+| image:web2/Social-network.png[width="180",height="180", float="left"]
+       image:web2/ilike.jpeg[width="180",height="180",float="left"]
+       image:web2/Social-Media-Marketing.jpg[width="180",height="180",float="left"]
+
+a|
 * Business
 ** Marketing,
 ** Product Promotion
 ** Launch Campaign
 ** Seeking candidates
 
-* Use Social Medias
-
-image::web2/Social-network.png[width="250",height="250", float="left"]
-image::web2/ilike.jpeg[width="250",height="250",float="left"]
-image::web2/Social-Media-Marketing.jpg[width="250",height="250",float="left"]
+* Use Social Medias |
+|===
 
 // *********************************
 == Social Media Hype - con't
@@ -377,125 +192,17 @@ encourages readers to share it with their social networks__
 image::web2/Social-Media.jpg[width="400",height="300",float="left"]
 image::web2/social-solutions.jpg[width="400",height="300",float="right"]
 
-// *********************************
-== Social Media Hype
-
-[cols="40,60"]
-|===
-| .2+| image:web2/concept.jpg[300,300,float="right"]
-a| * Web 2.0 “Revolution”
-** HTTPs requests image:web2/increase.png[150,150]
-** Volume of data exchanged between *Social Medias*
-** User becomes actor *collaborating* |
-|===
-
-// *********************************
-== Social Media Hype - con't
-
-[cols="60,40"]
-|===
-| .2+| image:web2/html5.png[150, 150, float="right"]
-image:web2/ajax1.png[150, 150, float="right"]
-image:web2/ajax2.png[150, 150, float="right"]
-
-a| * Technology Transformation
-** HTML5
-** JavaScript
-** Ajax - WebSocket |
-|===
-
-image::web2/ajax.png[350, 350, float="left"]
-image::websocket.png[270, 270, float="left"]
-
-// ******** What Fuse can offer ********
-== Agenda
-
-* Introduction
-
-** Camel & Integration
-** Social Media Hype
-** *What Fuse can offer*
-** Use cases covered
-
-* Technology
-* Demo & Conclusion
-
-// *********************************
-== What Fuse can offer
-
-image::social-components.png[width="75%",height="75%"]
-
-combined with
-
-* camel-gmail
-* camel-dropbox
-* camel-xxx
-
-// *********************************
-== What Fuse can offer - con't
-
-|===
-| and EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ | Aggregator
-image:eip/aggregator.png[]
-
-Splitter
-
-image:eip/splitter.png[] |
-|===
-
-// *********************************
-== What Fuse can offer - con't
-
-image::camel/camel-family.jpg[250,250,float="right"]
-
-Transform
-
-image::eip/transform.png[]
-
-Multicast
-
-image::eip/multicast.png[]
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/basics-1.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/basics-2.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/advances-1.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
-
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/advances-2.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
-
 // ******** Use cases covered ********
 == Agenda
 
 * Introduction
 
-** Camel & Integration
 ** Social Media Hype
-** What Fuse can offer
 ** *Use cases covered*
+** Camel & Integration
 
 * Technology
+* What Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -551,17 +258,237 @@ image::fuse/plugin-user.png[]
 
 image::fuse/plugin-query.png[]
 
+// ********** INTEGRATION ********
+== Agenda
+
+* Introduction
+
+** Social Media Hype
+** Use cases covered
+** *Camel & Integration*
+
+* Technology
+* What Fuse can offer
+* Demo & Conclusion
+
+// *********************************
+== Integration
+
+|===
+| .2+|image:integration/hub.jpeg[width="95%",float="right"]
+a| * Integration is +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really hard
+
+[.newline]
+* +++&nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;+++ protocols, standards, data formats, systems
+
+[.newline]
+* Long story since **C**ommon **O**bject **R**equest **B**roker **A**rchitecture
+|===
+
+// *********************************
+== Integration - con't
+
+|===
+| .2+| image:integration/producer-consumer.png[]
+a| * Concepts
+** +++<i class="fa fa-arrow-right"></i>+++ Decouple Producer from Consumer
++
+** +++<i class="fa fa-arrow-right"></i>+++ Message transport information |
+|===
+
+// *********************************
+== Integration - con't
+
+|===
+| .2+| image:integration/bus.png[width="95%",float="right"]
+a|
+[.newline]
+* +++&nbsp;<i class="fa fa-wrench"></i>&nbsp;+++ Layer to transport messages : BUS
+
+[.newline]
+* +++&nbsp;<i class="fa fa fa-cog fa-spin"></i>&nbsp;+++  ESB, JBI, SCA
+
+image::integration/jbi.jpeg[width="95%",float="right"] |
+|===
+
+// *********************************
+== Integration - con't
+
+image::camel/camel-box-small.png[width="100%",float="right"]
+
+* OpenSource Java **Integration** Framework
+
+[.newline]
+* Based on **D**omain **S**pecific **L**anguage
+
+[.newline]
+* Implement **E**nterprise **I**ntegration **P**atterns
+
+image::eip/book.jpg[width="45%",float="right"]
+
+// *********************************
+//[data-background="white"]
+== Camel
+
+* http://camel.apache.org/enterprise-integration-patterns.html[> 50 patterns] implemented
+* and more : Loadbalancer, throttler, ...
+
+image::eip/patterns.png[width="100%",float="left"]
+
+image::eip/patterns-3.jpg[width="120%",float="left"]
+
+// *********************************
+== Camel - con't
+
+[cols="35,65"]
+|===
+| .2+|image:camel/factory.png[]
+a| * Key features
+** Component
+** Endpoint
+** Consumer
+** Producer|
+|===
+
+// *********************************
+== Camel - con't
+
+* Key features : route, processor
+
+image:camel/pipeline.png[]
+
+// *********************************
+== Camel - con't
+
+* interceptor : trace, log, capture business events
+
+[.newline]
+image:camel/pipeline2.png[]
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features.png[]
+a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ CamelContext |
+|===
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features2.png[]
+a| * Cross communications not allowed |
+|===
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features3.png[]
+a| * Using BUS, Broker, Shared Component |
+|===
+
+
+// *********************************
+== Camel - con't
+
+[cols="65,35"]
+|===
+| .2+|image:camel/type-converter.png[]
+a|* Type Converter Strategy
+* Allow to convert the body payloads from one type to another
+* To and From these types
+** File
+** String
+** byte[] and ByteBuffer
+** InputStream and OutputStream
+** Reader and Writer|
+|===
+
+// *********************************
+== Camel - con't
+
+* Data Transformation for complex use case
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/DataFormat.java[]
+----
+
+* Marshalling : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
+* Unmarshalling : XML +++<i class="fa fa-arrow-right"></i>+++ Object (JAXB)
+
+// *********************************
+== Camel - con't
+
+* http://camel.apache.org/dataformat.html[> 20 Data Format]
+
+image::camel/dataformat-2.png[]
+
+
+// *********************************
+== Camel - con't
+
+image::camel/inonly.png[width="65%"]
+
+// *********************************
+== Camel - con't
+
+image::camel/inout.png[width="75%"]
+
+// *********************************
+== Camel - con't
+
+* Fluent API
+
+[source,java]
+----
+include::{sourcesdir}/org/devnation/camel/ExampleRouteBuilder.java[]
+----
+
+// *********************************
+== Camel - con't
+
+* Alternative : Spring, Blueprint DSL
+
+[source,xml]
+----
+include::{resourcesdir}/META-INF/org/devnation/camel/example.xml[]
+----
+
+// *********************************
+== Camel - con't
+
+* In memory bus / alternative to JBI, SCA, NMR
+* Transport objects : XML, File, Stream, Bytes
+* Predicate & Expression language (xslt, xpath, ...)
+* Sync/Async exchanges
+* Threads Management,
+* Tx Architecture
+* Error and exception handling
+* Policy driven
+* Container agnostic
+
+// *********************************
+== http://camel.apache.org/components.html[Camel - con't]
+
+image::camel/components.png[width="85%"]
+
 // ******* ********
 == Agenda
 
 * Introduction
 
-** Camel & Integration
 ** Social Media Hype
-** What Fuse can offer
 ** Use cases covered
+** Camel & Integration
 
 * *Technology*
+* What Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -581,6 +508,12 @@ a| * Websocket revealed +
 |===
 
 // *********************************
+== Technology -con't
+
+* Integrated into broker - ActiveMQ &
+  Apache Camel Websocket
+
+// *********************************
 == Technology - con't
 
 * One common denominator +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ OAuth
@@ -593,29 +526,13 @@ image::web2/oauth.gif[width="40%",height="40%",float="center"]
 // *********************************
 == Technology - con't
 
-image:fuse/hawtio-logo.png[80,80] Hawtio
+image::social-components.png[width="75%",height="75%"]
 
-* Lightweight & modular HTML5 web console with **plugins** for managing Java MBeans
-* Javascript / REST front end +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ jolokia JMX translator
+combined with
 
-image:web2/html5.jpeg[100,100] +++&nbsp;<i class="fa fa-plus-square-o"></i>&nbsp;+++
-image:web2/javascript.jpeg[100,100] +++&nbsp;<i class="fa fa-plus-square-o"></i>&nbsp;+++
-image:fuse/jolokia.png[150,150]
-
-* Heart of the **n**ew Fuse Management Console
-
-
-// *********************************
-== Technology - con't
-
-|===
-image:fuse/elasticsearch1.png[]
-image:fuse/lucene_logo.png[]
-image:fuse/nosql.jpeg[] a| 
-* Kibana & ElasticSearch = Insight Technology
-* Collect Logs, Camel metrics ... |
-|===
-
+* camel-gmail
+* camel-dropbox
+* camel-xxx
 
 // *********************************
 == Technology - con't
@@ -748,17 +665,107 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
   	isFavorited = getBoolean("favorited", json);
 ----
 
+// ******What Fuse can offer ********
+== Agenda
+
+* Introduction
+
+** Social Media Hype
+** Camel & Integration
+
+* *What Fuse can offer*
+* Demo & Conclusion
+
+// *********************************
+== What Fuse can offer
+
+|===
+| Routing engine Camel & EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ | Aggregator
+image:eip/aggregator.png[]
+
+Splitter
+
+image:eip/splitter.png[] |
+|===
+
+// *********************************
+== What Fuse can offer - con't
+
+image::camel/camel-family.jpg[250,250,float="right"]
+
+Transform
+
+image::eip/transform.png[]
+
+Multicast
+
+image::eip/multicast.png[]
+
+
+// *********************************
+== What Fuse can offer
+
+image::fuse/basics-1.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/basics-2.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/advances-1.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer - con't
+
+image::fuse/advances-2.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== What Fuse can offer
+
+image:fuse/hawtio-logo.png[80,80] Hawtio
+
+* Lightweight & modular HTML5 web console with **plugins** for managing Java MBeans
+* Javascript / REST front end +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ jolokia JMX translator
+
+image:web2/html5.jpeg[100,100] +++&nbsp;<i class="fa fa-plus"></i>&nbsp;+++
+image:web2/javascript.jpeg[100,100] +++&nbsp;<i class="fa fa-plus"></i>&nbsp;+++
+image:fuse/jolokia.png[150,150]
+
+* Heart of the **n**ew Fuse Management Console
+
+// *********************************
+== What Fuse can offer - con't
+
+|===
+| image:fuse/elasticsearch1.png[]
+image:fuse/lucene_logo.png[]
+image:fuse/nosql.jpeg[]
+a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ Insight Technology
+* Collect Logs, Camel metrics ...
+|===
+
 // ******** Demo & Conclusion ********
 == Agenda
 
 * Introduction
 
-** Camel & Integration
 ** Social Media Hype
-** What Fuse can offer
+** Camel & Integration
 ** Use cases covered
 
 * Technology
+* What Fuse can offer
 * *Demo & Conclusion*
 
 // *********************************
