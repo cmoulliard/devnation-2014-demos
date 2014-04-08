@@ -593,6 +593,33 @@ image::web2/oauth.gif[width="40%",height="40%",float="center"]
 // *********************************
 == Technology - con't
 
+image:fuse/hawtio-logo.png[80,80] Hawtio
+
+* Lightweight & modular HTML5 web console with **plugins** for managing Java MBeans
+* Javascript / REST front end +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ jolokia JMX translator
+
+image:web2/html5.jpeg[100,100] +++&nbsp;<i class="fa fa-plus-square-o"></i>&nbsp;+++
+image:web2/javascript.jpeg[100,100] +++&nbsp;<i class="fa fa-plus-square-o"></i>&nbsp;+++
+image:fuse/jolokia.png[150,150]
+
+* Heart of the **n**ew Fuse Management Console
+
+
+// *********************************
+== Technology - con't
+
+|===
+image:fuse/elasticsearch1.png[]
+image:fuse/lucene_logo.png[]
+image:fuse/nosql.jpeg[] a| 
+* Kibana & ElasticSearch = Insight Technology
+* Collect Logs, Camel metrics ... |
+|===
+
+
+// *********************************
+== Technology - con't
+
 * Component : FaceBook
 
 - Info : http://camel.apache.org/facebook.html
