@@ -147,7 +147,7 @@ a| * Technology Transformation
 |===
 
 image::web2/ajax.png[350, 350, float="left"]
-image::websocket.png[270, 270, float="left"]
+image::web2/websocket.png[270, 270, float="left"]
 image::web2/nosql.jpeg[220, 220, float="left"]
 
 
@@ -505,7 +505,7 @@ image::camel/components.png[width="85%"]
 == Technology
 
 |===
-| .2+|image:websocket.png[width="55%"]
+| .2+|image:web2/websocket.png[width="55%"]
 a| * Websocket revealed +
 ** Full-duplex single +
    socket connection
@@ -523,12 +523,15 @@ a| * Websocket revealed +
 * Integrated into broker - ActiveMQ &
   Apache Camel Websocket
 
+[.center]
+image::fuse/camel-websocket.png[650,650]
+
 // *********************************
 == Technology - con't
 
 **O**pen standard for **Auth**orization
 
-* OAuth image:web2/oauth-2.png[75,75]
+OAuth image:web2/oauth-2.png[75,75]
 
 image::web2/oauth.gif[width="40%",height="40%",float="center"]
 
@@ -782,11 +785,11 @@ a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ 
 * Fuse Technology ready +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ design **Social Media** Projects
 
 [.newline]
-* To **cover** +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
+* To **cover** use cases +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
 ** Real time,
 ** Analytics,
 ** BAM
-*use cases
+** ...
 
 // *********************************
 == Questions
