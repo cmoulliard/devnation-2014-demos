@@ -1,5 +1,6 @@
 package org.devnation.camel;
 
+import org.devnation.camel.TwitterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import twitter4j.TwitterException;
@@ -36,13 +37,14 @@ public class SocialMedia implements SocialMediaMBean {
         return this.counter;
     }
 
+    @Override
     public String userInfo(String id) throws TwitterException {
-        return twitterService.userInfo(id);
+        return null;
     }
 
     // tag::snippetService[]
     public List<String> searchTweets(String keywords) throws TwitterException {
-        return twitterService.searchTweets(keywords);
+        return twitterService.searchTweets(keywords); 
     }
 
     public void init() {
