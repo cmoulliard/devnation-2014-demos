@@ -25,7 +25,7 @@ part of that technology : http://camel.apache.org[Apache Camel], http://www.elas
 - http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK 6 or 7]
 - http://maven.apache.org/download.cgi[Apache Maven 3.0.5 - Software Project Management Tool]
 - http://git-scm.com/downloads[Git - Source Code Manager]
-- https://repository.jboss.org/nexus/content/repositories/ea/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-376/[JBoss Fuse 6.1]
+- https://repository.jboss.org/nexus/content/repositories/ea/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-378/[JBoss Fuse 6.1]
 
 == Installation
 
@@ -48,13 +48,13 @@ The code of the project must be downloaded and installed locally on your machine
 When we have compiled the project and deployed the artifacts into our local maven repository, we will install `JBoss Fuse 6.1.x` and
   configure it
 
-- Unzip the file downloaded `jboss-fuse-full-6.1.0.redhat-376.zip`
+- Unzip the file downloaded `jboss-fuse-full-6.1.0.redhat-378.zip`
 
-WARNING: The last digit number *376* of the JBoss Fuse release distribution file will change when the GA release of JBoss Fuse 6.1 will be officially announced.
+WARNING: The last digit number *378* of the JBoss Fuse release distribution file will change when the GA release of JBoss Fuse 6.1 will be officially announced.
 
-- Move to the directory created `jboss-fuse-6.1.0.redhat-376`
+- Move to the directory created `jboss-fuse-6.1.0.redhat-378`
 
-  cd jboss-fuse-6.1.0.redhat-376
+  cd jboss-fuse-6.1.0.redhat-378
 
 In order to allow the web clients to access to the `Fuse Management Console`, it is required to uncomment the line where the user `admin` is defined into
 the file `users.properties`
