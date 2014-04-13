@@ -15,7 +15,7 @@
 :project_dir: /Users/chmoulli/MyProjects/conferences/devnation-2014
 :resourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/resources
 // Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
-:revealjs_theme: my-moon
+:revealjs_theme: conference
 :revealjs_vertical_alignment: false
 :revealjs_history: true
 :sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/java/
@@ -213,7 +213,7 @@ image::web2/social-solutions.jpg[width="400",height="300",float="right"]
 * **Definition** : Collect data in real time from different providers (twitter, facebook, ...)
  and broadcast/multicast data to subscribed channels
 
-* **Business** : event, conference, meeting room
+* **Business** : Event, conference, meeting room
 
 image::fuse/websocket.png[550,550,float="right"]
 
@@ -227,7 +227,7 @@ image::fuse/websocket.png[550,550,float="right"]
 analyze the results
 
 [.newline]
-* **Business** : Measure performances of a campaign, product launch, return of investment
+* **Business** : Measure performances of a campaign, product launch, analyze data to design marketing strategies
 
 image::web2/google_analyt.jpeg[300,300,float="right"]
 
@@ -237,21 +237,12 @@ image::web2/google_analyt.jpeg[300,300,float="right"]
 * **Pattern** : Business Activity Monitoring
 
 [.newline]
-* **Definition** : Monitor business activities using reporting, dashboard tools.
+* **Definition** : Monitor activities, operational days using reporting, dashboard tools.
 
 [.newline]
-* **Business** : Measure performances of a campaign, product launch, return of investment
-, analyze the data
+* **Business** : Measure performances, rentability, return of investment
 
-// *********************************
-== Use cases covered - con't
-
-image::fuse/trends.png[]
-
-// *********************************
-== Use cases covered - con't
-
-image::fuse/elasticsearch.png[]
+image::fuse/analyze-blog-content.jpg[float="right"]
 
 // ********** INTEGRATION ********
 == Agenda
@@ -285,7 +276,7 @@ a| * Integration is +++&nbsp;<i class="fa fa-ellipsis-h"></i>&nbsp;+++ really ha
 
 |===
 | .2+| image:integration/producer-consumer.png[]
-a| * Concepts
+a| * Concept
 ** +++<i class="fa fa-arrow-right"></i>+++ Decouple Producer from Consumer
 +
 ** +++<i class="fa fa-arrow-right"></i>+++ Message transport information |
@@ -326,7 +317,7 @@ image::eip/book.jpg[width="45%",float="right"]
 == Camel
 
 * http://camel.apache.org/enterprise-integration-patterns.html[> 50 patterns] implemented
-* and more : Loadbalancer, throttler, ...
+* and more : Loadbalancer, Throttler, Delayer, ...
 
 image::eip/patterns.png[width="100%",float="left"]
 
@@ -355,7 +346,7 @@ image:camel/pipeline.png[]
 // *********************************
 == Camel - con't
 
-* interceptor : trace, log, capture business events
+* Interceptor : trace, log, capture business events
 
 [.newline]
 image:camel/pipeline2.png[]
@@ -394,8 +385,8 @@ a| * Using BUS, Broker, Shared Component |
 [cols="65,35"]
 |===
 | .2+|image:camel/type-converter.png[]
-a|* Type Converter Strategy
-* Allow to convert the body payloads from one type to another
+a|* **Type Converter** Strategy
+* Allow to **convert** the body payloads from one type to another
 * To and From these types
 ** File
 ** String
@@ -407,15 +398,15 @@ a|* Type Converter Strategy
 // *********************************
 == Camel - con't
 
-* Data Transformation for complex use case
+* **Data Transformation** for complex use case
 
 [source, java]
 ----
 include::{sourcesdir}/org/devnation/camel/DataFormat.java[]
 ----
 
-* Marshalling : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
-* Unmarshalling : XML +++<i class="fa fa-arrow-right"></i>+++ Object (JAXB)
+* **Marshalling** : Object +++<i class="fa fa-arrow-right"></i>+++ XML (JAXB)
+* **Unmarshalling** : XML +++<i class="fa fa-arrow-right"></i>+++ Object (JAXB)
 
 // *********************************
 == Camel - con't

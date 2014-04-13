@@ -1,0 +1,13 @@
+hyla generate --backend revealjs -s . -d generated -r adoc2html
+
+NOT USED
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/elasticsearch.png[]
+
+// *********************************
+== Use cases covered - con't
+
+image::fuse/trends.png[]
