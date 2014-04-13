@@ -1,9 +1,0 @@
-
-
-addurl mvn:io.hawt/hawtio-karaf/1.3-SNAPSHOT/xml/features
-addurl mvn:org.apache.camel.karaf/apache-camel/2.12.0.redhat-610366/xml/features
-features:install hawtio
-features:install camel
-features:install camel-blueprint
-install -s mvn:org.devnation.demo/plugin/1.0-SNAPSHOT/war
-install -s mvn:org.devnation.demo/mbean/1.0-SNAPSHOT

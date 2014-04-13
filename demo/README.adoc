@@ -1,9 +1,10 @@
 rm -rf ../instances/
-rm -rf ../data
+rm -rf ../data/elastic
+rm -rf ../data/zookeeper
 ./karaf clean
 
 ***** console *****
-fabric:create --clean
+fabric:create --clean -m 127.0.0.1 -r localhostname
 
 *** Maven project ****
 mvn fabric8:deploy -Dfabric8.upload=false

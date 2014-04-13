@@ -90,31 +90,16 @@ image::bande-dessinee.jpeg[float="left"]
 
 |===
 | image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
-| image:nature.jpeg[] ] | image:formula1.jpeg[] |
+| image:nature.jpeg[] | image:formula1.jpeg[] |
 |===
-
-// *********** AGENDA ************
-== Agenda
-
-* Introduction
-
-** Social Media Hype
-** Use cases covered
-** Camel & Integration
-
-* Technology
-* What Fuse can offer
-* Demo & Conclusion
 
 // ************ INTRODUCTION ************
 == Agenda
 
 * *Introduction*
-
-** Social Media Hype
-** Use cases covered
-** Camel & Integration
-
+* Social Media Hype
+* Use cases covered
+* Integration & Camel
 * Technology
 * What Fuse can offer
 * Demo & Conclusion
@@ -125,10 +110,10 @@ image::bande-dessinee.jpeg[float="left"]
 [cols="40,60"]
 |===
 | .2+| image:web2/concept.jpg[500,400,float="right"]
-a| * Web 2.0 “Revolution”
+a| * Web 2.0 “Revolution”, User is an actor *collaborating* 
+* Consequences :
 ** HTTPs requests image:web2/increase.png[350,350]
-** Volume of data exchanged between *Social Medias*
-** User becomes actor *collaborating* |
+** Volume of **data exchanged** |
 |===
 
 // *********************************
@@ -141,9 +126,9 @@ image:web2/ajax1.png[150, 150, float="right"]
 image:web2/ajax2.png[150, 150, float="right"]
 
 a| * Technology Transformation
-** HTML5
-** JavaScript / JSon / NoSQL
-** Ajax - WebSocket |
+** **HTML5**
+** **J**ava**S**cript / JSon / NoSQL
+** **Push** +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ Ajax - WebSocket |
 |===
 
 image::web2/ajax.png[350, 350, float="left"]
@@ -151,15 +136,13 @@ image::web2/websocket.png[270, 270, float="left"]
 image::web2/nosql.jpeg[220, 220, float="left"]
 
 
-// ******** Social Media Hype  ********
+// ****** Social Media Hype  ********
 == Agenda
 
 * Introduction
-
-** *Social Media Hype*
-** Use cases covered
-** Camel & Integration
-
+* *Social Media Hype*
+* Use cases covered
+* Integration & Camel
 * Technology
 * What Fuse can offer
 * Demo & Conclusion
@@ -174,19 +157,20 @@ image::web2/nosql.jpeg[220, 220, float="left"]
        image:web2/Social-Media-Marketing.jpg[width="180",height="180",float="left"]
 
 a|
-* Business
-** Marketing,
-** Product Promotion
-** Launch Campaign
+* **Business - Companies**
+** Marketing Strategy,
+** Product Promotion,
+** Launch or Campaign annoucement
 ** Seeking candidates
+** ...
 
-* Use Social Medias |
+* Use Web2.0 but specifically **Social Medias** |
 |===
 
 // *********************************
 == Social Media Hype - con't
 
-Why +++&nbsp;<i class="fa fa-question"></i>&nbsp;+++ To create content that **attracts** attention &
+**Why** +++&nbsp;<i class="fa fa-question"></i>&nbsp;+++ To create **content** that **attracts** attention &
 encourages readers to **share** it with their social networks
 
 image::web2/Social-Media.jpg[width="400",height="300",float="left"]
@@ -196,31 +180,31 @@ image::web2/social-solutions.jpg[width="400",height="300",float="right"]
 == Agenda
 
 * Introduction
-
-** Social Media Hype
-** *Use cases covered*
-** Camel & Integration
-
+* Social Media Hype
+* *Use cases covered*
+* Integration & Camel
 * Technology
 * What Fuse can offer
 * Demo & Conclusion
 
 // *********************************
-== Use cases covered
+== Use cases covered - demo1
 
 * **Pattern** : Real Time & Broadcasting
 
+[.newline]
 * **Definition** : Collect data in real time from different providers (twitter, facebook, ...)
  and broadcast/multicast data to subscribed channels
 
+[.newline]
 * **Business** : Event, conference, meeting room
 
 image::fuse/websocket.png[550,550,float="right"]
 
 // *********************************
-== Use cases covered - con't
+== Use cases covered - demo2
 
-* **Pattern** : Collect Data Metrics
+* **Pattern** : Collect Data Metrics/Statistics
 
 [.newline]
 * **Definition** : Retrieve data from Social Media and store them in order to query the data to
@@ -232,7 +216,7 @@ analyze the results
 image::web2/google_analyt.jpeg[300,300,float="right"]
 
 // *********************************
-== Use cases covered - con't
+== Use cases covered - demo3
 
 * **Pattern** : Business Activity Monitoring
 
@@ -248,11 +232,9 @@ image::fuse/analyze-blog-content.jpg[float="right"]
 == Agenda
 
 * Introduction
-
-** Social Media Hype
-** Use cases covered
-** *Camel & Integration*
-
+* Social Media Hype
+* Use cases covered
+* *Integration & Camel*
 * Technology
 * What Fuse can offer
 * Demo & Conclusion
@@ -305,7 +287,7 @@ image::camel/camel-box-small.png[width="100%",float="right"]
 * OpenSource Java **Integration** Framework
 
 [.newline]
-* Based on **D**omain **S**pecific **L**anguage
+* Designed around : **D**omain **S**pecific **L**anguage
 
 [.newline]
 * Implement **E**nterprise **I**ntegration **P**atterns
@@ -468,11 +450,9 @@ image::camel/components.png[width="85%"]
 == Agenda
 
 * Introduction
-
-** Social Media Hype
-** Use cases covered
-** Camel & Integration
-
+* Social Media Hype
+* Use cases covered
+* Integration & Camel
 * *Technology*
 * What Fuse can offer
 * Demo & Conclusion
@@ -482,22 +462,21 @@ image::camel/components.png[width="85%"]
 
 |===
 | .2+|image:web2/websocket.png[width="55%"]
-a| * **Websocket** revealed +
-** Full-duplex single +
+a| * **Websocket** +
+** **Full-duplex** single +
    socket connection
 ** HTTP request followed +
    by WebSocket data +
    Packets exchange +
-** ws:// and wss:// protocol +
-** Developed part of HTML5 initiative +
-** Specification rfc-6455 (Dec-2011) managed by IETF Task Force |
+** **ws://** and **wss://** protocol +
+** Part of HTML5 initiative +
+** Specification **rfc-6455** (Dec-2011) managed by IETF |
 |===
 
 // *********************************
 == Technology -con't
 
-* Integrated with ActiveMQ &
-  Apache Camel
+* Integrated within ActiveMQ & Camel
 
 [.center]
 image::fuse/camel-websocket.png[550,550]
@@ -558,7 +537,9 @@ include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
 // *********************************
 == Technology - con't
 
-- Example : To create a post within your Facebook profile
+Example :
+
+- To create a post within your Facebook profile
 
 - Send a facebook4j.PostUpdate body to a camel facebook producer
 
@@ -599,7 +580,8 @@ https://support.twitter.com/articles/71577-using-advanced-search
 // *********************************
 == Twitter - con't
 
-- Post a tweet
+[.newline]
+Simple Example to post a tweet
 
 [source, java]
 ----
@@ -661,19 +643,19 @@ BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
 [cols="30,35,35"]
 |===
 .3+| Routing engine Camel & EIP Patterns like +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
-a| Aggregator
+a| http://camel.apache.org/aggregator2.html[Aggregator]
 
 image::eip/aggregator.png[150,150]
 
-Splitter
+http://camel.apache.org/splitter.html[Splitter]
 
 image::eip/splitter.png[150,150] |
 
-Transform
+http://camel.apache.org/transform.html[Transform]
 
 image:eip/transform.png[150,150]
 
-Multicast
+http://camel.apache.org/multicast.html[Multicast]
 
 image:eip/multicast.png[150,150] |
 |===
@@ -683,10 +665,9 @@ image:eip/multicast.png[150,150] |
 == Agenda
 
 * Introduction
-
-** Social Media Hype
-** Camel & Integration
-
+* Social Media Hype
+* Use cases covered
+* Integration & Camel
 * Technology
 * *What Fuse can offer*
 * Demo & Conclusion
@@ -724,14 +705,14 @@ image::fuse/fuse.jpg[150,150,float="right"]
 
 image:fuse/hawtio-logo.png[80,80] Hawtio
 
-* Lightweight & modular HTML5 web console with **plugins** for managing Java MBeans
-* Javascript / REST front end +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ jolokia JMX translator
+* Lightweight & **modular** HTML5 **web console** with **plugins** for managing Java **MBeans**
+* Javascript / **REST** front end +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ **jolokia** JMX translator
 
 image:web2/html5.jpeg[100,100] +++&nbsp;<i class="fa fa-plus"></i>&nbsp;+++
 image:web2/javascript.jpeg[100,100] +++&nbsp;<i class="fa fa-plus"></i>&nbsp;+++
 image:fuse/jolokia.png[150,150]
 
-* Heart of the **n**ew Fuse Management Console
+* Heart of the **new** **F**use **M**anagement **C**onsole
 
 // *********************************
 == What Fuse can offer - con't
@@ -826,11 +807,9 @@ image::fuse/eshead.png[]
 == Agenda
 
 * Introduction
-
-** Social Media Hype
-** Camel & Integration
-** Use cases covered
-
+* Social Media Hype
+* Integration & Camel
+* Use cases covered
 * Technology
 * What Fuse can offer
 * *Demo & Conclusion*
