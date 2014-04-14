@@ -72,12 +72,22 @@ Oh hey, these are some notes. They'll be hidden in your presentation, but you ca
 |image:brussels.jpg[width="85%"]| image:brugge.jpg[width="85%",height="85%"] |
 |===
 
+// *********************************
 == What you should know about Belgium
 
 image::frits.jpeg[float="left"]
 image::chocolate.jpeg[float="left"]
 image::beers.jpeg[float="left"]
 image::bande-dessinee.jpeg[float="left"]
+
+// *********************************
+== My Passion(s)
+
+|===
+| image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
+| image:nature.jpeg[] | image:formula1.jpeg[] |
+|===
+
 
 // ************ INTRODUCTION ************
 == Agenda
@@ -87,7 +97,7 @@ image::bande-dessinee.jpeg[float="left"]
 * Use cases covered
 * Integration & Camel
 * Technology
-* What Fuse can offer
+* What JBoss Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -130,7 +140,7 @@ image::web2/nosql.jpeg[220, 220, float="left"]
 * Use cases covered
 * Integration & Camel
 * Technology
-* What Fuse can offer
+* What JBoss Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -150,7 +160,7 @@ a|
 ** Seeking candidates
 ** ...
 
-* Use Web2.0 but specifically **Social Medias** |
+* Use Web2.0 but **Social Medias** |
 |===
 
 // *********************************
@@ -170,7 +180,7 @@ image::web2/social-solutions.jpg[width="400",height="300",float="right"]
 * *Use cases covered*
 * Integration & Camel
 * Technology
-* What Fuse can offer
+* What JBoss Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -222,7 +232,7 @@ image::fuse/analyze-blog-content.jpg[float="right"]
 * Use cases covered
 * *Integration & Camel*
 * Technology
-* What Fuse can offer
+* What JBoss Fuse can offer
 * Demo & Conclusion
 
 // *********************************
@@ -422,37 +432,24 @@ image::camel/components.png[width="85%"]
 * Use cases covered
 * Integration & Camel
 * *Technology*
-* What Fuse can offer
+* What JBoss Fuse can offer
 * Demo & Conclusion
 
 // *********************************
-== Technology
+== Technology - Camel
 
-|===
-| .2+|image:web2/websocket.png[width="55%"]
-a| * **Websocket** +
-** **Full-duplex** single +
-   socket connection
-** HTTP request followed +
-   by WebSocket data +
-   Packets exchange +
-** **ws://** and **wss://** protocol +
-** Part of HTML5 initiative +
-** Specification **rfc-6455** (Dec-2011) managed by IETF |
-|===
+image::social-components.png[width="75%",height="75%"]
+
+combined with
+
+* camel-gmail
+* camel-dropbox
+* camel-ajax, camel-websocket,
+* camel-sql, camel-jdbc, ...
+* camel-elasticsearch
 
 // *********************************
-== Technology -con't
-
-* Integrated within ActiveMQ & Camel
-
-[.center]
-image::fuse/camel-websocket.png[550,550]
-
-* More info : http://goo.gl/14Ysbi[Develop Real Time HTML5 applications using WebSocket with Apache Camel & ActiveMQ - CamelOne 2012]
-
-// *********************************
-== Technology - con't
+== Technology - Common
 
 **O**pen standard for **Auth**orization
 
@@ -461,18 +458,7 @@ OAuth image:web2/oauth-2.png[75,75]
 image::web2/oauth.gif[width="40%",height="40%",float="center"]
 
 // *********************************
-== Technology - con't
-
-image::social-components.png[width="75%",height="75%"]
-
-combined with
-
-* camel-gmail
-* camel-dropbox
-* camel-xxx
-
-// *********************************
-== Technology - con't
+== Technology - Camel
 
 * Component : FaceBook
 
@@ -486,7 +472,7 @@ include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRoute]
 ----
 
 // *********************************
-== Technology - con't
+== Technology - Camel
 
 - OAuth
 
@@ -503,7 +489,21 @@ include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
 ----
 
 // *********************************
-== Technology - con't
+== Technology - Camel
+
+Example :
+
+- To create a post within your Facebook profile
+
+- Send a facebook4j.PostUpdate body to a camel facebook producer
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
+----
+
+// *********************************
+== Technology - Camel
 
 * Component Twitter
 
@@ -518,7 +518,7 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRoute]
 ----
 
 // *********************************
-== Technology - con't
+== Technology - Camel
 
 OAuth
 
@@ -532,7 +532,7 @@ Advanced Query
 https://support.twitter.com/articles/71577-using-advanced-search
 
 // *********************************
-== Twitter - con't
+== Technology - Camel
 
 [.newline]
 Simple Example to post a tweet
@@ -543,7 +543,7 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 ----
 
 // *********************************
-== Technology - con't
+== Technology - Camel
 
 - Object / JSON
 - Use utility like Google JSON API
@@ -551,7 +551,7 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 
 
 // *********************************
-== Technology - con't
+== Technology - Camel
 
 [cols="30,35,35"]
 |===
@@ -573,48 +573,103 @@ http://camel.apache.org/multicast.html[Multicast]
 image:eip/multicast.png[150,150] |
 |===
 
+// *********************************
+== Technology - Real Time
 
-// ******What Fuse can offer ********
-== Agenda
-
-* Introduction
-* Social Media Hype
-* Use cases covered
-* Integration & Camel
-* Technology
-* *What Fuse can offer*
-* Demo & Conclusion
+|===
+| .2+|image:web2/websocket.png[width="55%"]
+a| * **Websocket** +
+** **Full-duplex** single +
+   socket connection
+** HTTP request followed +
+   by WebSocket data +
+   Packets exchange +
+** **ws://** and **wss://** protocol +
+** Part of HTML5 initiative +
+** Specification **rfc-6455** (Dec-2011) managed by IETF |
+|===
 
 // *********************************
-== What Fuse can offer
+== Technology - Real Time
 
-image::fuse/basics-1.png[]
+* Integrated within ActiveMQ & Camel
 
-image::fuse/fuse.jpg[150,150,float="right"]
+[.center]
+image::fuse/camel-websocket.png[550,550]
 
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/basics-2.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
+* More info : http://goo.gl/14Ysbi[Develop Real Time HTML5 applications using WebSocket with Apache Camel & ActiveMQ - CamelOne 2012]
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Data Metrics
 
-image::fuse/advances-1.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/advances-2.png[]
-
-image::fuse/fuse.jpg[150,150,float="right"]
+|===
+| image:fuse/elasticsearch1.png[]
+image:fuse/lucene_logo.png[]
+image:fuse/nosql.jpeg[]
+a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ Insight Technology
+* Collect Logs, Camel metrics ...
+|===
 
 // *********************************
-== What Fuse can offer
+== Technology - Data Metrics
+
+image::fuse/elasticsearch2.png[400,600]
+
+// *********************************
+== Use cases covered - Data Metrics
+
+image::fuse/elasticsearch.png[]
+
+// *********************************
+== Technology - Data Metrics
+
+* Create a bean recuperating **Message/Exchange** using @Header, @Body
+* Store it using **org.fusesource.insight.storage.StorageService**
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/StoreService.java[tag=snippetService]
+----
+
+// *********************************
+== Technology - Data Metrics
+
+* Inject Storage service
+
+[source,xml]
+----
+include::{resourcesdir}/OSGI-INF/blueprint/blueprint.xml[]
+----
+
+// *********************************
+== Technology - Data Metrics
+
+* Call it from your Camel route
+
+[source, java]
+----
+  from("twitter://search?type=polling&delay=" + delay
+          + "&useSSL=true&keywords=" + keywords
+          + "&" + getUriTokens())
+          .routeId("Tweet-Store-WS")
+          .delay(5000)
+
+          // We receive the Twitter4J Status that we will use
+          // to extract info text, isfavorited, is Retweeted, geolocation, isoLanguageCode, contributors
+          // and create A JSON message used later on to store it in ES
+          .setHeader("tweet-full").method(Service.class, "getJSONTweet")
+
+          // Message is stored using insight in ElasticSearch
+          .bean(Service.class, "store")
+----
+
+// *********************************
+== Technology - Data Metrics
+
+image::fuse/eshead.png[]
+
+// *********************************
+== Technology - Dashboard
 
 image:fuse/hawtio-logo.png[80,80] Hawtio
 
@@ -628,14 +683,14 @@ image:fuse/jolokia.png[150,150]
 * Heart of the **new** **F**use **M**anagement **C**onsole
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Dashboard
 
 * Extend Hawtio Dashboard
 
 image::fuse/dashboard-trends.png[]
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Dashboard
 
 * Declare MBean Interface
 
@@ -645,7 +700,7 @@ include::{sourcesdir}/org/devnation/camel/SocialMediaMBean.java[tag=snippetInter
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Dashboard
 
 * Service Implementation & MBean registration
 
@@ -655,7 +710,7 @@ include::{sourcesdir}/org/devnation/camel/SocialMedia.java[tag=snippetService]
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Dashboard
 
 * Inject Service & init beans
 
@@ -665,7 +720,7 @@ include::{resourcesdir}/OSGI-INF/blueprint/blueprint1.xml[]
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Plugin
 
 * Create your own hawtio plugin
 * Web project (war, bundle)
@@ -675,7 +730,7 @@ include::{resourcesdir}/OSGI-INF/blueprint/blueprint1.xml[]
 ** Name and domain (used by controller)
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Plugin
 
 [source, xml]
 ----
@@ -683,7 +738,7 @@ include::{resourcesdir}/OSGI-INF/blueprint/blueprint2.xml[]
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Plugin
 
 [cols="60,40"]
 |===
@@ -698,7 +753,7 @@ include::{resourcesdir}/socialPlugin.js[tag=snippetController]
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Plugin
 
 [source, xml]
 ----
@@ -706,56 +761,49 @@ include::{resourcesdir}/searchtweets.html[]
 ----
 
 // *********************************
-== What Fuse can offer - con't
+== Technology - Plugin
 
 image::fuse/plugin-query.png[]
 
-// *********************************
-== What Fuse can offer - con't
+// ****** What JBoss Fuse can offer ********
+== Agenda
 
-|===
-| image:fuse/elasticsearch1.png[]
-image:fuse/lucene_logo.png[]
-image:fuse/nosql.jpeg[]
-a| * Kibana & ElasticSearch +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ Insight Technology
-* Collect Logs, Camel metrics ...
-|===
-
-// *********************************
-== What Fuse can offer - con't
-
-image::fuse/elasticsearch2.png[400,600]
+* Introduction
+* Social Media Hype
+* Use cases covered
+* Integration & Camel
+* Technology
+* *What JBoss Fuse can offer*
+* Demo & Conclusion
 
 // *********************************
-== Use cases covered - con't
+== What JBoss Fuse can offer
 
-image::fuse/elasticsearch.png[]
+image::fuse/basics-1.png[]
 
-// *********************************
-== What Fuse can offer - con't
-
-* Create a bean recuperating **Message/Exchange** using @Header, @Body
-* Store it using **org.fusesource.insight.storage.StorageService**
-
-[source, java]
-----
-include::{sourcesdir}/org/devnation/camel/StoreService.java[tag=snippetService]
-----
+image::fuse/fuse.jpg[150,150,float="right"]
 
 // *********************************
-== What Fuse can offer - con't
+== What JBoss Fuse can offer - con't
 
-* Inject Storage service
+image::fuse/basics-2.png[]
 
-[source,xml]
-----
-include::{resourcesdir}/OSGI-INF/blueprint/blueprint.xml[]
-----
+image::fuse/fuse.jpg[150,150,float="right"]
 
 // *********************************
-== What Fuse can offer - con't
+== What JBoss Fuse can offer - con't
 
-image::fuse/eshead.png[]
+image::fuse/advances-1.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
+// *********************************
+== Technology - con't
+
+image::fuse/advances-2.png[]
+
+image::fuse/fuse.jpg[150,150,float="right"]
+
 
 // ******** Demo & Conclusion ********
 == Agenda
@@ -765,7 +813,7 @@ image::fuse/eshead.png[]
 * Integration & Camel
 * Use cases covered
 * Technology
-* What Fuse can offer
+* What JBoss Fuse can offer
 * *Demo & Conclusion*
 
 // *********************************

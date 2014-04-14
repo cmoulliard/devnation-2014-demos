@@ -8,14 +8,6 @@ NOT USED
 image::dinant.jpeg[float="left"]
 image::florennes-place.jpg[]
 
-// *********************************
-== My Passion(s)
-
-|===
-| image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
-| image:nature.jpeg[] | image:formula1.jpeg[] |
-|===
-
 
 // *********************************
 == Camel - con't
@@ -35,20 +27,6 @@ a| * Cross communication not allowed |
 a| * Using BUS, Broker, Shared Component |
 |===
 
-
-// *********************************
-== Technology - con't
-
-Example :
-
-- To create a post within your Facebook profile
-
-- Send a facebook4j.PostUpdate body to a camel facebook producer
-
-[source, java]
-----
-include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
-----
 
 // *********************************
 == Twitter - con't
