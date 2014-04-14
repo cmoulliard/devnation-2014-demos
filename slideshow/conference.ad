@@ -840,7 +840,7 @@ image::fuse/eshead.png[]
 
 [.newline]
 * To **cover** use cases +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++
-** Real time,
+** Real Time,
 ** Analytics,
 ** BAM
 ** ...
@@ -853,7 +853,6 @@ image::fuse/eshead.png[]
 
 .2+|image:questions.png[width="95%"]
 a|* Twitter : http://twitter.com/cmoulliard[@cmoulliard]
-a|* More info : http://www.redhat.com[RedHat Middleware]
 |===
 
 * Demo code:
