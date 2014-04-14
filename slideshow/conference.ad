@@ -17,7 +17,7 @@
 // Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
 :revealjs_theme: conference
 :revealjs_vertical_alignment: false
-:revealjs_history: true
+:revealjs_history: false
 :sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/java/
 :source-highlighter: highlightjs
 //:source-highlighter: coderay, highlightjs, pygments
@@ -853,8 +853,9 @@ image::fuse/eshead.png[]
 
 .2+|image:questions.png[width="95%"]
 a|* Twitter : http://twitter.com/cmoulliard[@cmoulliard]
+a|* More info : http://camel.apache.org[Apache Camel], http://hawt.io[Hawtio], http://fabric8.io[fabric8]
 |===
 
-* Demo code:
+* Code of demos :
   {demo-git}
 
