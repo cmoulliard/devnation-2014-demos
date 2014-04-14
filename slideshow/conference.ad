@@ -338,6 +338,24 @@ image:camel/pipeline2.png[]
 a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ CamelContext |
 |===
 
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features2.png[]
+a| * Cross communication not allowed using direct, seda |
+|===
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features3.png[]
+a| * But possible Using BUS like NMR, Broker, Shared Component with direct-vm, vm |
+|===
+
 
 // *********************************
 == Camel - con't
@@ -549,6 +567,47 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 - Use utility like Google JSON API
 - Marshall/Unmmarshall https://camel.apache.org/json.html[JSON]
 
+// *********************************
+== Twitter - con't
+
+BAD - +++&nbsp;<i class="fa fa-frown-o"></i>&nbsp;+++
+
+[source, java]
+----
+String data = "{ " +
+    " \"" + "timestamp" + "\" : \"" + formatDate(generateTimeStamp()) + "\"," +
+    " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
+    " \"" + "id" + "\" : \"" + status.getId() + "\"," +
+    " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
+    " \"" + "isFavorited" + "\" : \"" + status.isFavorited() + "\"," +
+    " \"" + "isRetweeted" + "\" : \"" + status.isRetweeted() + "\"," +
+    " \"" + "favoriteCount" + "\" : \"" + status.getFavoriteCount() + "\"," +
+    " \"" + "inReplyToScreenName" + "\" : \"" + status.getInReplyToScreenName() + '\'' + "\"," +
+    " \"" + "geoLocation" + "\" : \"" + status.getGeoLocation() + "\"," +
+    " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
+    " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
+    " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
+    " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"," +
+    " \"" + "country" + "\" : \"" + country + "\"" +
+    " }";
+----
+
+// *********************************
+== Technology - con't
+
+BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
+
+[source, java]
+----
+  private void init(JSONObject json) throws TwitterException {
+  	id = getLong("id", json);
+  	source = getUnescapedString("source", json);
+  	createdAt = getDate("created_at", json);
+  	isTruncated = getBoolean("truncated", json);
+  	inReplyToStatusId = getLong("in_reply_to_status_id", json);
+  	inReplyToUserId = getLong("in_reply_to_user_id", json);
+  	isFavorited = getBoolean("favorited", json);
+----
 
 // *********************************
 == Technology - Camel
@@ -590,7 +649,7 @@ a| * **Websocket** +
 |===
 
 // *********************************
-== Technology - Real Time
+== Technology - Real Time - DEMO1
 
 * Integrated within ActiveMQ & Camel
 
@@ -664,7 +723,7 @@ include::{resourcesdir}/OSGI-INF/blueprint/blueprint.xml[]
 ----
 
 // *********************************
-== Technology - Data Metrics
+== Technology - Data Metrics - DEMO2
 
 image::fuse/eshead.png[]
 
@@ -710,7 +769,7 @@ include::{sourcesdir}/org/devnation/camel/SocialMedia.java[tag=snippetService]
 ----
 
 // *********************************
-== Technology - Dashboard
+== Technology - Dashboard - DEMO3
 
 * Inject Service & init beans
 
@@ -761,7 +820,7 @@ include::{resourcesdir}/searchtweets.html[]
 ----
 
 // *********************************
-== Technology - Plugin
+== Technology - Plugin - DEMO3
 
 image::fuse/plugin-query.png[]
 
@@ -803,7 +862,6 @@ image::fuse/fuse.jpg[150,150,float="right"]
 image::fuse/advances-2.png[]
 
 image::fuse/fuse.jpg[150,150,float="right"]
-
 
 // ******** Demo & Conclusion ********
 == Agenda
