@@ -3,6 +3,97 @@ hyla generate --backend revealjs -s . -d generated -r adoc2html
 NOT USED
 
 // *********************************
+== City where I live
+
+image::dinant.jpeg[float="left"]
+image::florennes-place.jpg[]
+
+// *********************************
+== My Passion(s)
+
+|===
+| image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
+| image:nature.jpeg[] | image:formula1.jpeg[] |
+|===
+
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features2.png[]
+a| * Cross communication not allowed |
+|===
+
+// *********************************
+== Camel - con't
+
+[cols="45,65"]
+|===
+| .2+|image:camel/camel-features3.png[]
+a| * Using BUS, Broker, Shared Component |
+|===
+
+
+// *********************************
+== Technology - con't
+
+Example :
+
+- To create a post within your Facebook profile
+
+- Send a facebook4j.PostUpdate body to a camel facebook producer
+
+[source, java]
+----
+include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
+----
+
+// *********************************
+== Twitter - con't
+
+BAD - +++&nbsp;<i class="fa fa-frown-o"></i>&nbsp;+++
+
+[source, java]
+----
+String data = "{ " +
+    " \"" + "timestamp" + "\" : \"" + formatDate(generateTimeStamp()) + "\"," +
+    " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
+    " \"" + "id" + "\" : \"" + status.getId() + "\"," +
+    " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
+    " \"" + "isFavorited" + "\" : \"" + status.isFavorited() + "\"," +
+    " \"" + "isRetweeted" + "\" : \"" + status.isRetweeted() + "\"," +
+    " \"" + "favoriteCount" + "\" : \"" + status.getFavoriteCount() + "\"," +
+    " \"" + "inReplyToScreenName" + "\" : \"" + status.getInReplyToScreenName() + '\'' + "\"," +
+    " \"" + "geoLocation" + "\" : \"" + status.getGeoLocation() + "\"," +
+    " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
+    " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
+    " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
+    " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"," +
+    " \"" + "country" + "\" : \"" + country + "\"" +
+    " }";
+----
+
+// *********************************
+== Technology - con't
+
+BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
+
+[source, java]
+----
+  private void init(JSONObject json) throws TwitterException {
+  	id = getLong("id", json);
+  	source = getUnescapedString("source", json);
+  	createdAt = getDate("created_at", json);
+  	isTruncated = getBoolean("truncated", json);
+  	inReplyToStatusId = getLong("in_reply_to_status_id", json);
+  	inReplyToUserId = getLong("in_reply_to_user_id", json);
+  	isFavorited = getBoolean("favorited", json);
+----
+
+
+// *********************************
 == Use cases covered - con't
 
 image::fuse/elasticsearch.png[]

@@ -72,26 +72,12 @@ Oh hey, these are some notes. They'll be hidden in your presentation, but you ca
 |image:brussels.jpg[width="85%"]| image:brugge.jpg[width="85%",height="85%"] |
 |===
 
-// *********************************
-== City where I live
-
-image::dinant.jpeg[float="left"]
-image::florennes-place.jpg[]
-
 == What you should know about Belgium
 
 image::frits.jpeg[float="left"]
 image::chocolate.jpeg[float="left"]
 image::beers.jpeg[float="left"]
 image::bande-dessinee.jpeg[float="left"]
-
-// *********************************
-== My Passion(s)
-
-|===
-| image:photography.jpeg[width="80%",height="80%"] | image:stumpjumper.jpeg[width="80%",height="80%"] |
-| image:nature.jpeg[] | image:formula1.jpeg[] |
-|===
 
 // ************ INTRODUCTION ************
 == Agenda
@@ -342,24 +328,6 @@ image:camel/pipeline2.png[]
 a| * Container for the routes +++&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;+++ CamelContext |
 |===
 
-// *********************************
-== Camel - con't
-
-[cols="45,65"]
-|===
-| .2+|image:camel/camel-features2.png[]
-a| * Cross communications not allowed |
-|===
-
-// *********************************
-== Camel - con't
-
-[cols="45,65"]
-|===
-| .2+|image:camel/camel-features3.png[]
-a| * Using BUS, Broker, Shared Component |
-|===
-
 
 // *********************************
 == Camel - con't
@@ -537,20 +505,6 @@ include::{resourcesdir}/META-INF/org/devnation/camel/credentials.properties[]
 // *********************************
 == Technology - con't
 
-Example :
-
-- To create a post within your Facebook profile
-
-- Send a facebook4j.PostUpdate body to a camel facebook producer
-
-[source, java]
-----
-include::{sourcesdir}/org/devnation/camel/FacebookExample.java[tag=snippetRouteP]
-----
-
-// *********************************
-== Technology - con't
-
 * Component Twitter
 
 - Info : http://camel.apache.org/twitter.html
@@ -595,47 +549,6 @@ include::{sourcesdir}/org/devnation/camel/TwitterExample.java[tag=snippetRouteP]
 - Use utility like Google JSON API
 - Marshall/Unmmarshall https://camel.apache.org/json.html[JSON]
 
-// *********************************
-== Twitter - con't
-
-BAD - +++&nbsp;<i class="fa fa-frown-o"></i>&nbsp;+++
-
-[source, java]
-----
-String data = "{ " +
-    " \"" + "timestamp" + "\" : \"" + formatDate(generateTimeStamp()) + "\"," +
-    " \"" + "createdAt" + "\" : \"" + status.getCreatedAt().toString() + "\"," +
-    " \"" + "id" + "\" : \"" + status.getId() + "\"," +
-    " \"" + "text" + "\" : \"" + status.getText() + '\'' + "\"," +
-    " \"" + "isFavorited" + "\" : \"" + status.isFavorited() + "\"," +
-    " \"" + "isRetweeted" + "\" : \"" + status.isRetweeted() + "\"," +
-    " \"" + "favoriteCount" + "\" : \"" + status.getFavoriteCount() + "\"," +
-    " \"" + "inReplyToScreenName" + "\" : \"" + status.getInReplyToScreenName() + '\'' + "\"," +
-    " \"" + "geoLocation" + "\" : \"" + status.getGeoLocation() + "\"," +
-    " \"" + "place" + "\" : \"" + status.getPlace() + "\"," +
-    " \"" + "retweetCount" + "\" : \"" + status.getRetweetCount() + "\"," +
-    " \"" + "isoLanguageCode" + "\" : \"" + status.getIsoLanguageCode() + "\"," +
-    " \"" + "user" + "\" : \"" + status.getUser().getName() + "\"," +
-    " \"" + "country" + "\" : \"" + country + "\"" +
-    " }";
-----
-
-// *********************************
-== Technology - con't
-
-BETTER - +++&nbsp;<i class="fa fa-smile-o"></i>&nbsp;+++
-
-[source, java]
-----
-  private void init(JSONObject json) throws TwitterException {
-  	id = getLong("id", json);
-  	source = getUnescapedString("source", json);
-  	createdAt = getDate("created_at", json);
-  	isTruncated = getBoolean("truncated", json);
-  	inReplyToStatusId = getLong("in_reply_to_status_id", json);
-  	inReplyToUserId = getLong("in_reply_to_user_id", json);
-  	isFavorited = getBoolean("favorited", json);
-----
 
 // *********************************
 == Technology - con't
@@ -791,7 +704,6 @@ include::{resourcesdir}/socialPlugin.js[tag=snippetController]
 ----
 include::{resourcesdir}/searchtweets.html[]
 ----
-
 
 // *********************************
 == What Fuse can offer - con't
