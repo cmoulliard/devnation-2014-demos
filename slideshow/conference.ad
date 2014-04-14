@@ -744,9 +744,21 @@ include::{sourcesdir}/org/devnation/camel/SocialMedia.java[tag=snippetService]
 // *********************************
 == What Fuse can offer - con't
 
+* Inject Service & Register MBean
+
+[source, java]
+----
+include::{resourcesdir}/OSGI-INF/blueprint/blueprint1.xml[]
+----
+
+
+// *********************************
+== What Fuse can offer - con't
+
 [cols="60,40"]
 |===
-a| * Front end (AngularJS, Javascript) |
+a| * Front end (AngularJS, JavaScript)
+* Send REST request to call Service |
 image:web2/angularjs.jpeg[80,80,float="right"]
 |===
 
@@ -781,9 +793,11 @@ image::fuse/elasticsearch2.png[400,600]
 
 image::fuse/elasticsearch.png[]
 
-
 // *********************************
 == What Fuse can offer - con't
+
+* Create a bean recuperating **Message/Exchange** using @Header, @Body
+* Store it using **org.fusesource.insight.storage.StorageService**
 
 [source, java]
 ----
@@ -792,6 +806,8 @@ include::{sourcesdir}/org/devnation/camel/StoreService.java[tag=snippetService]
 
 // *********************************
 == What Fuse can offer - con't
+
+* Inject Storage service
 
 [source,xml]
 ----

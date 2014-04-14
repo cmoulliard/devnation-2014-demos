@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <cm:property-placeholder id="twitterConfig" persistent-id="twitter"
+               update-strategy="reload"/>
+
+    <bean id="twitterFactory" class="org.devnation.demo.service.TwitterFactory">
+        <property name="consumerKey" value="${consumer.key}"/>
+        <property name="consumerSecret" value="${consumer.secret}"/>
+        <property name="accessToken" value="${access.token}"/>
+        <property name="accessTokenSecret" value="${access.token.Secret}"/>
+    </bean>
+
+    <bean id="twitterService" class="org.devnation.demo.service.TwitterService">
+        <property name="twitterFactory" ref="twitterFactory"/>
+    </bean>
+
+    <bean id="socialDataMBean" class="org.devnation.demo.service.SocialMedia"
+          init-method="init" destroy-method="destroy" scope="singleton">
+        <property name="twitterService" ref="twitterService"/>
+    </bean>
+</blueprint>

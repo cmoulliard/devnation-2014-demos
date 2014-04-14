@@ -217,8 +217,6 @@ var SOCIAL = (function (SOCIAL) {
             if (Core.isBlank($scope.keywords)) {
                 return;
             }
-            SOCIAL.log.warn("Search for : " + $scope.keywords);
-
             jolokia.request({
                 type: 'exec',
                 mbean: SOCIAL.mbean,
@@ -227,25 +225,10 @@ var SOCIAL = (function (SOCIAL) {
             }, {
                 method: 'POST',
                 success: function (response) {
-                    /* TextArea = Response */
-                    list = response.value;
-                    result = "";
-                    for (var record in list) {
-                        result += list[record] + String.fromCharCode(13);
-                    }
-                    $scope.response = result;
-
                     /* Simple Table */
-                    //$scope.tweets = response.value;
                     $scope.tweets = response.value.map(function (val) {
                         return { tweet: val };
                     });
-
-                    SOCIAL.log.debug("tweets: ", response.value);
-
-                    // Reset keywords field
-                    $scope.keywords = '';
-
                     Core.$apply($scope);
                 },
                 error: function (response) {
