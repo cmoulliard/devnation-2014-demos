@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <bean id="plugin" class="io.hawt.web.plugin.HawtioPlugin" init-method="init" destroy-method="destroy">
+        <property name="name" value="${plugin-name}"/>
+        <property name="context" value="${plugin-context}"/>
+        <property name="domain" value="${plugin-domain}"/>
+        <property name="scripts" value="${plugin-scripts}"/>
+    </bean>
+
+</blueprint>

@@ -17,7 +17,7 @@
 // Themes : default, beige, moon, blood, night, serif, simple, sky, solarized
 :revealjs_theme: conference
 :revealjs_vertical_alignment: false
-:revealjs_history: false
+:revealjs_history: true
 :sourcesdir: /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/snippet/src/main/java/
 :source-highlighter: highlightjs
 //:source-highlighter: coderay, highlightjs, pygments
@@ -724,7 +724,7 @@ image::fuse/dashboard-trends.png[]
 // *********************************
 == What Fuse can offer - con't
 
-* Declare Interface
+* Declare MBean Interface
 
 [source, java]
 ----
@@ -734,7 +734,7 @@ include::{sourcesdir}/org/devnation/camel/SocialMediaMBean.java[tag=snippetInter
 // *********************************
 == What Fuse can offer - con't
 
-* Service Implementation
+* Service Implementation & MBean registration
 
 [source, java]
 ----
@@ -744,28 +744,54 @@ include::{sourcesdir}/org/devnation/camel/SocialMedia.java[tag=snippetService]
 // *********************************
 == What Fuse can offer - con't
 
-* Inject Service & Register MBean
+* Inject Service & init beans
 
 [source, java]
 ----
 include::{resourcesdir}/OSGI-INF/blueprint/blueprint1.xml[]
 ----
 
+// *********************************
+== What Fuse can offer - con't
+
+* Create your own hawtio plugin
+* Web project (war, bundle)
+* Require to register **io.hawt.web.plugin.HawtioPlugin** with parameters
+** Context
+** JS Scripts location
+** Name and domain (used by controller)
+
+// *********************************
+== What Fuse can offer - con't
+
+[source, xml]
+----
+include::{resourcesdir}/OSGI-INF/blueprint/blueprint2.xml[]
+----
 
 // *********************************
 == What Fuse can offer - con't
 
 [cols="60,40"]
 |===
-a| * Front end (AngularJS, JavaScript)
+a| * Design Front end (AngularJS)
 * Send REST request to call Service |
 image:web2/angularjs.jpeg[80,80,float="right"]
 |===
 
-[source, java]
+[source, javascript]
 ----
 include::{resourcesdir}/socialPlugin.js[tag=snippetController]
 ----
+
+// *********************************
+== What Fuse can offer - con't
+
+[source, xml]
+----
+include::{resourcesdir}/searchtweets.html[]
+----
+
 
 // *********************************
 == What Fuse can offer - con't
