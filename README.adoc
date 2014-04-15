@@ -115,11 +115,11 @@ The description of the different profiles is defined here after :
 | Parent profile(s) : feature-camel insight-core
 
   Feature(s) :
-  	camel-websocket
-  	camel-twitter
+    camel-websocket
+    camel-twitter
 
   Bundle(s) :
-  	mvn:org.devnation.demo/camel-twitter/1.0-SNAPSHOT
+    mvn:org.devnation.demo/camel-twitter/1.0-SNAPSHOT
 
   Configuration details :
 
@@ -135,18 +135,18 @@ The description of the different profiles is defined here after :
 | Parent profile(s) : hawtio
 
   Bundle(s) :
-    	mvn:org.devnation.demo/social-plugin/1.0-SNAPSHOT
+      mvn:org.devnation.demo/social-plugin/1.0-SNAPSHOT
 
 | Mbean
 | Parent profile(s) : feature-camel
 
   Feature(s) :
-  	  camel
+      camel
 
   Bundle(s) :
-  	   mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/3.0.5_1
-  	   mvn:com.google.code.gson/gson/2.2.4
-  	   mvn:org.devnation.demo/mbean/1.0-SNAPSHOT
+       mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.twitter4j/3.0.5_1
+       mvn:com.google.code.gson/gson/2.2.4
+       mvn:org.devnation.demo/mbean/1.0-SNAPSHOT
 
   Configuration details :
 
@@ -211,4 +211,36 @@ In some situations, the business users would be interested that we put in place 
 Design your own dashboard/plugin to report information for the business
 
 == Conclusion
+
+== TODO
+
+rm -rf ../instances/
+rm -rf ../data/elastic
+rm -rf ../data/zookeeper
+./karaf clean
+
+***** console *****
+fabric:create --clean -m 127.0.0.1 -r localhostname
+
+*** Maven project ****
+mvn fabric8:deploy -Dfabric8.upload=false
+
+*** console ***
+fabric:container-add-profile root insight-kibana
+fabric:container-create-child --profile demo-social-twitter root demo
+
+fabric:container-stop demo
+fabric:container-delete demo
+
+
+** Patch **
+
+http://localhost:8181/hawtio/index.html#/wiki/branch/1.0/view/fabric/profiles/default.profile/io.fabric8.agent.properties
+
+et modifier le profile pour ajouter:
+
+override.insigt-camel=mvn:org.fusesource.insight/insight-camel/1.0.0.redhat-999-devnation;range=[1.0,1.1)
+
+cp /Users/chmoulli/MyProjects/conferences/devnation-2014/demo/camel-twitter/insight-camel-1.0.0.redhat-999-devnation.jar /Users/chmoulli/Fuse/Fuse-servers/jboss-fuse-6.1.0.redhat-376/system/org/fusesource/insight/insight-camel/1.0.0.redhat-999-devnation/
+mkdir -p /Users/chmoulli/Fuse/Fuse-servers/jboss-fuse-6.1.0.redhat-376/system/org/fusesource/insight/insight-camel/1.0.0.redhat-999-devnation
 
