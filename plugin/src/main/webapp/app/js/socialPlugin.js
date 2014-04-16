@@ -31,10 +31,6 @@ var SOCIAL = (function (SOCIAL) {
         // to get the JMX tree or provide a URL to a custom layout
         viewRegistry["social"] = layoutFull;
 
-        // tell hawtio that we have our own custom layout for
-        // our view
-        // viewRegistry["social"] = SOCIAL.templatePath + "socialLayout.html";
-
         // Set up top-level link to our plugin
         workspace.topLevelTabs.push({
             id: "social",
@@ -46,10 +42,9 @@ var SOCIAL = (function (SOCIAL) {
             href: function () {
                 return "#/social";
             },
-            isActive: function () {
+            isActive: function (workspace   ) {
                 return workspace.isLinkActive("social");
             }
-
         });
 
     });
@@ -100,9 +95,6 @@ var SOCIAL = (function (SOCIAL) {
             data: 'tweets',
             enableRowClickSelection: false,
             showSelectionCheckbox: false,
-/*            enablePaging: true,
-            showFooter: true,
-            pagingOptions: $scope.pagingOptions,*/
             columnDefs: [
                 {
                     field: 'tweet',
@@ -112,52 +104,6 @@ var SOCIAL = (function (SOCIAL) {
                 }
             ]
         }
-
-/*        $scope.pagingOptions = {
-            pageSizes: [5, 10, 25, 50],
-            pageSize: 5,
-            totalServerItems: 0,
-            currentPage: 1
-        };
-
-        $scope.$watch('pagingOptions', function (newVal, oldVal) {
-            data = $scope.tweets;
-            SOCIAL.log.info(">> $watch called !")
-            if (data != null || data != undefined) {
-                if (newVal !== oldVal && newVal.currentPage !== oldVal.currentPage) {
-                    var pageSize = $scope.pagingOptions.pageSize;
-                    var page = $scope.pagingOptions.currentPage;
-
-                    // set totalServerItems from data on server...
-                    $scope.pagingOptions.totalServerItems = data.length;
-                    $scope.totalServerItems = data.length;
-                    $scope.gridOptions.totalServerItems = data.length;
-                    $scope.expectedLen = data.length;
-
-                    var pagedData = data.slice((page - 1) * pageSize, page * pageSize);
-                    $scope.tweets = pagedData;
-                    if (!$scope.$$phase) {
-                        $scope.$apply();
-                    }
-                }
-            }
-        }, true);*/
-
-        /* ISSUE with binding
-
-         SOCIAL.log.info("Current config: ", $scope.currentConfig);
-
-         $scope.searchUser = function(json, form) {
-         SOCIAL.log.info("Form :", json);
-         };
-
-         $scope.formConfig = {
-         properties: {
-         "username": { description: "Twitter user", "type": "java.lang.String" }
-         }
-         };
-         */
-
 
         $scope.hover = function (isReply) {
             // Shows/hides the delete button on hover
@@ -261,13 +207,6 @@ var SOCIAL = (function (SOCIAL) {
 
     SOCIAL.AreaChartController = function ($scope, $routeParams, jolokia, $templateCache, localStorage, $element) {
 
-        //$scope.mbean = $routeParams['mbean'];
-        //$scope.attribute = $routeParams['attribute'];
-
-        //$scope.duration = localStorage['updateRate'];
-
-        //$scope.width = 308;
-        //$scope.height = 296;
         $scope.width = 1280;
         $scope.height = 300;
         $scope.delay = 0;
