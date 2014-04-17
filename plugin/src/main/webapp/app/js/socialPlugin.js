@@ -11,6 +11,7 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.log = Logger.get(SOCIAL.pluginName);
 
     SOCIAL.templatePath = '/social/app/html/';
+    SOCIAL.templateDocPath = '/social/app/doc/';
 
     SOCIAL.jmxDomain = "hawtio";
     SOCIAL.mbeanType = "SocialMedia";
@@ -25,12 +26,62 @@ var SOCIAL = (function (SOCIAL) {
                 when('/social/user', { templateUrl: SOCIAL.templatePath + 'userinfo.html' });
         });
 
-    SOCIAL.module.run(function (workspace, viewRegistry) {
+    SOCIAL.module.run(function (workspace, viewRegistry, helpRegistry) {
+
+        SOCIAL.log.debug("Current metadata: ", window['Perspective']['metadata']);
+        SOCIAL.log.debug("Top level tabs:");
+
+        workspace.topLevelTabs.forEach(function(tab) {
+            SOCIAL.log.debug("Tab content:", tab['content'], " id: ", tab['id'], " href: ", tab.href());
+        });
+
+        /**
+         * By default tabs are pulled from the "container" perspective, here
+         * we can define includes or excludes to customize the available tabs
+         * in hawtio.  Use "href" to match from the start of a URL and "rhref"
+         * to match a URL via regex string.
+         */
+        window['Perspective']['metadata'] = {
+            business: {
+                label: "Business",
+                lastPage: "#/social",
+                topLevelTabs: {
+                    includes: [
+                        { href: "#/social"}
+                    ]
+                }
+            },
+            container: {
+                label: "Container",
+                lastPage: "#/help",
+                topLevelTabs: {
+                    excludes: [
+                        { href: "#/social" },
+                        { href: "#/eshead" },
+                        { href: "#/kibanalogs" },
+                        { href: "#/kibanacamel" }
+/*                        { href: "#/jvm" },
+                        { href: "#/camel" },
+                        { href: "#/activemq" },
+                        { href: "#/eshead" },
+                        { href: "#/fabric" },
+                        { href: "#/insight" },
+                        { href: "#/camin" },
+                        { href: "#/kibanalogs" },
+                        { href: "#/kibanacamel" },
+                        { href: "#/health" },
+                        { href: "#/wiki" }*/
+                    ]
+                }
+            }
+        };
+
 
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout
         //viewRegistry["social"] = layoutTree;
         viewRegistry["social"] = SOCIAL.templatePath + 'layout.html';
+        helpRegistry.addUserDoc('social', SOCIAL.templateDocPath + 'help.md');
 
         // Set up top-level link to our plugin
         workspace.topLevelTabs.push({
