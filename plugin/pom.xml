@@ -102,9 +102,6 @@
                         <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
                         <Import-Package>
-                            org.apache.camel;
-                            org.apache.camel.blueprint;
-                            org.devnation.demo.service,
                             *;resolution:=optional
                         </Import-Package>
                         <Webapp-Context>${webapp.context}</Webapp-Context>
@@ -113,12 +110,11 @@
                     </instructions>
                 </configuration>
             </plugin>
-
-<!--            <plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
                 <version>${fabric8-maven-plugin.version}</version>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
