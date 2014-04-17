@@ -1,12 +1,5 @@
-<!--<head>
-    <script type="text/javascript" language="javascript" src="app/lib/jqueryDatatable.js"></script>
-    <script type="text/javascript" language="javascript" src="app/lib/bootstrapDatatable.js"></script>
-</head>-->
-
 <div class="row-fluid gridStyle" ng-controller="SOCIAL.FormController">
-    <h3>Twitter</h3>
-
-    <div class="span12">
+    <div class="row-fluid">
         <div>
             <form name="inputForm" ng-submit="searchTweets()">
                 <div>
@@ -17,18 +10,9 @@
                 </p>
             </form>
         </div>
+
+        <div class="span8">
+            <div class="gridStyle" ng-grid="tweetsGrid"/>
+        </div>
     </div>
-
-<!--        <div class="span12">
-            <textarea ng-model="response" rows="15" cols="350"/>
-        </div>-->
-<!--
-        <table class="table table-condensed table-striped"
-                   hawtio-simple-table="tweetsGrid">
-        </table>-->
-
-    <div class="span8">
-        <div class="gridStyle" ng-grid="tweetsGrid"/>
-    </div>
-
 </div>

@@ -17,7 +17,7 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.attribute = "PublishData";
     SOCIAL.mbean = SOCIAL.jmxDomain + ":type=" + SOCIAL.mbeanType;
 
-    SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ngResource', 'ngGrid', 'hawtioCore', 'hawtio-ui', 'hawtio-forms'])
+    SOCIAL.module = angular.module(SOCIAL.pluginName, ['bootstrap', 'ui.bootstrap', 'ui.bootstrap.modal', 'ngResource', 'ngGrid', 'hawtioCore', 'hawtio-ui', 'hawtio-forms'])
         .config(function ($routeProvider) {
             $routeProvider.
                 when('/social/chart', { templateUrl: SOCIAL.templatePath + 'areachart.html' }).
@@ -25,11 +25,12 @@ var SOCIAL = (function (SOCIAL) {
                 when('/social/user', { templateUrl: SOCIAL.templatePath + 'userinfo.html' });
         });
 
-    SOCIAL.module.run(function (workspace, viewRegistry, layoutFull,layoutTree) {
+    SOCIAL.module.run(function (workspace, viewRegistry) {
 
         // tell the app to use the full layout, also could use layoutTree
         // to get the JMX tree or provide a URL to a custom layout
-        viewRegistry["social"] = layoutFull;
+        //viewRegistry["social"] = layoutTree;
+        viewRegistry["social"] = SOCIAL.templatePath + 'layout.html';
 
         // Set up top-level link to our plugin
         workspace.topLevelTabs.push({
@@ -40,10 +41,10 @@ var SOCIAL = (function (SOCIAL) {
                 return true;
             },
             href: function () {
-                return "#/social";
+                return "#/social/tweets";
             },
-            isActive: function (workspace   ) {
-                return workspace.isLinkActive("social");
+            isActive: function (workspace) {
+                return workspace.isTopTabActive("social");
             }
         });
 

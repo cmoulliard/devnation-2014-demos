@@ -14,12 +14,14 @@ var SOCIAL = (function (SOCIAL) {
     SOCIAL.breadcrumbs = [
         {
             content: '<i class="icon-comments"></i> User',
-            title: "Search statistics about a User",
+            title: "Search info about a User",
+            isValid: function () { return true; },
             href: "#/social/user"
         },
         {
             content: '<i class="icon-cogs"></i> Tweets',
             title: "Search Tweets",
+            isValid: function () { return true; },
             href: "#/social/tweets"
         }
     ];
@@ -28,16 +30,19 @@ var SOCIAL = (function (SOCIAL) {
      * @function NavBarController
      *
      * @param $scope
-     * @param workspace
      *
      * The controller for this plugin's navigation bar
      *
      */
-    SOCIAL.NavBarController = function ($scope, $location) {
+    SOCIAL.NavBarController = function ($scope) {
 
         $scope.breadcrumbs = SOCIAL.breadcrumbs;
 
+        $scope.isValid = function(link) {
+            return true;
+        };
     };
 
     return SOCIAL;
+
 }(SOCIAL || { }));
